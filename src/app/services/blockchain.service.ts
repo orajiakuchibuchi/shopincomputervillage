@@ -30,7 +30,7 @@ export class BlockchainService {
   public readonly user$ = this._userSource.asObservable();
 
   public _accountOptions = {
-    chain: environment.chain
+    chain: environment.chain,
   }
   constructor() {
     User.serverState().then(user => {
@@ -62,6 +62,19 @@ export class BlockchainService {
     // get mainnet native balance for the current user
     try {
       const balance = await Moralis.Web3API.account.getNativeBalance(this._accountOptions);
+      const _4digit  = parseFloat(Moralis.Units.FromWei(balance.balance));
+      return roundedToFixed(_4digit, 4);
+    } catch (error) {
+      return -1;
+    }
+  }
+  async getBalanceOf(address:string, _chain:string = this._accountOptions.chain){
+    const _accountOptions = {
+      chain: _chain,
+      address: address
+    }
+    try {
+      const balance = await Moralis.Web3API.account.getNativeBalance(_accountOptions);
       const _4digit  = parseFloat(Moralis.Units.FromWei(balance.balance));
       return roundedToFixed(_4digit, 4);
     } catch (error) {

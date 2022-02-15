@@ -1,3 +1,4 @@
+import { CONTRACT_ADDRESS } from 'src/ethereum/deploy/contractAddress';
 import { ClientError } from './../../module/classes/errors/ClientError';
 import { FormModalComponent } from './../../shared/form-modal/form-modal.component';
 import { tap, map } from 'rxjs/operators';
@@ -13,6 +14,7 @@ declare const ApexCharts:any;
 })
 export class DashboardComponent implements OnInit {
   balance:any = 0;
+  contractBalance:any = 0;
   ethprice:any;
   // check if element exists
   checkElement = async (selector:any) => {
@@ -25,9 +27,15 @@ export class DashboardComponent implements OnInit {
   constructor(private blockchainService: BlockchainService) { }
 
   ngOnInit(): void {
-    this.blockchainService.contractBalance().then(x => {
-      console.log(x)
-    })
+    // this.blockchainService.contractBalance().then(x => {
+    //   console.log(x)
+    // })
+    try{
+      const res = this.contractBalance = this.blockchainService.getBalanceOf(CONTRACT_ADDRESS);
+      
+    } catch (error) {
+      console.log(error);
+    }
     var options = {
       series: [80],
       grid: {
@@ -483,7 +491,6 @@ export class DashboardComponent implements OnInit {
       console.log(error);
     }
     this.ethprice = this.blockchainService.getEthPriceNow();
-
   }
   calculateUnit(price1:any, price2:any){
     return roundedToFixed(price1 * price2, 3);
