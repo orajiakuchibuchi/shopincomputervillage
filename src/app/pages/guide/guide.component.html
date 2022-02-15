@@ -1,0 +1,120 @@
+<!-- <app-dashboard></app-dashboard> -->
+<app-header></app-header>
+
+<app-right-navigation></app-right-navigation>
+
+<app-left-navigation></app-left-navigation>
+<div class="mobile-menu-overlay"></div>
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+    <div class="min-height-200px">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="title">
+              <h4>Guide</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a  [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">How To Use</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="container pd-0">
+        <div class="timeline mb-30">
+          <ul>
+            <li>
+              <div class="timeline-date">
+                Login / Connect Wallet
+              </div>
+              <div class="timeline-desc card-box">
+                <div class="card card-box">
+                  <img class="card-img-top" src="{{decribingImages.auth[1]}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title weight-500">Authentication</h5>
+                    <p class="card-text">
+                      On the <a  [routerLink]="['/auth/home']" routerLinkActive="router-link-active" >Login page</a> You can either authenticate using the connect wallet (Default) or by email/password. <br>
+                      Once you've approved a connection request from the Our application, We can send transaction requests to your Bitcoin/crypto Wallet, which you must also manually approve in the Wallet to submit transaction to the network for confirmation.
+
+                      Please remember we are only using ether(ETH).
+
+                      Future releases will also use BEP20 tokens.
+
+                      To have a hassle-free experience, we recommend using MetaMask or TrustWallet.
+                    </p>
+                    <a href="#" class="btn btn-primary">Read about email login</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-date">
+                Investment Page
+              </div>
+              <div class="timeline-desc card-box">
+                <div class="card card-box">
+                  <img class="card-img-top" src="{{decribingImages.investment[0]}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title weight-500">Investment</h5>
+                    <p class="card-text">
+                      Investors can stake as many times as they want. There is no limit.
+                      Investments are locked for the plan duration period and withdrawals can only be made on or after the last day of investment returns
+                      You can see our available plans on the <a  [routerLink]="['/home/dashboard#plans']" routerLinkActive="router-link-active">plans section</a> of your dashboard
+                    </p>
+                    <a href="#" class="btn btn-primary">Read about email login</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-date">
+                Withdrawal Page
+              </div>
+              <div class="timeline-desc card-box">
+                <div class="card card-box">
+                  <img class="card-img-top" src="{{decribingImages.withdrawal[0]}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title weight-500">Withdrawal</h5>
+                    <p class="card-text">There is no reinvest/compound option in the contract, but because of this, users have complete control over their gains.
+                      Users with high investment value can have high returns in less than a day.
+
+                      Because We offers high APR yields, an example of a whale investing 20 ETH can accumulate 24 ETH in 24 hours (in Plan 4 with 8% daily).
+
+                      To combat this exploit, we have added a few simple tweaks to the contract.
+
+                    </p>
+                    <p><strong>WITHDRAWAL RATE LIMITS</strong></p>
+                      <p>Withdrawal Cooldown: 24 Hours</p>
+
+                      <p>Maximum per Withdraw: 10 ETH</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-date">
+                <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="dcb"> Go To Dashboard</a>
+              </div>
+              <!-- <div class="timeline-desc card-box">
+                <div class="pd-20">
+                  <blockquote class="blockquote mb-0">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <footer class="blockquote-footer">
+                      <small>
+                        Someone famous in <cite title="Source Title">Source Title</cite>
+                      </small>
+                    </footer>
+                  </blockquote>
+                </div>
+              </div> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "e6b67d76-1291-424a-9bc8-909d82e2b7ab"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "estate-store": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/estate-store",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/assets/vendors/styles/core.css",
+              "src/assets/vendors/styles/icon-font.min.css",
+              "src/assets/plugins/datatables/css/dataTables.bootstrap4.min.css",
+              "src/assets/plugins/datatables/css/responsive.bootstrap4.min.css",
+              "src/assets/plugins/jquery-steps/jquery.steps.css",
+              "src/assets/plugins/cropperjs/dist/cropper.css",
+              "src/assets/plugins/switchery/switchery.min.css",
+              "src/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css",
+              "src/assets/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css",
+              "src/assets/plugins/fullcalendar/fullcalendar.css",
+              "src/assets/vendors/styles/style.css",
+              "src/assets/plugins/sweetalert2/sweetalert2.css"
+            ],
+            "scripts": [
+              "src/assets/scripts/google.js",
+              "src/assets/vendors/scripts/core.js",
+              "src/assets/vendors/scripts/script.min.js",
+              "src/assets/vendors/scripts/process.js",
+              "src/assets/vendors/scripts/layout-settings.js",
+              "src/assets/plugins/apexcharts/apexcharts.min.js",
+              "src/assets/plugins/datatables/js/jquery.dataTables.min.js",
+              "src/assets/plugins/datatables/js/dataTables.bootstrap4.min.js",
+              "src/assets/plugins/datatables/js/dataTables.responsive.min.js",
+              "src/assets/plugins/datatables/js/responsive.bootstrap4.min.js",
+              "src/assets/plugins/jquery-steps/jquery.steps.js",
+              "src/assets/plugins/datatables/js/dataTables.buttons.min.js",
+              "src/assets/plugins/datatables/js/buttons.bootstrap4.min.js",
+              "src/assets/plugins/datatables/js/buttons.print.min.js",
+              "src/assets/plugins/datatables/js/buttons.html5.min.js",
+              "src/assets/plugins/datatables/js/buttons.flash.min.js",
+              "src/assets/plugins/datatables/js/pdfmake.min.js",
+              "src/assets/plugins/datatables/js/vfs_fonts.js",
+              "src/assets/plugins/switchery/switchery.min.js",
+              "src/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js",
+              "src/assets/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js",
+              "src/assets/plugins/fullcalendar/fullcalendar.min.js",
+              "src/assets/vendors/scripts/advanced-components.js",
+              "src/assets/plugins/cropperjs/dist/cropper.js",
+              "src/assets/scripts/cropper.custom.js",
+              "src/assets/vendors/scripts/steps-setting.js",
+              "src/assets/vendors/scripts/dashboard.js",
+              "src/assets/plugins/sweetalert2/sweetalert2.all.js",
+              "src/assets/plugins/sweetalert2/sweet-alert.init.js",
+              "src/assets/vendors/scripts/web3.min.js",
+              "src/assets/vendors/scripts/web3-provider.min.js",
+              "src/assets/vendors/scripts/moralis.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "15mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "estate-store:build:production"
+            },
+            "development": {
+              "browserTarget": "estate-store:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "estate-store:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "estate-store"
+}

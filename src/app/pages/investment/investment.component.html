@@ -1,0 +1,63 @@
+<!-- <app-dashboard></app-dashboard> -->
+<app-header></app-header>
+
+<app-right-navigation></app-right-navigation>
+
+<app-left-navigation></app-left-navigation>
+<div class="mobile-menu-overlay"></div>
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+      <div class="row">
+        <div class="col-12">
+          <div class="card-box mb-30">
+            <div class="pd-20">
+              <h4 class="text-blue h4">Investment Transactions</h4>
+            </div>
+            <div class="pb-20 table-responsive">
+              <table class="data-table table-striped table stripe hover nowrap">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th class="table-plus datatable-nosort">TRX ID</th>
+                    <th class="table-plus datatable-nosort">AMOUNT</th>
+                    <th class="table-plus datatable-nosort">ADDRESS</th>
+                    <th class="table-plus datatable-nosort">Payment Status</th>
+                    <th class="datatable-nosort">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- <tr *ngFor="let book of bookings | paginate: { itemsPerPage: 10, currentPage: p }; let i = index;">
+                    <td>{{i+1}}</td>
+                    <td class="table-plus">{{book.transId}}</td>
+                    <td class="table-plus">{{book.name}}</td>
+                    <td>{{book.location}}</td>
+                    <td>{{paymentProgress(book)}}</td>
+                    <td>{{book.phone}}</td>
+                    <td>{{book.start}}</td>
+                    <td>{{book.end}}</td>
+                    <td>
+                      <div class="dropdown">
+                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                          <i class="dw dw-more"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                          <a class="dropdown-item" href="/bookings/confirm/{{book.transId}}"><i class="dw dw-eye"></i> View</a>
+                          <a class="dropdown-item" href="/bookings/edit/{{book.transId}}"><i class="dw dw-edit2"></i> Edit</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr> -->
+                </tbody>
+              </table>
+
+              <!-- <app-pagination [records] = records></app-pagination> -->
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-12 text-center">
+          <pagination-controls (pageChange)="updatePage($event)"></pagination-controls>
+        </div> -->
+      </div>
+    <app-footer></app-footer>
+  </div>
+</div>

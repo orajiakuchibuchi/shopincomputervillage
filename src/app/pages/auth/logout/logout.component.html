@@ -1,0 +1,29 @@
+<app-auth-nav [topRoute]="loginRoute"></app-auth-nav>
+<div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-7">
+        <img src="../../../../assets/vendors/images/login-page-img.png" alt="">
+      </div>
+      <div class="col-md-6 col-lg-5">
+        <div class="login-box bg-white box-shadow border-radius-10">
+          <div class="login-title">
+            <h2 class="text-center text-primary">{{'auth.logoutTitle' | translate}}</h2>
+          </div>
+          <div class="text-center">
+            <h5>You have been logged out. </h5>
+            <a [routerLink]="['/'+loginRoute.url]"
+            class="btn btn-primary"
+            routerLinkActive="router-link-active">
+            Login
+            </a>
+            <!-- <button type="button" class="btn btn-success" (click)="login()">Login</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-loader [durataion]="10" [message]="'Please wait while you are being logged out....'"></app-loader>
+
+

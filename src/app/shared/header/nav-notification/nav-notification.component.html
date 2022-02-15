@@ -1,0 +1,27 @@
+<div class="user-notification">
+  <div class="dropdown">
+    <a class="dropdown-toggle no-arrow" href="#" role="button" (click)="viewNotification()" data-toggle="dropdown">
+      <i class="icon-copy dw dw-notification"></i>
+      <span class="badge notification-active" id="no-notif"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right">
+      <div class="notification-list mx-h-350 customscroll">
+        <ul>
+          <li *ngFor="let notification of getStaticnList();">
+            <a href="javascript:;">
+              <img src="{{notification.icon}}" alt="">
+              <h3>{{notification.title}}</h3>
+              <p>{{notification.message}}</p>
+            </a>
+          </li>
+
+          <li *ngIf="getStaticnList()?.length==0">
+            <a href="javascript:;">
+              <p>Nothing to see here</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

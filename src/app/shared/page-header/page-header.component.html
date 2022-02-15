@@ -1,0 +1,25 @@
+<div class="page-header">
+  <div class="row">
+    <div class="col-sm-12" [ngClass]="{'col-md-6': filter, 'col-md-12': !filter}">
+      <div class="title">
+        <h4>{{routeData.name}}</h4>
+      </div>
+      <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{routeData.route}}">{{routeData.name}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{getSubMenu(routeData).name}}</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-md-6 col-sm-12 text-right" *ngIf="filter">
+      <div class="dropdown">
+        <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+          Filter By ({{selectedFilterOption |titlecase}})
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="javascript:;" (click)="filterItems(option)" *ngFor="let option of filterOptions">{{option|titlecase}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

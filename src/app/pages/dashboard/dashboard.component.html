@@ -1,0 +1,253 @@
+<div class="main-container">
+  <div class="pd-ltr-20">
+    <app-welcome-notice></app-welcome-notice>
+    <div class="row" *ngIf="{
+      ethp: ethprice | async,
+      bal: balance | async
+    } as accountData" >
+    <div class="col-12 mb-10">
+      <div class="card-box pd-20 height-100-p mb-30">
+        <div class="row">
+          <div class="col-xl-3 mb-30">
+            <div class="card-box height-100-p widget-style1">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="progress-data">
+                  <div id="chart"></div>
+                </div>
+                <div class="widget-data">
+                  <div class="h4 mb-0">TOTAL INVESTED ETH</div>
+                  <div class="weight-600 font-14">TODAY</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 mb-30">
+            <div class="card-box height-100-p widget-style1">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="progress-data">
+                  <div id="chart2"></div>
+                </div>
+                <div class="widget-data">
+                  <div class="h4 mb-0">MINERS OUTPUT</div>
+                  <div class="weight-600 font-14">TODAY</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 mb-30">
+            <div class="card-box height-100-p widget-style1">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="progress-data">
+                  <div id="chart3"></div>
+                </div>
+                <div class="widget-data">
+                  <div class="h4 mb-0">ETH TO CLAIM</div>
+                  <div class="weight-600 font-14">INVESTORS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 mb-30">
+            <div class="card-box height-100-p widget-style1">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="progress-data">
+                  <div id="chart4"></div>
+                </div>
+                <div class="widget-data">
+                  <div class="h4 mb-0">ETH TO CLAIM</div>
+                  <div class="weight-600 font-14">MINERS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-8 mb-30">
+            <div class="card-box height-100-p pd-20">
+              <h2 class="h4 mb-20">Activity</h2>
+              <div id="chart5"></div>
+            </div>
+          </div>
+          <div class="col-xl-4 mb-30">
+            <div class="card-box height-100-p pd-20">
+              <h2 class="h4 mb-20">Miners Target</h2>
+              <div id="chart6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="col-sm-12 col-md-6 mb-30">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 mb-30">
+            <div class="card card-box text-center">
+              <div class="card-body">
+                <h5 class="card-title">TOTAL INVESTED VOLUME</h5>
+                <h5>0.0000ETH</h5>
+                <p class="card-text">$0.0000</p>
+                <a (click)="invest()" class="btn btn-primary">INVEST</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 mb-30">
+            <div class="card card-box text-center">
+              <div class="card-body">
+                <h5 class="card-title">TOTAL REFERRAL REWARDS</h5>
+                <h5>0.0000ETH</h5>
+                <p class="card-text">$0.0000</p>
+                <a (click)="invest()" class="btn btn-primary">JOIN POOL</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-30">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 mb-30">
+            <div class="card card-box text-center">
+              <div class="card-body">
+                <h5 class="card-title">YOUR ACCOUNT</h5>
+                <p class="card-text">WALLET BALANCE:</p>
+                <h5>{{accountData.bal }}ETH</h5>
+                <p class="card-text">{{ calculateUnit(accountData.bal, accountData.ethp) | currency }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 mb-30">
+            <div class="card card-box text-center">
+              <div class="card-body">
+                <h5 class="card-title">ETH TO CLAIM</h5>
+                <p class="card-text">0.0000000ETH</p>
+                <p class="card-text">$0.00</p>
+                <a (click)="claim()" class="btn btn-primary">CLAIM</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 mb-30">
+            <div class="card card-box text-center">
+              <div class="card-body">
+                <h5 class="card-title">TOTAL INVESTMENT</h5>
+                <p class="card-text">0.00000ETH</p>
+                <p class="card-text">$0.00</p>
+                <a href="#" class="btn btn-primary">HISTORY</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-30">
+        <div class="card-box height-100-p pd-20">
+            <div class="card-body">
+              <h5 class="card-title">PLAN INVESTORS CHART</h5>
+              <app-chart></app-chart>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-30" id="plans">
+        <div class="card card-box text-center">
+          <div class="card-body">
+            <h5>INVEST ETH</h5>
+            <div class="row">
+              <div class="col-sm-12 col-md-6 mb-30">
+                <div class="card card-box text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">PLAN 1</h5>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Days</strong></h6>
+                        <p class="card-text">90</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Daily</strong></h6>
+                        <p class="card-text">5%</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Total</strong></h6>
+                        <p class="card-text">450%</p>
+                      </div>
+                    </div>
+                    <hr>
+                    <a (click)="invest()" class="btn btn-primary">INVEST</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 mb-30">
+                <div class="card card-box text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">PLAN 2</h5>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Days</strong></h6>
+                        <p class="card-text">45</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Daily</strong></h6>
+                        <p class="card-text">6%</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Total</strong></h6>
+                        <p class="card-text">270%</p>
+                      </div>
+                    </div>
+                    <hr>
+                    <a (click)="invest()" class="btn btn-primary">INVEST</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 mb-30">
+                <div class="card card-box text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">PLAN 3</h5>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Days</strong></h6>
+                        <p class="card-text">30</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Daily</strong></h6>
+                        <p class="card-text">7%</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Total</strong></h6>
+                        <p class="card-text">210%</p>
+                      </div>
+                    </div>
+                    <hr>
+                    <a (click)="invest()" class="btn btn-primary">INVEST</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 mb-30">
+                <div class="card card-box text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">PLAN 4</h5>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Days</strong></h6>
+                        <p class="card-text">20</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Daily</strong></h6>
+                        <p class="card-text">8%</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <h6><strong>Total</strong></h6>
+                        <p class="card-text">160%</p>
+                      </div>
+                    </div>
+                    <hr>
+                    <a (click)="invest()" class="btn btn-primary">INVEST</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
