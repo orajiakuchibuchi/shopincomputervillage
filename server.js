@@ -3,7 +3,7 @@ var express = require('express'),
    fs = require('fs');
 var compression = require('compression');
 var app = express();
-var staticRoot = __dirname + '/src/';
+var staticRoot = __dirname + '/dist/estate-store/';
   // + express.static('dist/estate-store');
 var env = process.env.NODE_ENV || '5000';
 

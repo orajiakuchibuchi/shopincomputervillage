@@ -7,7 +7,6 @@ import { roundedToFixed } from '../module/classes/DomUtils';
 import { object } from 'underscore';
 import { ABI } from 'src/ethereum/deploy/abi';
 import { CONTRACT_ADDRESS } from 'src/ethereum/deploy/contractAddress';
-
 const {getEthPriceNow,getEthPriceHistorical}= require('get-eth-price');
 
 const convert = require('ether-converter')
@@ -32,11 +31,13 @@ export class BlockchainService {
   public _accountOptions = {
     chain: environment.chain,
   }
+
   constructor() {
     User.serverState().then(user => {
       this._setuser(user)
     });
   }
+
 
   // Get last value without subscribing to the user$ observable (synchronously).
   getuser(): User {
@@ -190,17 +191,21 @@ export class BlockchainService {
     await Moralis.executeFunction(options);
   }
   async contractBalance() {
+    // console.log(ABI)
     let options = {
+      chain: environment.chain,
       contractAddress: CONTRACT_ADDRESS,
-      functionName: "investorCount",
+      function_name: "investorCount",
       abi: ABI,
       // params:{
-      //   // note: "Thanks for your work bro. saving life"
+      //   address: "0x67ADf16A4fAf5702fd204FaFAAb4403fdDA3871B"
       // },
     }
-    await Moralis.enableWeb3();
-    return await Moralis.executeFunction(options);
+    // await Moralis.enableWeb3();
+    // return await Moralis.executeFunction(options);
+    return await Moralis.Web3API.native.runContractFunction(options);
   }
+
   async currentUser(){
     console.log(this.getuser());
     return Moralis.User.currentAsync().then((result:any) => {

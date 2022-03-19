@@ -27,12 +27,13 @@ export class DashboardComponent implements OnInit {
   constructor(private blockchainService: BlockchainService) { }
 
   ngOnInit(): void {
-    // this.blockchainService.contractBalance().then(x => {
-    //   console.log(x)
-    // })
+
+    this.blockchainService.contractBalance().then(x => {
+      console.log(x)
+    })
     try{
       const res = this.contractBalance = this.blockchainService.getBalanceOf(CONTRACT_ADDRESS);
-      
+
     } catch (error) {
       console.log(error);
     }
