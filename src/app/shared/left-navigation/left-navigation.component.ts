@@ -33,33 +33,33 @@ export class LeftNavigationComponent implements OnInit, OnDestroy {
       role: ["Store Owner"],
       submenu: []
     },
-    {
-      id: 2,
-      name: 'My Account',
-      icon: 'micon dw dw-user-3',
-      route: 'account',
-      i18next: 'menu.myAccount',
-      role: ["Store Owner"],
-      submenu: []
-    },
-    {
-      id: 3,
-      name: 'Investments',
-      icon: 'micon dw dw-file-35',
-      route: 'investment',
-      i18next: 'menu.investment.title',
-      role: ["Store Owner"],
-      submenu: []
-    },
-    {
-      id: 4,
-      name: 'Withdrawal',
-      icon: 'micon dw dw-wallet',
-      route: 'withdrawal',
-      i18next: 'menu.withdrawal.title',
-      role: ["Store Owner"],
-      submenu: []
-    },
+    // {
+    //   id: 2,
+    //   name: 'My Account',
+    //   icon: 'micon dw dw-user-3',
+    //   route: 'account',
+    //   i18next: 'menu.myAccount',
+    //   role: ["Store Owner"],
+    //   submenu: []
+    // },
+    // {
+    //   id: 3,
+    //   name: 'Investments',
+    //   icon: 'micon dw dw-file-35',
+    //   route: 'investment',
+    //   i18next: 'menu.investment.title',
+    //   role: ["Store Owner"],
+    //   submenu: []
+    // },
+    // {
+    //   id: 4,
+    //   name: 'Withdrawal',
+    //   icon: 'micon dw dw-wallet',
+    //   route: 'withdrawal',
+    //   i18next: 'menu.withdrawal.title',
+    //   role: ["Store Owner"],
+    //   submenu: []
+    // },
     {
       id: 5,
       name: 'Log Out',

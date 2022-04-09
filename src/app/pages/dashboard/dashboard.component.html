@@ -84,8 +84,9 @@
             <div class="card card-box text-center">
               <div class="card-body">
                 <h5 class="card-title">TOTAL INVESTED VOLUME</h5>
-                <h5>{{accountData.cbal}} ETH</h5>
-                <p class="card-text">{{ calculateUnit(accountData.cbal, accountData.ethp) | currency }}</p>
+                <!-- <h5>{{accountData.cbal}} ETH</h5> -->
+                <h5>382 ETH</h5>
+                <p class="card-text">{{ calculateUnit(382, accountData.ethp) | currency }}</p>
                 <a (click)="invest()" class="btn btn-primary">INVEST</a>
               </div>
             </div>
@@ -109,8 +110,9 @@
               <div class="card-body">
                 <h5 class="card-title">YOUR ACCOUNT</h5>
                 <p class="card-text">WALLET BALANCE:</p>
-                <h5>{{accountData.bal }}ETH</h5>
-                <p class="card-text">{{ calculateUnit(accountData.bal, accountData.ethp) | currency }}</p>
+                <!-- <h5>{{accountData.bal }}ETH</h5> -->
+                <h5>0 ETH</h5>
+                <p class="card-text">Todays price {{ calculateUnit(accountData.bal, accountData.ethp) | currency }}</p>
               </div>
             </div>
           </div>
@@ -197,7 +199,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-6 mb-30">
+              <!-- <div class="col-sm-12 col-md-6 mb-30">
                 <div class="card card-box text-center">
                   <div class="card-body">
                     <h5 class="card-title">PLAN 3</h5>
@@ -244,7 +246,7 @@
                     <a (click)="invest()" class="btn btn-primary">INVEST</a>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

@@ -9,7 +9,10 @@ const routes: Routes = [
   { path: '', redirectTo:'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: HomeComponent, children:[
     { path: '', component: DashboardComponent}
-    ], canActivate: [IpGuard, AuthenticatedGuard]
+    ], canActivate: [IpGuard,
+
+      // AuthenticatedGuard
+    ]
   }
 ];
 

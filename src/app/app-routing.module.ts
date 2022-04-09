@@ -9,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthenticatedGuard } from './module/http/guard/authenticated.guard';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)},
+  { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)},
   { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)},
   {
     path: 'guide',
@@ -30,7 +30,7 @@ const routes: Routes = [
       user: AuthUserResolver
     }
   },
-  { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)},
+  // { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)},
 ];
 
 @NgModule({

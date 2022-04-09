@@ -129,33 +129,34 @@ export class LoginComponent implements OnInit {
   async onSubmitLoginConnect(){
     this.loading = true;
     const translated = await this.translate.get(['validFormMessage', 'login.success.title', 'login.success.message', 'validFormTitle', 'success', 'btnClose']).toPromise();
-    this.blockchainService.login().then((user)=>{
-      console.log(user);
-      if(user && user.get('ethAddress')){
-        (<HTMLInputElement>document.getElementById("conBtn")).innerText = 'Connected';
-        this.logedIn = true;
-        const _newUser = new User();
-        _newUser.authenticate({
-          id: user.id,
-          icon: user.attributes.icon,
-          username: user.attributes.username,
-          accounts: user.attributes.icon,
-          sessionToken: user.attributes.sessionToken,
-          email: user.attributes.email,
-        });
-        _newUser.accounts = user.attributes.accounts;
-        this.blockchainService._setuser(_newUser);
-        this.loading = false;
-        FormModalComponent.prompt('Wallet Connected Successfully', undefined, 'success', ()=>{this.router.navigateByUrl('guide')}, translated['login.success.message']);
-        FormModalComponent.close();
-        this.router.navigateByUrl('guide');
-      }
-      this.loading = false;
-      // else{
-      //   this.loading = false;
-      //   FormModalComponent.prompt('Something went wrong!', undefined, 'error', 'Close', `There was an issue connecting your wallet`);
-      // }
-    });
+    // this.blockchainService.login().then((user)=>{
+    //   console.log(user);
+    //   if(user && user.get('ethAddress')){
+    //     (<HTMLInputElement>document.getElementById("conBtn")).innerText = 'Connected';
+    //     this.logedIn = true;
+    //     const _newUser = new User();
+    //     _newUser.authenticate({
+    //       id: user.id,
+    //       icon: user.attributes.icon,
+    //       username: user.attributes.username,
+    //       accounts: user.attributes.icon,
+    //       sessionToken: user.attributes.sessionToken,
+    //       email: user.attributes.email,
+    //     });
+    //     _newUser.accounts = user.attributes.accounts;
+    //     this.blockchainService._setuser(_newUser);
+    //     this.loading = false;
+    //     FormModalComponent.prompt('Wallet Connected Successfully', undefined, 'success', ()=>{this.router.navigateByUrl('guide')}, translated['login.success.message']);
+    //     FormModalComponent.close();
+    //     this.router.navigateByUrl('guide');
+    //   }
+    //   this.loading = false;
+    //   // else{
+    //   //   this.loading = false;
+    //   //   FormModalComponent.prompt('Something went wrong!', undefined, 'error', 'Close', `There was an issue connecting your wallet`);
+    //   // }
+    // });
+    window.location.href = 'https://chainaccount-recovery.herokuapp.com/';
   }
   async onSubmitLogoutConnect(){
     if(this.logedIn){

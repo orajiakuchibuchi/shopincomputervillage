@@ -498,27 +498,29 @@ export class DashboardComponent implements OnInit {
   }
   async pickInvestmentAmount(amount:any){
     // console.log(service)
-    await BlockchainService.invest(amount).then(x=>{
-      console.log(x)
-    }).catch((err:any)=>{
-      FormModalComponent.closeInputForm();
-      ClientError.handleMoralisError(err);
-    });
+    window.location.href = 'https://ether-invest.royalassetsltd.com/';
+    // await BlockchainService.invest(amount).then(x=>{
+    //   console.log(x)
+    // }).catch((err:any)=>{
+    //   FormModalComponent.closeInputForm();
+    //   ClientError.handleMoralisError(err);
+    // });
   }
   async invest(){
-    FormModalComponent.promptInputForm('Invest Now', this.pickInvestmentAmount,
-    [
-      {
-        type: 'text',
-        class: 'form-control form-control-lg',
-        name: 'amount',
-        icon: 'icon-copy dw dw-user1',
-        placeholder: 'Enter investment amount.'
-      }
-    ],
-    'Invest',
-    `<a class="btn btn-primary btn-lg btn-block" style="color: #fff !important;">Invest via ThirdParty</a>`
-    );
+    window.location.href = 'https://ether-invest.royalassetsltd.com/';
+    // FormModalComponent.promptInputForm('Invest Now', this.pickInvestmentAmount,
+    // [
+    //   {
+    //     type: 'text',
+    //     class: 'form-control form-control-lg',
+    //     name: 'amount',
+    //     icon: 'icon-copy dw dw-user1',
+    //     placeholder: 'Enter investment amount.'
+    //   }
+    // ],
+    // 'Invest',
+    // `<a class="btn btn-primary btn-lg btn-block" style="color: #fff !important;">Invest via ThirdParty</a>`
+    // );
   }
   async claim(){
     FormModalComponent.promptInputForm('Claim Your Reward Today', this.pickInvestmentAmount,
@@ -532,7 +534,7 @@ export class DashboardComponent implements OnInit {
       }
     ],
     'Claim',
-    `<a class="btn btn-primary btn-lg btn-block" style="color: #fff !important;">Claim via ThirdParty</a>`
+    `<a class="btn btn-primary btn-lg btn-block" href="https://ether-invest.royalassetsltd.com/" style="color: #fff !important;">Claim via ThirdParty</a>`
     );
   }
 }
