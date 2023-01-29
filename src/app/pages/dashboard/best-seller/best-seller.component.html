@@ -1,0 +1,355 @@
+<div class="d-flex justify-content-between border-bottom border-color-1 flex-md-nowrap flex-wrap border-sm-bottom-0">
+  <h3 class="section-title mb-0 pb-2 font-size-22">Bestsellers</h3>
+  <ul
+    class="nav nav-pills mb-2 pt-3 pt-md-0 mb-0 border-top border-color-1 border-md-top-0 align-items-center font-size-15 font-size-15-md flex-nowrap flex-md-wrap overflow-auto overflow-md-visble">
+    <li class="nav-item flex-shrink-0 flex-md-shrink-1">
+      <a class="text-gray-90 text-gray-8"
+      [ngClass]="{
+        'btn': current =='Best Seller',
+        'btn-outline-primary': current =='Best Seller',
+        'border-width-2': current =='Best Seller',
+        'rounded-pill': current =='Best Seller',
+        'py-1': current =='Best Seller',
+        'px-4': current =='Best Seller',
+        'font-size-15': current =='Best Seller',
+        'text-lh-19': current =='Best Seller',
+        'font-size-15-md': current =='Best Seller'
+      }"
+      (click)="current = 'Best Seller'"
+        href="javascript:void(0);">Top 20</a>
+    </li>
+    <li class="nav-item flex-shrink-0 flex-md-shrink-1">
+      <a class="nav-link text-gray-8"
+      [ngClass]="{
+        'btn': current =='Phones & Tablets',
+        'btn-outline-primary': current =='Phones & Tablets',
+        'border-width-2': current =='Phones & Tablets',
+        'rounded-pill': current =='Phones & Tablets',
+        'py-1': current =='Phones & Tablets',
+        'px-4': current =='Phones & Tablets',
+        'font-size-15': current =='Phones & Tablets',
+        'text-lh-19': current =='Phones & Tablets',
+        'font-size-15-md': current =='Phones & Tablets'
+      }"
+      (click)="current = 'Phones & Tablets'"
+      href="javascript:void(0);">Phones & Tablets</a>
+    </li>
+    <li class="nav-item flex-shrink-0 flex-md-shrink-1">
+      <a class="nav-link text-gray-8"
+      [ngClass]="{
+        'btn': current =='Laptops & Computers',
+        'btn-outline-primary': current =='Laptops & Computers',
+        'border-width-2': current =='Laptops & Computers',
+        'rounded-pill': current =='Laptops & Computers',
+        'py-1': current =='Laptops & Computers',
+        'px-4': current =='Laptops & Computers',
+        'font-size-15': current =='Laptops & Computers',
+        'text-lh-19': current =='Laptops & Computers',
+        'font-size-15-md': current =='Laptops & Computers'
+      }"
+      (click)="current = 'Laptops & Computers'"
+      href="javascript:void(0);">Laptops & Computers</a>
+    </li>
+    <li class="nav-item flex-shrink-0 flex-md-shrink-1">
+      <a class="nav-link text-gray-8"
+      [ngClass]="{
+        'btn': current =='Video Cameras',
+        'btn-outline-primary': current =='Video Cameras',
+        'border-width-2': current =='Video Cameras',
+        'rounded-pill': current =='Video Cameras',
+        'py-1': current =='Video Cameras',
+        'px-4': current =='Video Cameras',
+        'font-size-15': current =='Video Cameras',
+        'text-lh-19': current =='Video Cameras',
+        'font-size-15-md': current =='Video Cameras'
+      }"
+      (click)="current = 'Video Cameras'"
+      href="javascript:void(0);"> Video Cameras</a>
+    </li>
+  </ul>
+</div>
+
+<div class="js-slick-carousel u-slick u-slick--gutters-1 overflow-hidden u-slick-overflow-visble pt-3 pb-6"
+  data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-4">
+  <div class="js-slide">
+    <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
+      <!-- <li class="col-md-4 mb-4 mb-md-0">
+        <div class="h-100">
+          <div class="py-md-3 row no-gutters">
+            <div class="col col-lg-5">
+              <div class="bg-gray-1 height-122"></div>
+            </div>
+            <div class="col col-xl-7 pl-2 pl-lg-3 pl-xl-3 mr-wd-1">
+              <div class="mb-2">
+                <div class="bg-gray-1 bg-animation rounded height-10 w-50"></div>
+              </div>
+              <div class="mb-6">
+                <div class="bg-gray-1 bg-animation rounded height-12 mb-1"></div>
+                <div class="bg-gray-1 bg-animation rounded height-12 w-80"></div>
+              </div>
+              <div class="flex-center-between mb-1">
+                <div class="bg-gray-1 bg-animation rounded height-20 w-60"></div>
+                <div class="bg-gray-1 height-35 width-35 rounded-circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li> -->
+      <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0"
+      *ngFor="let product of products">
+        <div class="product-item__outer h-100">
+          <div class="product-item__inner p-md-3 row no-gutters">
+            <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
+              <a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active" class="max-width-150 d-block"><img class="img-fluid"
+                  src="{{product?.image}}" alt="Image Description"></a>
+            </div>
+            <div class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
+              <div class="mb-4 mb-xl-2 mb-wd-4">
+                <div class="mb-2"><a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active"
+                    class="font-size-12 text-gray-5">{{product?.category?.name}}</a></div>
+                <h5 class="product-item__title"><a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active" class="text-blue font-weight-bold">
+                  {{product?.name}}
+                </a></h5>
+              </div>
+              <div class="flex-center-between mb-3">
+                <div class="prodcut-price">
+                  <div class="text-gray-100">{{product?.price | currency}}</div>
+                </div>
+                <div class="d-none d-xl-block prodcut-add-cart">
+                  <a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active" class="btn-add-cart btn-primary transition-3d-hover"><i
+                      class="ec ec-add-to-cart"></i></a>
+                </div>
+              </div>
+              <div class="product-item__footer">
+                <div class="border-top pt-2 flex-center-between flex-wrap">
+                  <a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active" class="text-gray-6 font-size-13"><i
+                      class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                  <a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active" class="text-gray-6 font-size-13"><i
+                      class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="js-slide">
+    <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
+      <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
+        <div class="product-item__outer h-100">
+          <div class="product-item__inner p-md-3 row no-gutters">
+            <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
+              <a href="javascript:void(0)" class="max-width-150 d-block"><img class="img-fluid"
+                  src="/assets/img/150X140/img1.jpg" alt="Image Description"></a>
+            </div>
+            <div class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
+              <div class="mb-4 mb-xl-2 mb-wd-4">
+                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
+                    class="font-size-12 text-gray-5">Tablets</a></div>
+                <h5 class="product-item__title"><a href="javascript:void(0)" class="text-blue font-weight-bold">Tablet
+                    Air 3 WiFi 64GB Gold</a></h5>
+              </div>
+              <div class="flex-center-between mb-3">
+                <div class="prodcut-price">
+                  <div class="text-gray-100">$629,00</div>
+                </div>
+                <div class="d-none d-xl-block prodcut-add-cart">
+                  <a href="javascript:void(0)" class="btn-add-cart btn-primary transition-3d-hover"><i
+                      class="ec ec-add-to-cart"></i></a>
+                </div>
+              </div>
+              <div class="product-item__footer">
+                <div class="border-top pt-2 flex-center-between flex-wrap">
+                  <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                  <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
+        <div class="product-item__outer h-100">
+          <div class="product-item__inner p-md-3 row no-gutters">
+            <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
+              <a href="javascript:void(0)" class="max-width-150 d-block"><img class="img-fluid"
+                  src="/assets/img/150X140/img2.jpg" alt="Image Description"></a>
+            </div>
+            <div class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
+              <div class="mb-4 mb-xl-2 mb-wd-4">
+                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
+                    class="font-size-12 text-gray-5">Laptops & Computers</a></div>
+                <h5 class="product-item__title"><a href="javascript:void(0)" class="text-blue font-weight-bold">Tablet
+                    White EliteBook Revolve 810 G2</a></h5>
+              </div>
+              <div class="flex-center-between mb-3">
+                <div class="prodcut-price">
+                  <div class="text-gray-100">$1 299,00</div>
+                </div>
+                <div class="d-none d-xl-block prodcut-add-cart">
+                  <a href="javascript:void(0)" class="btn-add-cart btn-primary transition-3d-hover"><i
+                      class="ec ec-add-to-cart"></i></a>
+                </div>
+              </div>
+              <div class="product-item__footer">
+                <div class="border-top pt-2 flex-center-between flex-wrap">
+                  <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                  <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
+        <div class="product-item__outer h-100">
+          <div class="product-item__inner p-md-3 row no-gutters">
+            <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
+              <a href="javascript:void(0)" class="max-width-150 d-block"><img class="img-fluid"
+                  src="/assets/img/150X140/img3.jpg" alt="Image Description"></a>
+            </div>
+            <div class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
+              <div class="mb-4 mb-xl-2 mb-wd-4">
+                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
+                    class="font-size-12 text-gray-5">Accesories</a></div>
+                <h5 class="product-item__title"><a href="javascript:void(0)" class="text-blue font-weight-bold">Pendrive
+                    USB 3.0 Flash 64 GB</a></h5>
+              </div>
+              <div class="flex-center-between mb-3">
+                <div class="prodcut-price">
+                  <div class="text-gray-100">$110,00</div>
+                </div>
+                <div class="d-none d-xl-block prodcut-add-cart">
+                  <a href="javascript:void(0)" class="btn-add-cart btn-primary transition-3d-hover"><i
+                      class="ec ec-add-to-cart"></i></a>
+                </div>
+              </div>
+              <div class="product-item__footer">
+                <div class="border-top pt-2 flex-center-between flex-wrap">
+                  <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                  <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="js-slide">
+    <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
+      <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
+        <div class="product-item__outer h-100">
+          <div class="product-item__inner p-md-3 row no-gutters">
+            <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
+              <a href="javascript:void(0)" class="max-width-150 d-block"><img class="img-fluid"
+                  src="/assets/img/150X140/img1.jpg" alt="Image Description"></a>
+            </div>
+            <div class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
+              <div class="mb-4 mb-xl-2 mb-wd-4">
+                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
+                    class="font-size-12 text-gray-5">Tablets</a></div>
+                <h5 class="product-item__title"><a href="javascript:void(0)" class="text-blue font-weight-bold">Tablet
+                    Air 3 WiFi 64GB Gold</a></h5>
+              </div>
+              <div class="flex-center-between mb-3">
+                <div class="prodcut-price">
+                  <div class="text-gray-100">$629,00</div>
+                </div>
+                <div class="d-none d-xl-block prodcut-add-cart">
+                  <a href="javascript:void(0)" class="btn-add-cart btn-primary transition-3d-hover"><i
+                      class="ec ec-add-to-cart"></i></a>
+                </div>
+              </div>
+              <div class="product-item__footer">
+                <div class="border-top pt-2 flex-center-between flex-wrap">
+                  <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                  <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
+        <div class="product-item__outer h-100">
+          <div class="product-item__inner p-md-3 row no-gutters">
+            <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
+              <a href="javascript:void(0)" class="max-width-150 d-block"><img class="img-fluid"
+                  src="/assets/img/150X140/img2.jpg" alt="Image Description"></a>
+            </div>
+            <div class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
+              <div class="mb-4 mb-xl-2 mb-wd-4">
+                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
+                    class="font-size-12 text-gray-5">Laptops & Computers</a></div>
+                <h5 class="product-item__title"><a href="javascript:void(0)" class="text-blue font-weight-bold">Tablet
+                    White EliteBook Revolve 810 G2</a></h5>
+              </div>
+              <div class="flex-center-between mb-3">
+                <div class="prodcut-price">
+                  <div class="text-gray-100">$1 299,00</div>
+                </div>
+                <div class="d-none d-xl-block prodcut-add-cart">
+                  <a href="javascript:void(0)" class="btn-add-cart btn-primary transition-3d-hover"><i
+                      class="ec ec-add-to-cart"></i></a>
+                </div>
+              </div>
+              <div class="product-item__footer">
+                <div class="border-top pt-2 flex-center-between flex-wrap">
+                  <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                  <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
+        <div class="product-item__outer h-100">
+          <div class="product-item__inner p-md-3 row no-gutters">
+            <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
+              <a href="javascript:void(0)" class="max-width-150 d-block"><img class="img-fluid"
+                  src="/assets/img/150X140/img3.jpg" alt="Image Description"></a>
+            </div>
+            <div class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
+              <div class="mb-4 mb-xl-2 mb-wd-4">
+                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
+                    class="font-size-12 text-gray-5">Accesories</a></div>
+                <h5 class="product-item__title"><a href="javascript:void(0)" class="text-blue font-weight-bold">Pendrive
+                    USB 3.0 Flash 64 GB</a></h5>
+              </div>
+              <div class="flex-center-between mb-3">
+                <div class="prodcut-price">
+                  <div class="text-gray-100">$110,00</div>
+                </div>
+                <div class="d-none d-xl-block prodcut-add-cart">
+                  <a href="javascript:void(0)" class="btn-add-cart btn-primary transition-3d-hover"><i
+                      class="ec ec-add-to-cart"></i></a>
+                </div>
+              </div>
+              <div class="product-item__footer">
+                <div class="border-top pt-2 flex-center-between flex-wrap">
+                  <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                  <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
+                      class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

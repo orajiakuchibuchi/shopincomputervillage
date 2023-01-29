@@ -1,0 +1,62 @@
+<div class="row no-gutters">
+  <div class="col mb-6 mb-md-0">
+    <ul class="row list-unstyled products-group no-gutters border-bottom border-md-bottom-0">
+      <li class="col-4 col-md-4 col-xl-2gdot5 product-item remove-divider-sm-down border-0"
+      *ngFor="let product of suggestions"
+      >
+        <div class="product-item__outer h-100">
+          <div class="remove-prodcut-hover product-item__inner px-xl-4 p-3">
+            <div class="product-item__body pb-xl-2">
+              <div class="mb-2 d-none d-md-block"><a
+                href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active"
+                  class="font-size-12 text-gray-5">{{product?.category?.name}}</a></div>
+              <h5 class="mb-1 product-item__title d-none d-md-block"><a href="javascript:void(0)"
+                  class="text-blue font-weight-bold">{{product?.name}}</a></h5>
+              <div class="mb-2">
+                <a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active" class="d-block text-center"><img
+                    class="img-fluid" src="{{product?.image}}" alt="Image Description"></a>
+              </div>
+              <div class="flex-center-between mb-1 d-none d-md-block">
+                <div class="prodcut-price">
+                  <div class="text-gray-100">{{product?.price | currency}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- <div class="form-check pl-4 pl-md-0 ml-md-4 mb-2 pb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
+      <input class="form-check-input" type="checkbox" value="" id="inlineCheckbox1" checked="" disabled="">
+      <label class="form-check-label mb-1" for="inlineCheckbox1">
+        <strong>This product: </strong> {{product?.name}} - <span
+          class="text-red font-size-16">$35.00</span>
+      </label>
+    </div>
+    <div class="form-check pl-4 pl-md-0 ml-md-4 mb-2 pb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1" checked="">
+      <label class="form-check-label mb-1 text-blue" for="inlineCheckbox2">
+        <span class="text-decoration-on cursor-pointer-on">Universal Headphones Case in Black</span> - <span
+          class="text-red font-size-16">$159.00</span>
+      </label>
+    </div>
+    <div class="form-check pl-4 pl-md-0 ml-md-4 mb-2 pb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option2" checked="">
+      <label class="form-check-label mb-1 text-blue" for="inlineCheckbox3">
+        <span class="text-decoration-on cursor-pointer-on">Headphones USB Wires</span> - <span
+          class="text-red font-size-16">$50.00</span>
+      </label>
+    </div> -->
+  </div>
+  <div class="col-md-auto">
+    <div class="mr-xl-15">
+      <div class="mb-3">
+        <div class="text-red font-size-26 text-lh-1dot2">Wishlist</div>
+        <div class="text-gray-6">add {{product?.name}} to wishlist</div>
+      </div>
+      <a href="javascript:void(0)" class="btn btn-sm btn-block btn-primary-dark btn-wide transition-3d-hover">
+        ADD
+      </a>
+    </div>
+  </div>
+</div>

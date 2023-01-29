@@ -1,0 +1,66 @@
+<div class="grid-container">
+  <h3 class="mat-h1">{{(_auth.user | async).first_name}} Dashboard</h3>
+  <!-- <mat-grid-list cols="3" rowHeight="150px" cdkDropList (cdkDropListDropped)="drop($event)">
+    <mat-grid-tile *ngFor="let card of cardList"
+    [colspan]="card.cols" [rowspan]="card.rows" cdkDrag>
+      <mat-card class="dashboard-card"  [style.background-color] ="card.color">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Card Content Here</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list> -->
+  <div class="row" cdkDropList (cdkDropListDropped)="drop($event)">
+    <div class="col-6">
+      <app-order-stat></app-order-stat>
+    </div>
+    <div class="col-6">
+      <app-ticket-stat></app-ticket-stat>
+    </div>
+    <div class="col-6">
+
+      <mat-card class="dashboard-card cont"  [style.background]="'rgb(254, 215, 0)'">
+        <mat-card-header>
+          <mat-card-title [style.color] ="'black'">
+            <strong>WishList</strong>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div [style.color] ="'black'">
+            Keep up with your favorite products.
+          </div>
+        </mat-card-content>
+        <mat-card-actions [style.text-align] ="'center'">
+          <button color="light" background="dark" mat-raised-button (click)="shopPage()" type="button" class="btn dflmbtn btn-primary-dark-w">
+            Visit Wishlist
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-6">
+
+      <mat-card class="dashboard-card cont"  [style.background-color]="'black'">
+        <mat-card-header>
+          <mat-card-title [style.color] ="'white'">
+            <strong>My Cart</strong>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div [style.color] ="'white'">
+            View your cart items to checkout.
+          </div>
+        </mat-card-content>
+        <mat-card-actions [style.text-align] ="'center'">
+          <button color="dark" mat-raised-button (click)="shopPage()" type="button" class="btn btn-primary-dark-w">
+            Visit Cart
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

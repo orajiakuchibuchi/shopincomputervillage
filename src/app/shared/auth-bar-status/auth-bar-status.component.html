@@ -1,0 +1,17 @@
+<div data-target-group="idForm">
+  <!-- Title -->
+  <header class="text-center mb-7">
+    <h2 class="h4 mb-0">Authenticated.</h2>
+    <p *ngIf="status">You are currently authenticated. Do you wish to logout now?</p>
+    <p *ngIf="networkStatus == 'OFFLINE'">You are currently operating offline, please reconnect your network to enjoy more features of our application</p>
+  </header>
+  <!-- End Title -->
+  <div class="mb-2" *ngIf="networkStatus == 'ONLINE'">
+    <button type="button" (click)="viewProfile()"
+    class="btn btn-block btn-sm btn-primary transition-3d-hover">
+      View Profile</button>
+    <button type="button" (click)="logout()"
+    class="btn btn-block btn-sm btn-danger transition-3d-hover">
+      Logout</button>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.cont {
+  background-size: contain;
+  /* height: 200px;
+  padding: 50px; */
+  margin-top: 10px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+

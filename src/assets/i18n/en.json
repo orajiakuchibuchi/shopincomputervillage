@@ -10,6 +10,7 @@
   "error": "error",
   "menu": {
     "home": "Home",
+    "verification": "Verification Center",
     "howToUse": "Guide",
     "checkout": "Checkout",
     "orders": "Orders",
@@ -21,6 +22,17 @@
       "title": "Mail",
       "sendMail": "Send a Mail",
       "inboxOutBox": "Inbox / Outbox"
+    },
+    "catigories": {
+      "title": "Categories"
+    },
+    "posts": {
+      "open": {
+        "title": "Open Posts"
+      },
+      "voting": {
+        "title": "Voting Posts"
+      }
     },
     "investment": {
       "title": "Investment"
@@ -128,7 +140,7 @@
   "registration": {
     "success": {
       "title": "Registration successful",
-      "message": "Thank you for joining ETH INVEST. Click the button below to proceed to your dashboard to learn more."
+      "message": "Thank you for joining CHOW CHEAP. Click the button below to proceed to your dashboard to learn more."
     }
   },
   "login": {
@@ -161,11 +173,11 @@
     "username": "Enter your username",
     "password": "Enter your password",
     "confirmPassword": "Re-type your password",
-    "loginTitle": "Login to Donations",
+    "loginTitle": "Login Your Account",
     "loginBtn": "Login",
     "loginBtnConnect": "Connect Wallet",
     "registerBtn": "Register",
-    "registerTitle": "Register to Donations",
+    "registerTitle": "Become A Validator",
     "logoutTitle": "Log Out",
     "forgotPasswordTitle": "Forgot password?",
     "resetPasswordTitle": "Reset password",

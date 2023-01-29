@@ -1,4 +1,3 @@
-import { LocalStorageService } from './../services/local-storage.service';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -23,7 +22,7 @@ export class I18nModule {
     translate.addLangs(['en', 'igbo', 'hausa' ,'yoruba']);
 
     const browserLang = translate.getBrowserLang();
-    const localLang = LocalStorageService.getLocalDefaultLanguage();
+    const localLang = 'en';
     return translate.use(localLang.toString());
   }
 }

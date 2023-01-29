@@ -1,0 +1,42 @@
+<div class="my-4 my-xl-8">
+  <div class="row">
+
+    <div class="col-md-4 text-center ml-xl-auto mr-md-auto mr-xl-0 mb-8 mb-md-0">
+      <app-ticket-stat [ticketLength]="(_user.ticket_list | async)?.length"></app-ticket-stat>
+
+    </div>
+    <div class="col-md-8 text-center ml-xl-auto mr-md-auto mr-xl-0 mb-8 mb-md-0">
+
+      <table class="table table-hover table-responsive">
+        <thead class="thead-dark" [style.background-color]="'black'">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ticket Code</th>
+            <th scope="col">Category</th>
+            <th scope="col">Replied</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Closed</th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let ticket of _user.ticket_list | async ; let i=index;">
+          <tr data-toggle="collapse" [attr.data-target]="'#folder' + i">
+            <td class="text-center cpoint"><span>+</span></td>
+            <td>{{ticket?.ticket_code}}</td>
+            <td>{{ticket?.category}}</td>
+            <td>{{ticket?.replied == 0 ? 'Yet to get response' : 'Responded'}}</td>
+            <td>{{ticket?.created_at}}</td>
+            <td>{{ticket?.closed ? 'Not Closed' : 'Closed'}}</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="hiddenRow">
+              <div id='folder{{i}}' class="collapse">
+                <p [innerHTML]="ticket.description"></p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

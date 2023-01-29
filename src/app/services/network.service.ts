@@ -1,6 +1,4 @@
-import { NotificationService } from './notification.service';
-import { TranslatorService } from './translator.service';
-import { FormModalComponent } from './../shared/form-modal/form-modal.component';
+
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ConnectionService } from 'ng-connection-service';
@@ -12,48 +10,21 @@ export class NetworkService {
   private readonly _status = new BehaviorSubject<String>(NetworkService.syncMonitor() ? 'ONLINE' : 'OFFLINE');
   // Exposed observable (read-only).
   readonly status$ = this._status.asObservable();
-  constructor(private connectionService: ConnectionService,
-              private translate: TranslatorService,
-              private ntfyService: NotificationService) {
+  constructor(private connectionService: ConnectionService,) {
   }
   // Get last value without subscribing to the status$ observable (synchronously).
   getStatus(): String {
     return this._status.getValue();
   }
+  public get getStatusAsync() {
+    return this._status;
+  }
   public async _setStatus(connected: Boolean, network:Boolean = true) {
     this._status.next(connected ? 'ONLINE' : 'OFFLINE' );
     if(!network && !connected){
-      FormModalComponent.prompt(
-        'Network disconnected',
-        undefined,
-        'error',
-        this.reloadBrowser,
-        'Opps sorry we lost conenction. Please connect to the internet'
-        );
-        window.onbeforeunload = ()=>{
-          return console.log("blocked")
-        }
+
     }else{
-      const translated = await this.translate.get(
-        [
-          'network.noNetworkMessage', 'network.noNetworkTitle', 'network.connectedNetworkMessage', 'network.connectedNetworkTitle'
-        ]).toPromise();
-      if(!connected){
-        FormModalComponent.prompt(
-                                  translated['network.noNetworkTitle'],
-                                  undefined,
-                                  'error',
-                                  this.reloadBrowser,
-                                  translated['network.noNetworkMessage']
-                                  );
-                                  window.onbeforeunload = ()=>{
-                                    return console.log("blocked")
-                                  }
-      }else{
-        FormModalComponent.close();
-        this.ntfyService.openSuccess(translated['network.connectedNetworkTitle'],
-                                    translated['network.connectedNetworkMessage'])
-      }
+
     }
   }
   reloadBrowser(){

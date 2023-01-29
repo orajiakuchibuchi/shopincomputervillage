@@ -1,0 +1,32 @@
+<form class="js-focus-state" [formGroup]="searchForm">
+  <label class="sr-only" for="searchProduct">Search</label>
+  <div class="input-group">
+    <!-- <label for="exampleDataList" class="form-label">Datalist example</label> -->
+<input list="datalistOptions" type="text" formControlName="name" class="form-control py-2 pl-5 font-size-15 border-0 height-40 rounded-left-pill"
+name="name"
+id="searchProduct" placeholder="Search for Products" aria-label="Search for Products"
+aria-describedby="searchProduct1" required>
+<datalist id="datalistOptions">
+  <option value="San Francisco">
+  <option value="New York">
+  <option value="Seattle">
+  <option value="Los Angeles">
+  <option value="Chicago">
+</datalist>
+    <!-- <input type="text" formControlName="name" class="form-control py-2 pl-5 font-size-15 border-0 height-40 rounded-left-pill" name="email"
+      id="searchProduct" placeholder="Search for Products" aria-label="Search for Products"
+      aria-describedby="searchProduct1" required> -->
+    <div class="input-group-append">
+      <select name="product_cat" formControlName="category" class="flema dropdown-select custom-search-categories-select"
+        data-style="btn height-40 text-gray-60 font-weight-normal border-0 rounded-0 bg-white px-5 py-2">
+        <option value="0" selected="selected">All Categories</option>
+        <option class="level-0" value="{{category?.name}}" *ngFor="let category of categories;">
+          {{category?.name}}</option>
+
+      </select>
+      <button class="btn btn-dark height-40 py-2 px-3 rounded-right-pill" (click)="submitSearch()" type="button" id="searchProduct1">
+        <span class="ec ec-search font-size-24"></span>
+      </button>
+    </div>
+  </div>
+</form>

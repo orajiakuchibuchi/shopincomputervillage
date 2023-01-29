@@ -1,0 +1,47 @@
+<aside id="sidebarContent" class="u-sidebar u-sidebar__lg" aria-labelledby="sidebarNavToggler">
+  <div class="u-sidebar__scroller">
+    <div class="u-sidebar__container">
+      <div class="js-scrollbar u-header-sidebar__footer-offset pb-3">
+        <!-- Toggle Button -->
+        <div class="d-flex align-items-center pt-4 px-7">
+          <button type="button" class="close ml-auto" aria-controls="sidebarContent" aria-haspopup="true"
+            aria-expanded="false" data-unfold-event="click" data-unfold-hide-on-scroll="false"
+            data-unfold-target="#sidebarContent" data-unfold-type="css-animation" data-unfold-animation-in="fadeInRight"
+            data-unfold-animation-out="fadeOutRight" data-unfold-duration="500">
+            <i class="ec ec-close-remove"></i>
+          </button>
+        </div>
+        <!-- End Toggle Button -->
+
+        <!-- Content -->
+        <div class="js-scrollbar u-sidebar__body">
+          <div class="u-sidebar__content u-header-sidebar__content">
+            <form class="js-validate" *ngIf="!status && networkStatus == 'ONLINE'">
+              <!-- Login -->
+              <auth-bar-login></auth-bar-login>
+
+              <!-- Signup -->
+
+              <auth-bar-register></auth-bar-register>
+
+              <!-- End Signup -->
+
+              <!-- Forgot Password -->
+
+              <auth-bar-recover-password></auth-bar-recover-password>
+
+              <!-- End Forgot Password -->
+            </form>
+            <form class="js-validate" *ngIf="status && networkStatus == 'ONLINE'">
+              <auth-bar-status></auth-bar-status>
+            </form>
+            <form class="js-validate" *ngIf="networkStatus == 'OFFLINE'">
+              <auth-bar-status [networkStatus]="networkStatus"></auth-bar-status>
+            </form>
+          </div>
+        </div>
+        <!-- End Content -->
+      </div>
+    </div>
+  </div>
+</aside>

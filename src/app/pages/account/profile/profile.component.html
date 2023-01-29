@@ -1,0 +1,185 @@
+<div class="my-4 my-xl-8">
+  <div class="row" *ngIf="user">
+    <div class="col-md-5 ml-xl-auto mr-md-auto mr-xl-0 mb-8 mb-md-0">
+      <!-- Title -->
+      <div class="border-bottom border-color-1 mb-6">
+        <h3 class="d-inline-block section-title mb-0 pb-2 font-size-26">Personal Information</h3>
+      </div>
+      <p class="text-gray-90 mb-4">Keep your personal details up to date</p>
+      <!-- End Title -->
+      <form class="js-validate" novalidate="novalidate">
+        <!-- Form Group -->
+        <div class="js-form-message form-group">
+          <label class="form-label" for="signinSrEmailExample3">Email address
+            <span class="text-danger">*</span>
+          </label>
+          <input type="email" class="form-control" [(ngModel)]="user.email"  disabled name="email" value="{{user?.email}}" id="signinSrEmailExample3"
+            placeholder="Username or Email address" aria-label="Username or Email address" required=""
+            data-msg="Please enter a valid email address." data-error-class="u-has-error"
+            data-success-class="u-has-success">
+        </div>
+        <!-- End Form Group -->
+
+        <!-- Form Group -->
+        <div class="js-form-message form-group">
+          <label class="form-label" for="title">Title <span class="text-danger">*</span></label>
+          <select name="title" class="form-control"
+          [(ngModel)]="user.title"
+          data-style="btn height-40 text-gray-60 font-weight-normal border-0 rounded-0 bg-white px-5 py-2">
+          <!-- <option value="0" >Country Prefix</option> -->
+          <option value="{{user?.title}}" selected="selected">{{user?.title}}</option>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Miss">Miss</option>
+        </select>
+        </div>
+        <!-- End Form Group -->
+
+        <!-- Form Group -->
+        <div class="js-form-message form-group">
+          <label class="form-label" for="signinSrPasswordExample2firstname">Firstname <span
+              class="text-danger">*</span></label>
+          <input type="text" class="form-control" name="first_name" [(ngModel)]="user.first_name" value="{{user?.first_name}}" id="signinSrPasswordExample2firstname"
+            placeholder="Firstname" aria-label="Password" required=""
+            data-msg="Your firstname is invalid. Please try again." data-error-class="u-has-error"
+            data-success-class="u-has-success">
+        </div>
+        <!-- End Form Group -->
+        <!-- Form Group -->
+        <div class="js-form-message form-group">
+          <label class="form-label" for="signinSrPasswordExample2lastname">Lastname <span
+              class="text-danger">*</span></label>
+          <input type="text" class="form-control" value="{{user?.last_name}}" [(ngModel)]="user.last_name" name="password" id="signinSrPasswordExample2lastname"
+            placeholder="Lastname" aria-label="Password" required=""
+            data-msg="Your lastname is invalid. Please try again." data-error-class="u-has-error"
+            data-success-class="u-has-success">
+        </div>
+        <!-- End Form Group -->
+        <!-- Form Group -->
+        <div class="js-form-message form-group">
+          <label class="form-label" for="middle_name">Middlename <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" [(ngModel)]="user.middle_name" value="{{user?.middle_name}}"  name="middle_name" id="middle_name" placeholder="middle name"
+            aria-label="middle name" required="" data-msg="Your middle name is invalid. Please try again."
+            data-error-class="u-has-error" data-success-class="u-has-success">
+        </div>
+        <!-- End Form Group -->
+        <!-- Form Group -->
+        <div class="js-form-message form-group">
+          <label class="form-label" for="country_prefix">Country Prefix <span class="text-danger">*</span></label>
+          <select name="country_prefix" class="form-control"
+          [(ngModel)]="user.country_prefix"
+          data-style="btn height-40 text-gray-60 font-weight-normal border-0 rounded-0 bg-white px-5 py-2">
+          <!-- <option value="0" >Country Prefix</option> -->
+          <option value="{{user?.country_prefix}}" selected="selected">{{user?.country_prefix}}</option>
+          <option value="Nigeria">Nigeria</option>
+        </select>
+        </div>
+        <!-- End Form Group -->
+        <!-- Form Group -->
+        <div class="js-form-message form-group">
+          <label class="form-label" for="phone_number">Phone number <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" [(ngModel)]="user.phone_number" value="{{user?.phone_number}}" name="phone_number" id="phone_number" placeholder="Phone number"
+            aria-label="Phone number" required="" data-msg="Your phone is invalid. Please try again."
+            data-error-class="u-has-error" data-success-class="u-has-success">
+        </div>
+        <!-- End Form Group -->
+        <!-- Button -->
+        <div class="mb-1">
+          <div class="mb-3">
+            <button type="button" (click)="savePersonal()" class="btn btn-primary-dark-w px-5">Save</button>
+          </div>
+        </div>
+        <!-- End Button -->
+      </form>
+    </div>
+    <div class="col-md-1 d-none d-md-block">
+      <div class="flex-content-center h-100">
+        <div class="width-1 bg-1 h-100"></div>
+        <div
+          class="width-50 height-50 border border-color-1 rounded-circle flex-content-center font-italic bg-white position-absolute">
+          or</div>
+      </div>
+    </div>
+    <div class="col-md-5 ml-md-auto ml-xl-0 mr-xl-auto">
+      <!-- Title -->
+      <div class="border-bottom border-color-1 mb-6">
+        <h3 class="d-inline-block section-title mb-0 pb-2 font-size-26">Address Information</h3>
+      </div>
+      <p class="text-gray-90 mb-4">Update your address information</p>
+      <!-- End Title -->
+      <!-- Form Group -->
+      <form class="js-validate" novalidate="novalidate">
+        <!-- End Form Group -->
+        <div class="js-form-message form-group mb-5">
+          <label class="form-label" for="country">Country
+            <span class="text-danger">*</span>
+          </label>
+          <select name="country" class="form-control"
+          [(ngModel)]="user.country_id"
+          data-style="btn height-40 text-gray-60 font-weight-normal border-0 rounded-0 bg-white px-5 py-2">
+          <option value="0" selected="selected">Select Country</option>
+          <option value="{{country?.id}}" *ngFor="let country of userManagement.country_list | async">{{country?.name}}</option>
+        </select>
+        </div>
+        <!-- End Form Group -->
+        <div class="js-form-message form-group mb-5">
+          <label class="form-label" for="RegisterSrEmailExample3">State
+            <span class="text-danger">*</span>
+          </label>
+          <select name="state" class="form-control"
+          [(ngModel)]="user.state_id"
+          data-style="btn height-40 text-gray-60 font-weight-normal border-0 rounded-0 bg-white px-5 py-2">
+          <option value="0" selected="selected">Select State</option>
+          <option value="{{state?.id}}" *ngFor="let state of userManagement.state_list | async">{{state?.name}}</option>
+        </select>
+        </div>
+        <!-- End Form Group -->
+        <div class="js-form-message form-group mb-5">
+          <label class="form-label" for="lgm">LGM
+            <span class="text-danger">*</span>
+          </label>
+          <select name="lgm" class="form-control"
+          [(ngModel)]="user.lga_id"
+          data-style="btn height-40 text-gray-60 font-weight-normal border-0 rounded-0 bg-white px-5 py-2">
+          <option value="0" selected="selected">Select LGM</option>
+          <option value="{{lgm?.id}}" *ngFor="let lgm of userManagement.lga_list | async">{{lgm?.name}}</option>
+
+        </select>
+        </div>
+        <!-- End Form Group -->
+        <div class="js-form-message form-group mb-5">
+          <label class="form-label" for="ward">Ward
+            <span class="text-danger">*</span>
+          </label>
+          <select name="ward" class="form-control"
+          [(ngModel)]="user.ward_id"
+          data-style="btn height-40 text-gray-60 font-weight-normal border-0 rounded-0 bg-white px-5 py-2">
+          <option value="0" selected="selected">Ward</option>
+          <option value="{{ward?.id}}" *ngFor="let ward of userManagement.ward_list | async">{{ward?.name}}</option>
+        </select>
+        </div>
+        <!-- End Form Group -->
+
+        <div class="js-form-message form-group mb-5">
+          <label class="form-label" for="house_address">House Address
+            <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control" [(ngModel)]="user.house_address" name="house_address" id="house_address" placeholder="House Address"
+            aria-label="House address" required="" data-msg="Please enter a valid house address"
+            data-error-class="u-has-error" data-success-class="u-has-success">
+        </div>
+        <p class="text-gray-90 mb-4">
+
+        </p>
+        <!-- Button -->
+        <div class="mb-6">
+          <div class="mb-3">
+            <button type="button" (click)="saveAddress()"  class="btn btn-primary-dark-w px-5">Save</button>
+          </div>
+        </div>
+        <!-- End Button -->
+      </form>
+
+    </div>
+  </div>
+</div>

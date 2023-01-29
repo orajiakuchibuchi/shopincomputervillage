@@ -1,0 +1,13 @@
+.disablehide{
+  pointer-events: none !important;
+  display: none !important;
+}
+.img-fluid{
+  max-width: 100%;
+  height: auto;
+  height: 90px;
+  width: 90px;
+}
+.hiddenclick{
+  display: none !important;
+}

@@ -1,256 +1,441 @@
-<div class="main-container">
-  <div class="pd-ltr-20">
-    <app-welcome-notice></app-welcome-notice>
-    <div class="row" *ngIf="{
-      ethp: ethprice | async,
-      bal: balance | async,
-      cbal: contractBalance | async
-    } as accountData" >
-    <div class="col-12 mb-10">
-      <div class="card-box pd-20 height-100-p mb-30">
-        <div class="row">
-          <div class="col-xl-3 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="progress-data">
-                  <div id="chart"></div>
+
+  <!-- Slider Section -->
+  <div class="mb-4">
+    <div class="bg-img-hero" style="background-image: url(/assets/img/1920X422/{{banner.data[banner.index]}});">
+      <div class="container min-height-438 overflow-hidden">
+        <div class="js-slick-carousel u-slick"
+        data-hs-slick-carousel-options='{
+          "autoplay": true,
+          "autoplaySpeed": 2000
+        }'
+          data-pagi-classes="text-center position-absolute right-0 bottom-0 left-0 u-slick__pagination u-slick__pagination--long justify-content-start mb-3 mb-md-4 offset-xl-2 pl-xl-16 pl-wd-13">
+          <div class="js-slide">
+            <div class="row min-height-438 pt-7 py-md-0">
+              <div class="d-none d-xl-block col-auto">
+                <div class="max-width-270 min-width-270"></div>
+              </div>
+              <div class="col-xl col col-md-6 mt-md-8 mt-lg-10">
+                <div class="ml-xl-4">
+                  <h6 class="font-size-15 font-weight-bold mb-2 text-cyan" data-scs-animation-in="fadeInUp">
+                    SHOP TO GET WHAT YOU LOVE
+                  </h6>
+                  <h1 class="font-size-46 text-lh-50 font-weight-light mb-6" data-scs-animation-in="fadeInUp"
+                    data-scs-animation-delay="200">
+                    TIMEPIECES THAT MAKE A STATEMENT UP TO <strong class="font-weight-bold">40% OFF</strong>
+                  </h1>
+                  <a href="javascript:void(0)"
+                  (click)="goToshop()"
+                    class="btn btn-primary transition-3d-hover rounded-lg  py-2 px-md-7 px-3 font-size-16"
+                    data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
+                    Start Buying
+                  </a>
                 </div>
-                <div class="widget-data">
-                  <div class="h4 mb-0">TOTAL INVESTED ETH</div>
-                  <div class="weight-600 font-14">TODAY</div>
-                </div>
+              </div>
+              <div class="col-xl-5 col-6 d-flex align-items-end ml-auto ml-md-0" data-scs-animation-in="fadeInUp"
+                data-scs-animation-delay="500">
+                <img class="img-fluid ml-auto mr-5 sliderimg" src="/assets/img/374X386/Smartphones.png" alt="Image Description">
               </div>
             </div>
           </div>
-          <div class="col-xl-3 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="progress-data">
-                  <div id="chart2"></div>
+          <div class="js-slide">
+            <div class="row min-height-438 pt-7 py-md-0">
+              <div class="d-none d-xl-block col-auto">
+                <div class="max-width-270 min-width-270"></div>
+              </div>
+              <div class="col-xl col col-md-6 mt-md-8 mt-lg-10">
+                <div class="ml-xl-4">
+                  <h6 class="font-size-15 font-weight-bold mb-2 text-cyan" data-scs-animation-in="fadeInUp">
+                    SHOP TO GET WHAT YOU LOVE
+                  </h6>
+                  <h1 class="font-size-46 text-lh-50 font-weight-light mb-6" data-scs-animation-in="fadeInUp"
+                    data-scs-animation-delay="200">
+                    TIMEPIECES THAT MAKE A STATEMENT UP TO <strong class="font-weight-bold">40% OFF</strong>
+                  </h1>
+                  <a href="javascript:void(0)"
+                  (click)="goToshop()"
+                    class="btn btn-primary transition-3d-hover rounded-lg  py-2 px-md-7 px-3 font-size-16"
+                    data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
+                    Start Buying
+                  </a>
                 </div>
-                <div class="widget-data">
-                  <div class="h4 mb-0">MINERS OUTPUT</div>
-                  <div class="weight-600 font-14">TODAY</div>
-                </div>
+              </div>
+              <div class="col-xl-5 col-6 flex-horizontal-center ml-auto ml-md-0" data-scs-animation-in="fadeInRight"
+                data-scs-animation-delay="500">
+                <img class="img-fluid ml-auto mr-5 h-100 sliderimg" src="/assets/img/374X386/Smartwatchess.png" alt="Image Description">
               </div>
             </div>
           </div>
-          <div class="col-xl-3 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="progress-data">
-                  <div id="chart3"></div>
-                </div>
-                <div class="widget-data">
-                  <div class="h4 mb-0">ETH TO CLAIM</div>
-                  <div class="weight-600 font-14">INVESTORS</div>
-                </div>
+          <div class="js-slide">
+            <div class="row min-height-438 pt-7 py-md-0">
+              <div class="d-none d-xl-block col-auto">
+                <div class="max-width-270 min-width-270"></div>
               </div>
-            </div>
-          </div>
-          <div class="col-xl-3 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="progress-data">
-                  <div id="chart4"></div>
-                </div>
-                <div class="widget-data">
-                  <div class="h4 mb-0">ETH TO CLAIM</div>
-                  <div class="weight-600 font-14">MINERS</div>
+              <div class="col-xl col col-md-6 mt-md-8 mt-lg-10">
+                <div class="ml-xl-4">
+                  <h6 class="font-size-15 font-weight-bold mb-2 text-cyan" data-scs-animation-in="fadeInUp">
+                    SHOP TO GET WHAT YOU LOVE
+                  </h6>
+                  <h1 class="font-size-46 text-lh-50 font-weight-light mb-6" data-scs-animation-in="fadeInUp"
+                    data-scs-animation-delay="200">
+                    TIMEPIECES THAT MAKE A STATEMENT UP TO <strong class="font-weight-bold">40% OFF</strong>
+                  </h1>
+                  <a href="javascript:void(0)"
+                  (click)="goToshop()"
+                    class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16"
+                    data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
+                    Start Buying
+                  </a>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-8 mb-30">
-            <div class="card-box height-100-p pd-20">
-              <h2 class="h4 mb-20">Activity</h2>
-              <div id="chart5"></div>
-            </div>
-          </div>
-          <div class="col-xl-4 mb-30">
-            <div class="card-box height-100-p pd-20">
-              <h2 class="h4 mb-20">Miners Target</h2>
-              <div id="chart6"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-      <div class="col-sm-12 col-md-6 mb-30" >
-        <div class="row">
-          <div class="col-sm-12 col-md-12 mb-30">
-            <div class="card card-box text-center">
-              <div class="card-body">
-                <h5 class="card-title">TOTAL INVESTED VOLUME</h5>
-                <!-- <h5>{{accountData.cbal}} ETH</h5> -->
-                <h5>382 ETH</h5>
-                <p class="card-text">{{ calculateUnit(382, accountData.ethp) | currency }}</p>
-                <a (click)="invest()" class="btn btn-primary">INVEST</a>
+              <div class="col-xl-5 col-6 flex-horizontal-center ml-auto ml-md-0" data-scs-animation-in="fadeInRight"
+                data-scs-animation-delay="500">
+                <img class="img-fluid ml-auto mr-5 h-100 sliderimg" src="/assets/img/416X420/Sounddevice.png" alt="Image Description">
               </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-12 mb-30">
-            <div class="card card-box text-center">
-              <div class="card-body">
-                <h5 class="card-title">TOTAL REFERRAL REWARDS</h5>
-                <h5>0.0000ETH</h5>
-                <p class="card-text">{{ 0 | currency }}</p>
-                <a (click)="invest()" class="btn btn-primary">JOIN POOL</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 mb-30">
-        <div class="row">
-          <div class="col-sm-12 col-md-12 mb-30">
-            <div class="card card-box text-center">
-              <div class="card-body">
-                <h5 class="card-title">YOUR ACCOUNT</h5>
-                <p class="card-text">WALLET BALANCE:</p>
-                <!-- <h5>{{accountData.bal }}ETH</h5> -->
-                <h5>0 ETH</h5>
-                <p class="card-text">Todays price {{ calculateUnit(accountData.bal, accountData.ethp) | currency }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-6 mb-30">
-            <div class="card card-box text-center">
-              <div class="card-body">
-                <h5 class="card-title">ETH TO CLAIM</h5>
-                <p class="card-text">0.0000000ETH</p>
-                <p class="card-text">$0.00</p>
-                <a (click)="claim()" class="btn btn-primary">CLAIM</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-6 mb-30">
-            <div class="card card-box text-center">
-              <div class="card-body">
-                <h5 class="card-title">TOTAL INVESTMENT</h5>
-                <p class="card-text">0.00000ETH</p>
-                <p class="card-text">$0.00</p>
-                <a href="#" class="btn btn-primary">HISTORY</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 mb-30">
-        <div class="card-box height-100-p pd-20">
-            <div class="card-body">
-              <h5 class="card-title">PLAN INVESTORS CHART</h5>
-              <app-chart></app-chart>
-            </div>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 mb-30" id="plans">
-        <div class="card card-box text-center">
-          <div class="card-body">
-            <h5>INVEST ETH</h5>
-            <div class="row">
-              <div class="col-sm-12 col-md-6 mb-30">
-                <div class="card card-box text-center">
-                  <div class="card-body">
-                    <h5 class="card-title">PLAN 1</h5>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Days</strong></h6>
-                        <p class="card-text">90</p>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Daily</strong></h6>
-                        <p class="card-text">5%</p>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Total</strong></h6>
-                        <p class="card-text">450%</p>
-                      </div>
-                    </div>
-                    <hr>
-                    <a (click)="invest()" class="btn btn-primary">INVEST</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-6 mb-30">
-                <div class="card card-box text-center">
-                  <div class="card-body">
-                    <h5 class="card-title">PLAN 2</h5>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Days</strong></h6>
-                        <p class="card-text">45</p>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Daily</strong></h6>
-                        <p class="card-text">6%</p>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Total</strong></h6>
-                        <p class="card-text">270%</p>
-                      </div>
-                    </div>
-                    <hr>
-                    <a (click)="invest()" class="btn btn-primary">INVEST</a>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="col-sm-12 col-md-6 mb-30">
-                <div class="card card-box text-center">
-                  <div class="card-body">
-                    <h5 class="card-title">PLAN 3</h5>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Days</strong></h6>
-                        <p class="card-text">30</p>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Daily</strong></h6>
-                        <p class="card-text">7%</p>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Total</strong></h6>
-                        <p class="card-text">210%</p>
-                      </div>
-                    </div>
-                    <hr>
-                    <a (click)="invest()" class="btn btn-primary">INVEST</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-6 mb-30">
-                <div class="card card-box text-center">
-                  <div class="card-body">
-                    <h5 class="card-title">PLAN 4</h5>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Days</strong></h6>
-                        <p class="card-text">20</p>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Daily</strong></h6>
-                        <p class="card-text">8%</p>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <h6><strong>Total</strong></h6>
-                        <p class="card-text">160%</p>
-                      </div>
-                    </div>
-                    <hr>
-                    <a (click)="invest()" class="btn btn-primary">INVEST</a>
-                  </div>
-                </div>
-              </div> -->
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  <!-- End Slider Section -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-wd-auto d-none d-xl-block">
+        <div class="max-width-270 min-width-270 pt-xl-13 mt-xl-13">
+          <!-- Image Banner -->
+          <aside class="mb-8">
+            <a href="javascript:void(0);" class="d-block">
+              <img class="img-fluid" src="/assets/img/270X428/ad-banner-sidebar.jpg" alt="Image Description">
+            </a>
+          </aside>
+          <!-- End Image Banner -->
+          <!-- Latest Products -->
+          <aside class="mb-4">
+            <!-- Wrapper Latest Products -->
+            <div class="mb-2 position-relative">
+              <div
+                class="d-flex justify-content-between border-bottom border-color-1 flex-md-nowrap flex-wrap border-sm-bottom-0">
+                <h3 class="section-title section-title__sm mb-0 pb-3 font-size-18">Latest Products</h3>
+              </div>
+              <div
+                class="js-slick-carousel u-slick u-slick--gutters-2 overflow-hidden u-slick-overflow-visble pt-3 position-static"
+                data-slides-show="1" data-slides-scroll="1"
+                data-arrows-classes="position-absolute top-0 font-size-17 u-slick__arrow-normal top-10"
+                data-arrow-left-classes="fa fa-angle-left right-1" data-arrow-right-classes="fa fa-angle-right right-0">
+                <div class="js-slide">
+                  <ul class="list-unstyled products-group mb-0 overflow-visible">
+                    <li class="product-item__list pb-2 mb-2 pb-md-0 mb-md-0"  *ngFor="let product of products">
+                      <div class="product-item__outer h-100">
+                        <div class="product-item__inner py-md-3 mx-3 border-bottom row no-gutters">
+                          <div class="col-auto product-media-left">
+                            <a href="javascript:void(0)"
+                            [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active"
+                            class="max-width-70 d-block"><img
+                                class="img-fluid" src="{{product.image}}" alt="Image Description"></a>
+                          </div>
+                          <div class="col product-item__body pl-2 pl-lg-3">
+                            <div class="mb-4">
+                              <h5 class="product-item__title"><a href="javascript:void(0)"
+                                  class="text-gray-90">{{product?.name}}</a></h5>
+                            </div>
+                            <div class="flex-center-between">
+                              <div class="prodcut-price">
+                                <div class="text-gray-100 font-size-15 font-weight-bold">${{product?.price}}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="js-slide">
+                  <ul class="list-unstyled products-group mb-0 overflow-visible">
+                    <li class="product-item__list pb-2 mb-2 pb-md-0 mb-md-0" *ngFor="let product of products">
+                      <div class="product-item__outer h-100">
+                        <div class="product-item__inner py-md-3 mx-3 border-bottom row no-gutters">
+                          <div class="col-auto product-media-left">
+                            <a href="javascript:void(0)" class="max-width-70 d-block"><img
+                                class="img-fluid" src="{{product?.image}}" alt="Image Description"></a>
+                          </div>
+                          <div class="col product-item__body pl-2 pl-lg-3">
+                            <div class="mb-4">
+                              <h5 class="product-item__title"><a href="javascript:void(0)"
+                                  class="text-gray-90">{{product?.name}}</a></h5>
+                            </div>
+                            <div class="flex-center-between">
+                              <div class="prodcut-price">
+                                <div class="text-gray-100 font-size-15 font-weight-bold">${{product?.price}}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="js-slide">
+                  <ul class="list-unstyled products-group mb-0 overflow-visible">
+                    <li class="product-item__list pb-2 mb-2 pb-md-0 mb-md-0" *ngFor="let product of products">
+                      <div class="product-item__outer h-100">
+                        <div class="product-item__inner py-md-3 mx-3 border-bottom row no-gutters">
+                          <div class="col-auto product-media-left">
+                            <a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active" class="max-width-70 d-block"><img
+                                class="img-fluid" src="{{product?.image}}" alt="Image Description"></a>
+                          </div>
+                          <div class="col product-item__body pl-2 pl-lg-3">
+                            <div class="mb-4">
+                              <h5 class="product-item__title"><a href="javascript:void(0)"
+                                [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active"
+                                  class="text-gray-90">{{product?.name}}</a></h5>
+                            </div>
+                            <div class="flex-center-between">
+                              <div class="prodcut-price">
+                                <div class="text-gray-100 font-size-15 font-weight-bold">${{product?.price}}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- End Wrapper Latest Products -->
+          </aside>
+          <!-- End Latest Products -->
+          <!-- Feature List -->
+          <aside class="mb-8">
+            <div class="d-flex justify-content-center rounded border mb-4">
+              <div class="px-4 py-6 w-100">
+                <!-- Feature List -->
+                <div class="media px-3 mb-4 pb-4 border-bottom" href="javascript:void(0);">
+                  <div class="u-avatar mr-2">
+                    <i class="text-primary ec ec-transport font-size-46"></i>
+                  </div>
+                  <div class="media-body text-center">
+                    <span class="d-block font-weight-bold text-dark">Free Delivery</span>
+                    <div class=" text-secondary">from $50</div>
+                  </div>
+                </div>
+                <!-- End Feature List -->
+
+                <!-- Feature List -->
+                <div class="media px-3 mb-4 pb-4 border-bottom" href="javascript:void(0);">
+                  <div class="u-avatar mr-2">
+                    <i class="text-primary ec ec-customers font-size-56"></i>
+                  </div>
+                  <div class="media-body text-center">
+                    <span class="d-block font-weight-bold text-dark">99 % Customer</span>
+                    <div class=" text-secondary">Feedbacks</div>
+                  </div>
+                </div>
+                <!-- End Feature List -->
+
+                <!-- Feature List -->
+                <div class="media px-3 mb-4 pb-4 border-bottom" href="javascript:void(0);">
+                  <div class="u-avatar mr-2">
+                    <i class="text-primary ec ec-returning font-size-46"></i>
+                  </div>
+                  <div class="media-body text-center">
+                    <span class="d-block font-weight-bold text-dark">365 Days</span>
+                    <div class=" text-secondary">for free return</div>
+                  </div>
+                </div>
+                <!-- End Feature List -->
+
+                <!-- Feature List -->
+                <div class="media px-3 mb-4 pb-4 border-bottom" href="javascript:void(0);">
+                  <div class="u-avatar mr-2">
+                    <i class="text-primary ec ec-payment font-size-46"></i>
+                  </div>
+                  <div class="media-body text-center">
+                    <span class="d-block font-weight-bold text-dark">Payment</span>
+                    <div class=" text-secondary">Secure System</div>
+                  </div>
+                </div>
+                <!-- End Feature List -->
+
+                <!-- Feature List -->
+                <div class="media px-3" href="javascript:void(0);">
+                  <div class="u-avatar mr-2">
+                    <i class="text-primary ec ec-tag font-size-46"></i>
+                  </div>
+                  <div class="media-body text-center">
+                    <span class="d-block font-weight-bold text-dark">Only Best</span>
+                    <div class=" text-secondary">Brands</div>
+                  </div>
+                </div>
+                <!-- End Feature List -->
+              </div>
+            </div>
+          </aside>
+          <!-- End Feature List -->
+        </div>
+      </div>
+      <div class="col-xl-9 col-wd-auto max-width-1130">
+        <!-- Banner -->
+        <div>
+          <dashboard-big-deals [stores]="topTwoRated"></dashboard-big-deals>
+        </div>
+        <!-- End Banner -->
+        <!-- Tab Prodcut Section -->
+        <div class="mb-6">
+          <!-- Nav Classic -->
+          <div class="position-relative bg-white text-center z-index-2">
+            <ul class="nav nav-classic nav-tab justify-content-center" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active js-animation-link" id="pills-one-example1-tab" data-toggle="pill"
+                  href="#pills-one-example1" role="tab" aria-controls="pills-one-example1" aria-selected="true"
+                  data-target="#pills-one-example1" data-link-group="groups" data-animation-in="slideInUp">
+                  <div class="d-md-flex justify-content-md-center align-items-md-center">
+                    Featured
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-animation-link" id="pills-two-example1-tab" data-toggle="pill"
+                  href="#pills-two-example1" role="tab" aria-controls="pills-two-example1" aria-selected="false"
+                  data-target="#pills-two-example1" data-link-group="groups" data-animation-in="slideInUp">
+                  <div class="d-md-flex justify-content-md-center align-items-md-center">
+                    On Sale
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-animation-link" id="pills-three-example1-tab" data-toggle="pill"
+                  href="#pills-three-example1" role="tab" aria-controls="pills-three-example1" aria-selected="false"
+                  data-target="#pills-three-example1" data-link-group="groups" data-animation-in="slideInUp">
+                  <div class="d-md-flex justify-content-md-center align-items-md-center">
+                    Top Rated
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- End Nav Classic -->
+          <!-- Tab Content -->
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel"
+              aria-labelledby="pills-one-example1-tab" data-target-group="groups">
+              <div>
+                <dashboard-featured [products]="products"></dashboard-featured>
+              </div>
+            </div>
+            <div class="tab-pane fade pt-2" id="pills-two-example1" role="tabpanel"
+              aria-labelledby="pills-two-example1-tab" data-target-group="groups">
+              <div>
+                <dashboard-onsale [products]="products"></dashboard-onsale>
+              </div>
+            </div>
+            <div class="tab-pane fade pt-2" id="pills-three-example1" role="tabpanel"
+              aria-labelledby="pills-three-example1-tab" data-target-group="groups">
+              <div>
+                <dashboard-top-rated [products]="products"></dashboard-top-rated>
+              </div>
+            </div>
+          </div>
+          <!-- End Tab Content -->
+        </div>
+        <!-- End Tab Prodcut Section -->
+        <!-- Deal -->
+        <div class="mb-6">
+          <dashboard-deals-of-week></dashboard-deals-of-week>
+        </div>
+        <!-- End Deal -->
+        <!-- Full banner -->
+        <div class="mb-8">
+          <div class="home-v2-banner-block animate-in-view animated fadeIn" data-animation=" animated fadeIn">
+            <div class="home-v2-fullbanner-ad fullbanner-ad" style="margin-bottom: 39px">
+            <a href="javascript:void(0);">
+            <img src="/assets/img/1400X206/home-v5-banner.png" class="img-fluid" alt="">
+            </a>
+            </div>
+          </div>
+        </div>
+        <!-- End Full banner -->
+        <!-- Prodcut-cards-carousel -->
+        <div class="mb-8">
+          <div>
+            <dashboard-best-seller [products]="products"></dashboard-best-seller>
+          </div>
+        </div>
+        <!-- End Prodcut-cards-carousel -->
+
+        <!-- Banner 2 columns -->
+        <div class="mb-8">
+          <div class="row">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <a href="javascript:void(0);">
+                <img class="img-fluid" src="/assets/img/536X150/two-banner-01.jpg" alt="Image Description">
+              </a>
+            </div>
+            <div class="col-md-6">
+              <a href="javascript:void(0);">
+                <img class="img-fluid" src="/assets/img/536X150/two-banner-02.jpg" alt="Image Description">
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End Banner 2 columns -->
+      </div>
+    </div>
+  </div>
+  <!-- Brand Carousel -->
+  <div class="container mb-8">
+    <div class="py-2 border-top border-bottom">
+      <div class="js-slick-carousel u-slick my-1" data-slides-show="5" data-slides-scroll="1"
+        data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-normal u-slick__arrow-centered--y"
+        data-arrow-left-classes="fa fa-angle-left u-slick__arrow-classic-inner--left z-index-9"
+        data-arrow-right-classes="fa fa-angle-right u-slick__arrow-classic-inner--right" data-responsive='[{
+                          "breakpoint": 992,
+                          "settings": {
+                              "slidesToShow": 2
+                          }
+                      }, {
+                          "breakpoint": 768,
+                          "settings": {
+                              "slidesToShow": 1
+                          }
+                      }, {
+                          "breakpoint": 554,
+                          "settings": {
+                              "slidesToShow": 1
+                          }
+                      }]'>
+        <div class="js-slide">
+          <a href="javascript:void(0);" class="link-hover__brand">
+            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img1.png" alt="Image Description">
+          </a>
+        </div>
+        <div class="js-slide">
+          <a href="javascript:void(0);" class="link-hover__brand">
+            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img2.png" alt="Image Description">
+          </a>
+        </div>
+        <div class="js-slide">
+          <a href="javascript:void(0);" class="link-hover__brand">
+            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img3.png" alt="Image Description">
+          </a>
+        </div>
+        <div class="js-slide">
+          <a href="javascript:void(0);" class="link-hover__brand">
+            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img4.png" alt="Image Description">
+          </a>
+        </div>
+        <div class="js-slide">
+          <a href="javascript:void(0);" class="link-hover__brand">
+            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img5.png" alt="Image Description">
+          </a>
+        </div>
+        <div class="js-slide">
+          <a href="javascript:void(0);" class="link-hover__brand">
+            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img6.png" alt="Image Description">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Brand Carousel -->
+<app-reset-password [authCode]="authCode" [email]="authEmail"></app-reset-password>

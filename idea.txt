@@ -1,0 +1,83 @@
+Trust Funding
+This is a smart centralized platform where verified users can make a blog post sharing a topic to the public
+in other to raise a certain target amount during a specific period or goal-triggering action.
+Imagine having a platform where anyone can share their problems, personal challenges, ideas, or anything worth
+sharing to the public in other to get donations as help. In the short sense, it's not a new idea, we have seen the
+likes of GoFundMe, Abeg, KickStarters, etc. however the benefit and trust lie solely on the receiver.
+Yes I have $100 to give you right?  but How am I sure you are actually sick and truly deserve this money?
+Okay great you have a good project idea and will need about $250,000 to build and have it running,
+but i can't tell until after you get the $250,000 so we can test your honesty, but what if i donated to a dishonest person?
+Building this project first of all is to be viewed as building an ecosystem in other to support and balance the chain
+of Help, Validation, Acceptance, Publication, Donation, and Community Testimony.
+Simi is a final-year university student trying to raise her last semester's school fees ($25,000) expected to be paid on or before
+two months' time. For someone in need, she can decide to share a public post in the go fund me with a goal of $25,000 and share her story on Twitter.
+but from the past, donors can be concerned if truly she is being honest, some might give in, others might not,
+and in the end she might actually pay it, or use the funds to go for a vacation in tokyo.
+We can rethink this process, including the right inter-related chain to ensure donors are honest and ensure their funds are used only for
+the right purposes as stated.
+In this eco system, we will include these roles
+1. donor
+2. verified user
+3. Validator
+
+Donors can be anyone who is willing to give in money to any campaign published by any verified user signed by
+multiple validator signatures.
+Let's consider Case A
+Sam is a regular donor who does not by any means need to be verified in other to make a contribution to any donation request posted
+on the home page of "ABC Platform". Sam can click any of these posts(eg "School Fees Funds Goal (N10,000)", by simi from yaba, Nigeria) and read more detailed information on what the Charity post contains.
+But before he donates, he can read a simple guide on how the ABC platform ecosystem ensures trust, he is displayed a simple option video to watch
+which will display the below animation case below:
+Every post on the ABC platform is trusted and for them to be public on the network,
+they have been signed and approved by a minimum of 20 validators.
+Sam is told that every post on the network is from a specific country and their local validators who remains anonymous but verified too.
+This means before "School Fees Funds Goal (N10,000)" which was posted by the user simi, she is an already a KYC verified user,
+the platform ensures she submits the required approved government ID and important information as required by the Nigerian government
+This will be reviewed and either rejected/approved by the Nigerian support team. For simi, she is a verified and known user with BVN, PVC or a valid driver's license.
+Also, he is also told that after this post was made by simi, it was left in pending and moved to the JUDGEMENT PANEL.
+where this post will be public on the open validator porta where the list of verified validators(in this case, can be list of verified lawyers in Nigeria),
+can open and read this post, note there is a race target of 10 lawyers, this means the first 10 lawyers to open this pending post and click join sit
+will move this post status to review, each of these lawyers is given a time constrain of eg 30 minutes to read and make a test request.
+after these 10 lawyers post a response of test cases, eg lawyer A might reply
+In Agreement to Edit the post including the university name, as well as agree that after this donation is completed,
+payment will only be made to an account with the name of the university.
+Other lawyers will as well submit their test cases which will not be visible to any of the 10 of them until all has elapsed their 30 minutes each.
+After this, the post will be moved to the "review case vote" state, where all other verified Nigerian lawyers can review this post as well as the 10 test cases
+submitted by these lawyers whose identity will stay antonymous,(note the 10 lawyers who joined can then see the 10 test cases with their identity masked).
+It is expected that every other Nigerian lawyer in the ecosystem can vote on any of these 10 test cases within the next 24 hours(the First 50 votes) the highest 2 votes will be selected.
+and this will notify simi to review her post and click the "I accept" or "I disagree" button, on this case she agreed to comply if not her funds will not be released to her
+and the right terms & conditions will be applied. After Clicking "I agree", this post was then added to the public network for donors to view this blog post as well as the 2 selected test cases.
+Therefore after knowing this. Sa is brought back to the "School Fees Funds Goal (N10,000)", made by simi to review the post and 2 test cases.
+He can then feel free to donate his funds to the ABC platform exchange will be locked until the timeline set by simi,
+which can be either till the goal target is met or a specific timeline from the publication time.
+However, when either of these is met, simi will be notified and be expected to comply to the test cases which will be a locked group portal with locked functionalities
+It will include two validators, 1 financial Accountant, and simi. The Major selected validator(1 of the two selected lawyers), will make a single post instructing simi what to submit in the chat for
+test case review and financial payment if confirmed, 2nd lawyer will both the lawyer and financial accountant will have to approve or decline the request
+if both approve, simi chat will be unlocked and she can respond with details of instruction, if accepted, payment will be made,
+else a rerun of the process will be allowed however only twice more before this stage will be in a surveillance state by two additional validators to join the group, disable all chat functionalities and penalize the wrong user in the previous conversation.
+If simi provides eg Babcock official account, payment will be tested and made with are receipt of chat, payment receipt(eg bank receipt/ cryptocurrency hash).
+This portal will be open for simi to approve to appeal payment if none is selected after 24-48 hours, and after several reminders via, email/phone, social media and more.
+payment will automatically be approved and moved to the testimony page were all stories of the process including the locked porta group conversation with the identity of all users antonymous as well in the locked group.
+In this way, sam can visit the testimony portal page to review hundreds and thousands of testimony posts as well.
+Every portal will be public, How to become a validator, How to become a verified user?
+These will be two different portals,
+To become a validator, users will have to select a validator category and submit the requested documents of the category for verification to be processed
+for instance, Nicole is a lawyer in Nigeria and will like to earn by performing the role of a validator, she can select eg "Incident and abuse", she can as well select other categories because categories might share
+the same required documents for validation, any additional one will be noted as well. After review, Nicole can become a validator,
+she will be given access to the web porta of validators to view pending, join panel, "review case vote", or more earnable action to join and participate to Help the Community
+Every validator is rewarded for each contribution, eg joining and review a case can have a value of 0.0005% of capita goal, to win a vote for review case vote
+can have a reward of +0.005%, each person in the test case will earn 0.0005% of capital excluding the creator.
+this will total a
+0.005 * 10 = 0.05 % (Race for the panel)
+0.0002 * 50 = 0.01 (Voters for panel)
+0.05 * 2 = 0.01 % (Winner of the panel)
+0.005% * 4 (max 6) = 0.03% (0.01% refundable if case does not escalate).
+platform Withdrawal Fee 0.02%
+total cost 0.19% + 0.02% = 0.21% Fee tota to ensure this process!!
+
+With this ecosystem, we can provide more jobs for project managers who can review project ideas and problem statements by developers, or anyone
+who needs to raise funds for this project, project managers can be validators to review project idea categories that are verified and can condition finance
+as well as providing an acceptable and trustworthy environment for people to donate and exchange funds by eliminating dishonesty while still showing to the public
+how the ecosystem works, we can have millions of verified lawyers from around the world willing to take up these tasks and earn as well.
+
+
+higher vote counts for cat without verification

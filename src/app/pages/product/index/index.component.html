@@ -1,0 +1,284 @@
+<!-- breadcrumb -->
+<div class="bg-gray-13 bg-md-transparent">
+  <div class="container">
+    <!-- breadcrumb -->
+    <product-nav [name]="product?.name" [category]="product?.category?.name"></product-nav>
+    <!-- End breadcrumb -->
+  </div>
+</div>
+<!-- End breadcrumb -->
+<div class="container">
+  <!-- Single Product Body -->
+  <div class="mb-xl-14 mb-6">
+    <div class="row">
+      <div class="col-md-5 mb-4 mb-md-0">
+        <div id="sliderSyncingNav" class="js-slick-carousel u-slick mb-2 slick-initialized slick-slider"
+          data-infinite="true"
+          data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-classic u-slick__arrow-centered--y rounded-circle"
+          data-arrow-left-classes="fas fa-arrow-left u-slick__arrow-classic-inner u-slick__arrow-classic-inner--left ml-lg-2 ml-xl-4"
+          data-arrow-right-classes="fas fa-arrow-right u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4"
+          data-nav-for="#sliderSyncingThumb">
+          <div
+          (click)="previous()"
+            class="js-prev d-none d-lg-inline-block u-slick__arrow-classic u-slick__arrow-centered--y rounded-circle fas fa-arrow-left u-slick__arrow-classic-inner u-slick__arrow-classic-inner--left ml-lg-2 ml-xl-4 slick-arrow"
+            ></div>
+          <div class="slick-list draggable">
+            <div class="slick-track" style="opacity: 1; width: 5170px; transform: translate3d(-470px, 0px, 0px);">
+              <div class="js-slide slick-slide" data-slick-index="i-1"
+              aria-hidden="!item.showing ? true : false"
+              *ngFor="let item of product?.images; let i=index"
+                style="width: 470px;" tabindex="i" [ngClass]="{'slick-active': item.showing, 'slick-current': item.showing}">
+                <img class="img-fluid prodimg" src="{{item?.file_path}}"
+                alt="Image Description">
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div
+          (click)="next()"
+            class="js-next d-none d-lg-inline-block u-slick__arrow-classic u-slick__arrow-centered--y rounded-circle fas fa-arrow-right u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4 slick-arrow"
+            ></div>
+        </div>
+
+        <div id="sliderSyncingThumb"
+          class="js-slick-carousel u-slick u-slick--slider-syncing u-slick--slider-syncing-size u-slick--gutters-1 u-slick--transform-off slick-initialized slick-slider slick-transform-off"
+          data-infinite="true" data-slides-show="5" data-is-thumbs="true" data-nav-for="#sliderSyncingNav">
+          <div class="slick-list draggable">
+            <div class="slick-track" style="opacity: 1; width: 480px; transform: translate3d(0px, 0px, 0px);">
+              <div class="js-slide slick-slide"
+              *ngFor="let item of product?.images; let i=index"
+              [ngClass]="{'slick-active': item.showing, 'slick-current': item.showing, 'slick-blockage': item.showing}"
+              (click)="setAsActive(item, i)"
+                style="cursor: pointer; width: 88px; height: auto;" data-slick-index="i" aria-hidden="!item.showing ? true : false"
+                tabindex="i">
+                <img class="img-fluid" src="{{item.file_path}}" alt="Image Description">
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+      <div class="col-md-7 mb-md-6 mb-lg-0">
+        <div class="mb-2">
+          <div class="border-bottom mb-3 pb-md-1 pb-3">
+            <a href="javascript:void(0)" class="font-size-12 text-gray-5 mb-2 d-inline-block">{{product?.category?.name}}</a>
+            <h2 class="font-size-25 text-lh-1dot2">{{product?.name}}</h2>
+            <div class="mb-2">
+              <a class="d-inline-flex align-items-center small font-size-15 text-lh-1" href="javascript:void(0)">
+                <div class="text-warning mr-2">
+                  <small class="fas fa-star"></small>
+                  <small class="fas fa-star"></small>
+                  <small class="fas fa-star"></small>
+                  <small class="fas fa-star"></small>
+                  <small class="far fa-star text-muted"></small>
+                </div>
+                <span class="text-secondary font-size-13">({{product?.rating?.total_reviews}} customer reviews)</span>
+              </a>
+            </div>
+            <div class="d-md-flex align-items-center">
+              <a href="javascript:void(0)" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block">
+                <!-- <img class="img-fluid"
+                  src="../../assets/img/200X60/img1.png" alt="Image Description"> -->
+                  <ins class="font-size-26 text-decoration-none">
+                    {{product?.brand?.brand_name}}</ins>
+                </a>
+              <div class="ml-md-3 text-gray-9 font-size-14">Availability: <span class="text-green font-weight-bold">
+                {{product?.quantity}}
+                  in stock</span></div>
+            </div>
+          </div>
+          <div class="flex-horizontal-center flex-wrap mb-4">
+            <a href="javascript:void(0)" class="text-gray-6 font-size-13 mr-2"><i class="ec ec-favorites mr-1 font-size-15"></i>
+              Wishlist</a>
+            <a href="javascript:void(0)" class="text-gray-6 font-size-13 ml-2"><i class="ec ec-compare mr-1 font-size-15"></i>
+              Compare</a>
+          </div>
+          <div class="mb-2">
+            <ul class="font-size-14 pl-3 ml-1 text-gray-110">
+              <li>Dimension {{product?.dimensions}} ({{product?.dimension_unit}})</li>
+              <li>Manufactured in {{product?.manufactured_in?.country_name}} </li>
+              <li>Designed in {{product?.designed_in?.country_name}} </li>
+              <li>Store: {{product?.store?.name}}</li>
+            </ul>
+          </div>
+          <p>{{product?.short_description}}</p>
+          <p><strong>SKU</strong>: {{product?.SKU}}</p>
+          <div class="mb-4">
+            <div class="d-flex align-items-baseline">
+              <ins class="font-size-36 text-decoration-none"><span [innerHTML]="product?.currency_symbol"></span>{{product?.price}}</ins>
+              <del class="font-size-20 ml-2 text-gray-6" *ngIf="product?.old_price > 0"><span [innerHTML]="product?.currency_symbol"></span>{{product?.old_price}}</del>
+            </div>
+          </div>
+
+          <div class="d-md-flex align-items-end mb-3">
+            <div class="max-width-150 mb-4 mb-md-0">
+              <a href="javascript:void(0)" *ngIf="!product?.cart?.added"
+              (click)="addToCart()"
+              [ngClass]="{'slick-blockage': processing}"
+              style="width: 180px;"
+              class="btn px-5 btn-primary transition-3d-hover"><i
+                  class="ec ec-add-to-cart mr-2 font-size-20"></i>Add to Cart</a>
+              <a href="javascript:void(0)" *ngIf="product?.cart?.added"
+              (click)="removeFromCart()"
+              [ngClass]="{'slick-blockage': processing}"
+              style="width: 180px;"
+              class="btn px-5 btn-danger transition-3d-hover"><i
+                  class="ec ec-add-to-cart mr-2 font-size-20"></i> Remove from Cart</a>
+                  <br>
+
+                  <!-- <app-add-to-cart-modal [product]="product"></app-add-to-cart-modal> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Single Product Body -->
+  <!-- Single Product Tab -->
+  <div class="mb-8">
+    <div class="position-relative position-md-static px-md-6">
+      <ul
+        class="nav nav-classic nav-tab nav-tab-lg justify-content-xl-center flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble border-0 pb-1 pb-xl-0 mb-n1 mb-xl-0"
+        id="pills-tab-8" role="tablist">
+        <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
+          <a class="nav-link active" id="Jpills-one-example1-tab" data-toggle="pill" href="#Jpills-one-example1"
+            role="tab" aria-controls="Jpills-one-example1" aria-selected="true">Accessories</a>
+        </li>
+        <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
+          <a class="nav-link" id="Jpills-two-example1-tab" data-toggle="pill" href="#Jpills-two-example1" role="tab"
+            aria-controls="Jpills-two-example1" aria-selected="false">Description</a>
+        </li>
+        <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
+          <a class="nav-link" id="Jpills-three-example1-tab" data-toggle="pill" href="#Jpills-three-example1" role="tab"
+            aria-controls="Jpills-three-example1" aria-selected="false">Specification</a>
+        </li>
+        <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
+          <a class="nav-link" id="Jpills-four-example1-tab" data-toggle="pill" href="#Jpills-four-example1" role="tab"
+            aria-controls="Jpills-four-example1" aria-selected="false">Reviews</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Tab Content -->
+    <div class="borders-radius-17 border p-4 mt-4 mt-md-0 px-lg-10 py-lg-9">
+      <div class="tab-content" id="Jpills-tabContent">
+        <div class="tab-pane fade active show" id="Jpills-one-example1" role="tabpanel"
+          aria-labelledby="Jpills-one-example1-tab">
+          <div>
+            <product-accessories [product]="product"></product-accessories>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="Jpills-two-example1" role="tabpanel" aria-labelledby="Jpills-two-example1-tab">
+          <div>
+            <product-description [product]="product"></product-description>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="Jpills-three-example1" role="tabpanel"
+          aria-labelledby="Jpills-three-example1-tab">
+          <div>
+            <product-specification [product]="product"></product-specification>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="Jpills-four-example1" role="tabpanel" aria-labelledby="Jpills-four-example1-tab">
+          <div>
+            <product-review [product]="product"></product-review>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Tab Content -->
+  </div>
+  <!-- End Single Product Tab -->
+  
+  <!-- Brand Carousel -->
+  <div class="mb-8">
+    <div class="py-2 border-top border-bottom">
+      <div class="js-slick-carousel u-slick my-1 slick-initialized slick-slider" data-slides-show="5"
+        data-slides-scroll="1"
+        data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-normal u-slick__arrow-centered--y"
+        data-arrow-left-classes="fa fa-angle-left u-slick__arrow-classic-inner--left z-index-9"
+        data-arrow-right-classes="fa fa-angle-right u-slick__arrow-classic-inner--right" data-responsive='[{
+                            "breakpoint": 992,
+                            "settings": {
+                                "slidesToShow": 2
+                            }
+                        }, {
+                            "breakpoint": 768,
+                            "settings": {
+                                "slidesToShow": 1
+                            }
+                        }, {
+                            "breakpoint": 554,
+                            "settings": {
+                                "slidesToShow": 1
+                            }
+                        }]'>
+        <div
+          class="js-prev d-none d-lg-inline-block u-slick__arrow-normal u-slick__arrow-centered--y fa fa-angle-left u-slick__arrow-classic-inner--left z-index-9 slick-arrow slick-disabled"
+          aria-disabled="true" id="previousProuductImage"></div>
+        <div class="slick-list draggable">
+          <div class="slick-track" style="opacity: 1; width: 1404px; transform: translate3d(0px, 0px, 0px);">
+            <div class="js-slide slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false"
+              style="width: 234px; height: auto;" tabindex="0">
+              <a href="javascript:void(0)" class="link-hover__brand" tabindex="0">
+                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img1.png"
+                  alt="Image Description">
+              </a>
+            </div>
+            <div class="js-slide slick-slide slick-active" data-slick-index="1" aria-hidden="false"
+              style="width: 234px; height: auto;" tabindex="0">
+              <a href="javascript:void(0)" class="link-hover__brand" tabindex="0">
+                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img2.png"
+                  alt="Image Description">
+              </a>
+            </div>
+            <div class="js-slide slick-slide slick-active" data-slick-index="2" aria-hidden="false"
+              style="width: 234px; height: auto;" tabindex="0">
+              <a href="javascript:void(0)" class="link-hover__brand" tabindex="0">
+                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img3.png"
+                  alt="Image Description">
+              </a>
+            </div>
+            <div class="js-slide slick-slide slick-active" data-slick-index="3" aria-hidden="false"
+              style="width: 234px; height: auto;" tabindex="0">
+              <a href="javascript:void(0)" class="link-hover__brand" tabindex="0">
+                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img4.png"
+                  alt="Image Description">
+              </a>
+            </div>
+            <div class="js-slide slick-slide slick-active" data-slick-index="4" aria-hidden="false"
+              style="width: 234px; height: auto;" tabindex="0">
+              <a href="javascript:void(0)" class="link-hover__brand" tabindex="0">
+                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img5.png"
+                  alt="Image Description">
+              </a>
+            </div>
+            <div class="js-slide slick-slide" data-slick-index="5" aria-hidden="true"
+              style="width: 234px; height: auto;" tabindex="-1">
+              <a href="javascript:void(0)" class="link-hover__brand" tabindex="-1">
+                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img6.png"
+                  alt="Image Description">
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <div
+        id="nextProuductImage"
+          class="js-next d-none d-lg-inline-block u-slick__arrow-normal u-slick__arrow-centered--y fa fa-angle-right u-slick__arrow-classic-inner--right slick-arrow"
+           aria-disabled="false"></div>
+      </div>
+    </div>
+  </div>
+  <!-- End Brand Carousel -->
+</div>

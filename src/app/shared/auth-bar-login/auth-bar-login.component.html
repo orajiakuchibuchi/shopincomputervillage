@@ -1,0 +1,76 @@
+<div id="login" data-target-group="idForm">
+  <!-- Title -->
+  <header class="text-center mb-7">
+    <h2 class="h4 mb-0">Welcome Back!</h2>
+    <p>Login to manage your account.</p>
+    <p class="errorMessageText">{{errorMessage}}</p>
+  </header>
+  <!-- End Title -->
+
+  <!-- Form Group -->
+  <div class="form-group">
+    <div class="js-form-message js-focus-state">
+      <label class="sr-only" for="signinEmail">Email</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="signinEmailLabel">
+            <span class="fas fa-user"></span>
+          </span>
+        </div>
+        <input type="email" class="form-control" name="email" id="signinEmail"
+        placeholder="Email" [(ngModel)]="existingUser.email"
+
+          aria-label="Email" aria-describedby="signinEmailLabel" required
+          data-msg="Please enter a valid email address." data-error-class="u-has-error"
+          data-success-class="u-has-success">
+      </div>
+    </div>
+  </div>
+  <!-- End Form Group -->
+
+  <!-- Form Group -->
+  <div class="form-group">
+    <div class="js-form-message js-focus-state">
+      <label class="sr-only" for="signinPassword">Password</label>
+      <div class="input-group">
+        <div class="input-group-prepend designlink">
+          <span class="input-group-text" id="signinPasswordLabel">
+            <span class="fas fa-lock" *ngIf="passwordType == 'password'" (click)="passwordType = 'text'"></span>
+            <span class="fas fa-lock-open" *ngIf="passwordType == 'text'" (click)="passwordType = 'password'"></span>
+          </span>
+        </div>
+        <input type="{{passwordType}}" class="form-control" name="password" id="signinPassword" [(ngModel)]="existingUser.password"
+          placeholder="Password" aria-label="Password" aria-describedby="signinPasswordLabel" required
+          data-msg="Your password is invalid. Please try again." data-error-class="u-has-error"
+          data-success-class="u-has-success">
+      </div>
+    </div>
+  </div>
+  <!-- End Form Group -->
+
+  <div class="d-flex justify-content-end mb-4">
+    <a class="js-animation-link small link-muted" href="javascript:;" data-target="#forgotPassword"
+      data-link-group="idForm" data-animation-in="slideInUp">Login using onetime code</a>
+  </div>
+
+  <div class="mb-2">
+    <button type="button" disabled="{{!isFormValid() ? true : null}}" class="btn btn-block btn-sm btn-primary transition-3d-hover" (click)="attemptLoginClick()">Login</button>
+  </div>
+
+  <div class="text-center mb-4">
+    <span class="small text-muted">Do not have an account?</span>
+    <a class="js-animation-link small text-dark" href="javascript:;" data-target="#signup"
+      data-link-group="idForm" data-animation-in="slideInUp">Signup
+    </a>
+  </div>
+
+  <div class="text-center">
+    <span class="u-divider u-divider--xs u-divider--text mb-4">OR</span>
+  </div>
+
+  <!-- Login Buttons -->
+  <div>
+    <auth-social-auth></auth-social-auth>
+  </div>
+  <!-- End Login Buttons -->
+</div>

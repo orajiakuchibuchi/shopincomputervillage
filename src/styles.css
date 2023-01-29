@@ -37,3 +37,72 @@
 .not-found{
   margin-bottom: 25px;
 }
+
+
+.notificationCustom{
+  background-color: red;
+}
+
+.formError{
+  border: 1px solid red !important;
+}
+
+.errorMessageText{
+  color: red !important;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.designlink{
+  cursor: pointer !important;
+}
+
+.hideit{
+  display: none !important;
+}
+
+
+.grid-container {
+  margin: 15px;
+}
+/*overwrite bootstrap table padding*/
+.hiddenRow {
+  padding: 0 !important;
+}
+.dashboard-card {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  cursor: all-scroll;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+
+.dflmbtn{
+  background: black;
+  color: white;
+
+}

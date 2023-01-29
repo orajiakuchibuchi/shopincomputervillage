@@ -1,0 +1,14 @@
+
+@media screen and (max-width: 800px) {
+  .prodimg{
+    height: 250px !important;
+    width: 75% !important
+  }
+}
+
+.slick-blockage{
+  pointer-events: none !important;
+  opacity: 20%;
+  background: dimgray;
+}
+

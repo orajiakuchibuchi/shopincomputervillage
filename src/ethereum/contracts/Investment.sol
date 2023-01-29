@@ -9,7 +9,7 @@ contract Investment {
   }
   Request[] public requests;
   uint public investorCount;
-  uint public minimumToInvest;
+  uint public minimumToInvest; 
   address public manager;
   mapping(address => uint) public investors;
 

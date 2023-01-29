@@ -1,0 +1,220 @@
+<div id="signup" style="display: none; opacity: 0;" data-target-group="idForm">
+  <!-- Title -->
+  <header class="text-center mb-7">
+    <h2 class="h4 mb-0">Welcome to LasLas!</h2>
+    <p>Become a registered user and start shopping with us today using</p>
+  </header>
+  <!-- End Title -->
+
+    <!-- Login Buttons -->
+    <div>
+      <auth-social-auth></auth-social-auth>
+    </div>
+    <!-- End Login Buttons -->
+
+
+    <div class="text-center">
+      <span class="u-divider u-divider--xs u-divider--text mb-4">OR</span>
+    </div>
+
+    <div class="text-center mb-2" *ngIf="errorMessage">
+      <span class="errorMessageText">{{errorMessage}}</span>
+      <span class="successMessageText">{{successMessage}}</span>
+    </div>
+
+  <!-- Form Group -->
+  <div class="form-group" *ngIf="!successMessage">
+    <div class="js-form-message js-focus-state">
+      <label class="sr-only" for="signupTitle">Title</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="signupEmailLabel">
+            <span class="fas fa-users"></span>
+          </span>
+        </div>
+        <select class="form-select form-control"
+        name="title" id="signupTitle"
+        [(ngModel)]="newUser.title"
+          aria-label="Title" aria-describedby="signupTitleLabel" required
+          data-msg="Please enter a valid title." data-error-class="u-has-error"
+          data-success-class="u-has-success">
+          <option selected value="">Select title</option>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Miss">Miss</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!-- End Input -->
+
+    <!-- Form Group -->
+    <div class="form-group" *ngIf="!successMessage">
+      <div class="js-form-message js-focus-state">
+        <label class="sr-only" for="signupFirst_name">Firstname</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="signupFirstnameLabel">
+              <span class="fas fa-user"></span>
+            </span>
+          </div>
+          <input type="text" class="form-control"
+          [(ngModel)]="newUser.first_name"
+          name="first_name" id="signupFirstname" placeholder="First name"
+            aria-label="Firstname" aria-describedby="signupFirstnameLabel" required
+            data-msg="Please enter your firstname." data-error-class="u-has-error"
+            data-success-class="u-has-success">
+        </div>
+      </div>
+    </div>
+    <!-- End Input -->
+
+    <!-- Form Group -->
+    <div class="form-group" *ngIf="!successMessage">
+      <div class="js-form-message js-focus-state">
+        <label class="sr-only" for="signuplast_name">Lastname</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="signupLastnameLabel">
+              <span class="fas fa-user"></span>
+            </span>
+          </div>
+          <input type="text" class="form-control"
+          [(ngModel)]="newUser.last_name"
+          name="last_name" id="signupLastname" placeholder="Last name"
+            aria-label="Lastname" aria-describedby="signupLastnameLabel" required
+            data-msg="Please enter your Lastname." data-error-class="u-has-error"
+            data-success-class="u-has-success">
+        </div>
+      </div>
+    </div>
+    <!-- End Input -->
+
+
+  <!-- Form Group -->
+  <div class="form-group" *ngIf="!successMessage">
+    <div class="js-form-message js-focus-state">
+      <label class="sr-only" for="signupEmail">Email</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="signupEmailLabel">
+            <span class="fas fa-bell"></span>
+          </span>
+        </div>
+        <input type="email" [(ngModel)]="newUser.email" class="form-control" name="email" id="signupEmail" placeholder="Email"
+          aria-label="Email" aria-describedby="signupEmailLabel" required
+          data-msg="Please enter a valid email address." data-error-class="u-has-error"
+          data-success-class="u-has-success">
+      </div>
+    </div>
+  </div>
+  <!-- End Input -->
+
+
+  <!-- Form Group -->
+  <div class="form-group" *ngIf="!successMessage">
+    <div class="js-form-message js-focus-state">
+      <label class="sr-only" for="signupCountryPrefix">Country Prefix</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="signupCountryPrefixLabel">
+            <span class="fas fa-globe"></span>
+          </span>
+        </div>
+
+        <select class="form-select form-control"
+        [(ngModel)]="newUser.country_prefix"
+        name="CountryPrefix" id="signupCountryPrefix" placeholder="Country Prefix"
+        aria-label="Country Prefix" aria-describedby="signupCountryPrefixLabel" required
+        data-msg="Please enter a valid prefix" data-error-class="u-has-error"
+        data-success-class="u-has-success">
+          <option selected value="">Select Country Prefix</option>
+          <option value="{{prefix.mobileCode}}" *ngFor="let prefix of countryData">
+            {{prefix.name}}
+            {{prefix.mobileCode}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!-- End Input -->
+  <!-- Form Group -->
+  <div class="form-group" *ngIf="!successMessage">
+    <div class="js-form-message js-focus-state">
+      <label class="sr-only" for="signupPhone">Phone</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="signupPhoneLabel">
+            <span class="fas fa-phone"></span>
+          </span>
+        </div>
+        <input type="text" [(ngModel)]="newUser.phone_number" class="form-control" name="Phone" id="signupPhone" placeholder="Phone number"
+          aria-label="Phone" aria-describedby="signupPhoneLabel" required
+          data-msg="Please enter a valid phonr=e number" data-error-class="u-has-error"
+          data-success-class="u-has-success">
+      </div>
+    </div>
+  </div>
+  <!-- End Input -->
+
+  <!-- Form Group -->
+  <div class="form-group" *ngIf="!successMessage">
+    <div class="js-form-message js-focus-state">
+      <label class="sr-only" for="signupPassword">Password</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="signupPasswordLabel">
+            <span class="fas fa-lock" *ngIf="passwordType == 'password'" (click)="passwordType = 'text'"></span>
+            <span class="fas fa-lock-open" *ngIf="passwordType == 'text'" (click)="passwordType = 'password'"></span>
+          </span>
+        </div>
+        <input type="{{passwordType}}" class="form-control" name="password" id="signupPassword"
+          placeholder="Password"
+          [(ngModel)]="newUser.password"
+          aria-label="Password" aria-describedby="signupPasswordLabel" required
+          data-msg="Your password is invalid. Please try again." data-error-class="u-has-error"
+          data-success-class="u-has-success">
+      </div>
+    </div>
+  </div>
+  <!-- End Input -->
+
+  <!-- Form Group -->
+  <div class="form-group" *ngIf="!successMessage">
+    <div class="js-form-message js-focus-state">
+      <label class="sr-only" for="signupConfirmPassword">Confirm Password</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="signupConfirmPasswordLabel">
+            <span class="fas fa-key"></span>
+          </span>
+        </div>
+        <input type="{{passwordType}}" class="form-control" name="confirmPassword" id="signupConfirmPassword"
+          placeholder="Confirm Password"
+          [(ngModel)]="newUser.password_confirmation"
+          aria-label="Confirm Password"
+          aria-describedby="signupConfirmPasswordLabel" required
+          data-msg="Password does not match the confirm password." data-error-class="u-has-error"
+          data-success-class="u-has-success">
+      </div>
+    </div>
+  </div>
+  <!-- End Input -->
+
+  <div class="mb-2">
+    <button type="button" *ngIf="!successMessage"
+    (click)="attemptRegistration()"
+    disabled="{{!isFormValid() ? true : null}}"
+    class="btn btn-block btn-sm btn-primary transition-3d-hover">Get
+      Started</button>
+  </div>
+
+  <div class="text-center mb-4">
+    <span class="small text-muted">Already have an account?</span>
+    <a class="js-animation-link small text-dark" href="javascript:;" id="loginSpalasj" data-target="#login"
+      data-link-group="idForm" data-animation-in="slideInUp">Login
+    </a>
+  </div>
+
+
+</div>

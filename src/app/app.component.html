@@ -1,3 +1,19 @@
-<app-loader></app-loader>
-<router-outlet></router-outlet>
-<simple-notifications></simple-notifications>
+
+<div class="container-fluid">
+  <ngx-spinner></ngx-spinner>
+  <nav-header></nav-header>
+
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main">
+
+  <router-outlet></router-outlet>
+</main>
+
+
+
+  <app-footer></app-footer>
+  <auth-bar></auth-bar>
+
+  <simple-notifications></simple-notifications>
+</div>
+

@@ -1,0 +1,68 @@
+<div class="max-width-270 min-width-270">
+  <!-- Basics Accordion -->
+  <div id="basicsAccordion">
+    <!-- Card -->
+    <div class="card border-0 rounded-0">
+      <div class="card-header bg-primary rounded-0 card-collapse border-0" id="basicsHeadingOne">
+        <button type="button"
+          class="btn-link btn-remove-focus btn-block d-flex card-btn py-3 text-lh-1 px-4 shadow-none btn-primary rounded-top-lg border-0 font-weight-bold text-gray-90"
+          data-toggle="collapse" data-target="#basicsCollapseOne" aria-expanded="true"
+          aria-controls="basicsCollapseOne">
+          <span class="pl-1 text-gray-90">Shop By Category</span>
+          <span class="text-gray-90 ml-3">
+            <span class="ec ec-arrow-down-search"></span>
+          </span>
+        </button>
+      </div>
+      <div id="basicsCollapseOne" class="collapse show vertical-menu v1" aria-labelledby="basicsHeadingOne"
+        data-parent="#basicsAccordion">
+        <div class="card-body p-0">
+          <nav
+            class="js-mega-menu navbar navbar-expand-xl u-header__navbar u-header__navbar--no-space hs-menu-initialized">
+            <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
+              <ul class="navbar-nav u-header__navbar-nav border-primary border-top-0">
+                <li class="nav-item u-header__nav-item" data-event="hover" data-position="left">
+                  <a href="javascript:void(0)" class="nav-link u-header__nav-link font-weight-bold">Value of the Day</a>
+                </li>
+                <li class="nav-item u-header__nav-item" data-event="hover" data-position="left">
+                  <a href="javascript:void(0)" class="nav-link u-header__nav-link font-weight-bold">Top 100 Offers</a>
+                </li>
+                <li class="nav-item u-header__nav-item" data-event="hover" data-position="left">
+                  <a href="javascript:void(0)" class="nav-link u-header__nav-link font-weight-bold">New Arrivals</a>
+                </li>
+                <!-- Nav Item MegaMenu -->
+                <li *ngFor="let category of categories | slice:0:1" class="nav-item hs-has-mega-menu u-header__nav-item" data-event="hover"
+                  data-animation-in="slideInUp" data-animation-out="fadeOut" data-position="left">
+                  <a id="basicMegaMenu" class="nav-link u-header__nav-link u-header__nav-link-toggle"
+                    href="javascript:;" aria-haspopup="true" aria-expanded="false">
+                  {{category?.name}}</a>
+
+                  <!-- Nav Item - Mega Menu -->
+                  <div class="hs-mega-menu vmm-tfw u-header__sub-menu" aria-labelledby="basicMegaMenu">
+                    <div class="vmm-bg">
+                      <img class="img-fluid" src="/assets/img/500X400/megamenu-4.png" alt="Image Description">
+                    </div>
+                    <div class="row u-header__mega-menu-wrapper">
+                      <div class="col mb-3 mb-sm-0">
+                        <span class="u-header__sub-menu-title">{{category?.name}}</span>
+                        <ul class="u-header__sub-menu-nav-group mb-3">
+                          <li *ngFor="let child of category?.children"><a class="nav-link u-header__sub-menu-nav-link"
+                            (click)="goToShop(category)"
+                            href="javascript:void(0)">{{child?.name}}</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Nav Item - Mega Menu -->
+                </li>
+                <!-- End Nav Item MegaMenu-->
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!-- End Card -->
+  </div>
+  <!-- End Basics Accordion -->
+</div>

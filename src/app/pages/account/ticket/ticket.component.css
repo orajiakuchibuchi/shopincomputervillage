@@ -1,0 +1,11 @@
+th{
+  min-width: 100px;
+}
+table .thead-dark th {
+  color: #000;
+  background-color: rgb(254, 215, 0);
+  border-color: #202020;
+}
+.cpoint{
+  cursor: pointer !important;
+}

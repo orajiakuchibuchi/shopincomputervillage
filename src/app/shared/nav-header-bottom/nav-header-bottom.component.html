@@ -1,0 +1,26 @@
+
+    <!-- Vertical-and-Search-Bar -->
+    <div class="d-none d-xl-block bg-primary">
+      <div class="container">
+        <div class="row align-items-stretch min-height-50">
+          <!-- Vertical Menu -->
+          <div class="col-md-auto d-none d-xl-flex align-items-end">
+            <nav-header-bottom-left [categories]="categories" [stores]="stores"></nav-header-bottom-left>
+          </div>
+          <!-- End Vertical Menu -->
+          <!-- Search bar -->
+          <div class="col align-self-center">
+            <!-- Search-Form -->
+            <nav-header-bottom-center [categories]="categories" [stores]="stores"></nav-header-bottom-center>
+            <!-- End Search-Form -->
+          </div>
+          <!-- End Search bar -->
+          <!-- Header Icons -->
+          <div class="col-md-auto align-self-center">
+            <nav-header-bottom-right [categories]="categories" [stores]="stores"></nav-header-bottom-right>
+          </div>
+          <!-- End Header Icons -->
+        </div>
+      </div>
+    </div>
+    <!-- End Vertical-and-secondary-menu -->

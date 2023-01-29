@@ -1,0 +1,17 @@
+<mat-card class="dashboard-card"  [style.background-color] ="'black'">
+  <mat-card-header>
+    <mat-card-title [style.color] ="'white'">
+      <strong>Orders</strong>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="dashboard-card-content">
+    <div [style.color] ="'white'">
+      You have a total of {{orderLength}} placed orders.
+    </div>
+  </mat-card-content>
+  <mat-card-actions [style.text-align] ="'center'">
+    <button color="dark" mat-raised-button (click)="shopPage()" type="button" class="btn btn-primary-dark-w">
+      Visit Shop
+    </button>
+  </mat-card-actions>
+</mat-card>

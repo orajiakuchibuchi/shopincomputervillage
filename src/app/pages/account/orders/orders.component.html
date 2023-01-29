@@ -1,0 +1,43 @@
+<div class="my-4 my-xl-8">
+  <div class="row">
+    <div class="col-md-4 text-center ml-xl-auto mr-md-auto mr-xl-0 mb-8 mb-md-0">
+      <app-order-stat [orderLength]="orders.length"></app-order-stat>
+    </div>
+    <div class="col-md-8 text-center ml-xl-auto mr-md-auto mr-xl-0 mb-8 mb-md-0">
+      <table class="table table-responsive">
+        <thead class="thead-dark" [style.background-color] ="'black'">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Reference</th>
+            <th scope="col">Code</th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Store</th>
+            <th scope="col">Payment</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders; let i=index;">
+            <th scope="row">{{order?.day + '/' + order?.month + '/' + order?.year}}</th>
+            <td>{{order?.order_ref}}</td>
+            <td><small>{{order?.transaction_code}}</small></td>
+            <td>{{order?.product_name}}</td>
+            <td>{{order?.quantity}}</td>
+            <td>{{order?.store_name}}</td>
+            <td>{{order?.payment_type_name}}</td>
+            <td><span [innerHTML]="order?.currency_symbol"></span>{{order?.amount}}</td>
+            <td>{{order?.status}}</td>
+            <td>
+              <button type="button" class="btn btn-primary-dark-w px-5">Review</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

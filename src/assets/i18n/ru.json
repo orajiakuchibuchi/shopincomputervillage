@@ -1,7 +1,7 @@
 {
   "name" : "Donations",
-  "loginTitle": "Login to Donations",
-  "registerTitle": "Register to Donations",
+  "loginTitle": "Login Your Account",
+  "registerTitle": "Become A Validator",
   "forgotPasswordTitle": "Forgot password?",
   "resetPasswordTitle": "Reset password"
 }

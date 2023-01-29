@@ -1,0 +1,15 @@
+<mat-card class="dashboard-card"  [style.background-color] ="'#fed700'">
+  <mat-card-header>
+    <mat-card-title [style.color] ="'black'">
+      <strong>Tickets</strong>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="dashboard-card-content">
+    <div [style.color] ="'black'">
+      You have a total of {{ticketLength}} open tickets.
+    </div>
+  </mat-card-content>
+  <mat-card-actions [style.text-align] ="'center'">
+    <app-ticket-create></app-ticket-create>
+  </mat-card-actions>
+</mat-card>

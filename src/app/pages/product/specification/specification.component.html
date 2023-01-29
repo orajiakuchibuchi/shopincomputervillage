@@ -1,0 +1,32 @@
+<div class="mx-md-5 pt-1">
+  <h3 class="font-size-18 mb-4">Specifications</h3>
+  <div class="table-responsive mb-4">
+    <table class="table table-hover">
+      <tbody>
+        <tr *ngFor="let prod of product?.product_options">
+          <th class="px-4 px-xl-5 border-top-0">
+            {{prod?.attribute_meta_name}}
+          </th>
+          <td class="border-top-0">
+            {{prod?.value}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 class="font-size-18 mb-4">Variation</h3>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <tbody>
+        <tr *ngFor="let prod of product?.product_variances">
+          <th class="px-4 px-xl-5 border-top-0">
+            {{prod?.attribute_name}}
+          </th>
+          <td class="border-top-0">
+            {{prod?.value}}
+          </td>
+        </tr> 
+      </tbody>
+    </table>
+  </div>
+</div>
