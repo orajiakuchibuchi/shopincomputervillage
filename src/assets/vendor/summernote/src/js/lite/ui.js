@@ -52,7 +52,7 @@ const dropdown = renderer.create('<div class="note-dropdown-menu" role="list">',
   const markup = $.isArray(options.items) ? options.items.map(function(item) {
     const value = (typeof item === 'string') ? item : (item.value || '');
     const content = options.template ? options.template(item) : item;
-    const $temp = $('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '"></a>');
+    const $temp = $('<a class="note-dropdown-item" href="javascript:void(0)" data-value="' + value + '" role="listitem" aria-label="' + item + '"></a>');
 
     $temp.html(content).data('item', item);
 
@@ -80,7 +80,7 @@ const dropdownCheck = renderer.create('<div class="note-dropdown-menu note-check
     const value = (typeof item === 'string') ? item : (item.value || '');
     const content = options.template ? options.template(item) : item;
 
-    const $temp = $('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '"></a>');
+    const $temp = $('<a class="note-dropdown-item" href="javascript:void(0)" data-value="' + value + '" role="listitem" aria-label="' + item + '"></a>');
     $temp.html([icon(options.checkClassName), ' ', content]).data('item', item);
     return $temp;
   }) : options.items;
@@ -405,7 +405,7 @@ const videoDialog = function(opt) {
     '<input class="note-video-url note-input" type="text" />' +
     '</div>';
   const footer = [
-    '<button type="button" href="#" class="note-btn note-btn-primary note-video-btn disabled" disabled>',
+    '<button type="button" href="javascript:void(0)" class="note-btn note-btn-primary note-video-btn disabled" disabled>',
     opt.lang.video.insert,
     '</button>'
   ].join('');
@@ -429,7 +429,7 @@ const imageDialog = function(opt) {
     '<input class="note-image-url note-input" type="text" />' +
     '</div>';
   const footer = [
-    '<button href="#" type="button" class="note-btn note-btn-primary note-btn-large note-image-btn disabled" disabled>',
+    '<button href="javascript:void(0)" type="button" class="note-btn note-btn-primary note-btn-large note-image-btn disabled" disabled>',
     opt.lang.image.insert,
     '</button>'
   ].join('');
@@ -457,7 +457,7 @@ const linkDialog = function(opt) {
       '</div>' : ''
     );
   const footer = [
-    '<button href="#" type="button" class="note-btn note-btn-primary note-link-btn disabled" disabled>',
+    '<button href="javascript:void(0)" type="button" class="note-btn note-btn-primary note-link-btn disabled" disabled>',
     opt.lang.link.insert,
     '</button>'
   ].join('');

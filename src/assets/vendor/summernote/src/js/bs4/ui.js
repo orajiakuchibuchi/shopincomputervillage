@@ -34,7 +34,7 @@ const dropdown = renderer.create('<div class="dropdown-menu" role="list">', func
 
     const dataValue = 'data-value="' + value + '"';
     const dataOption = (option !== undefined) ? ' data-option="' + option + '"' : '';
-    return '<a class="dropdown-item" href="#" ' + (dataValue + dataOption) + ' role="listitem" aria-label="' + item + '">' + content + '</a>';
+    return '<a class="dropdown-item" href="javascript:void(0)" ' + (dataValue + dataOption) + ' role="listitem" aria-label="' + item + '">' + content + '</a>';
   }).join('') : options.items;
 
   $node.html(markup).attr({'aria-label': options.title});
@@ -48,7 +48,7 @@ const dropdownCheck = renderer.create('<div class="dropdown-menu note-check" rol
   const markup = $.isArray(options.items) ? options.items.map(function(item) {
     const value = (typeof item === 'string') ? item : (item.value || '');
     const content = options.template ? options.template(item) : item;
-    return '<a class="dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '">' + icon(options.checkClassName) + ' ' + content + '</a>';
+    return '<a class="dropdown-item" href="javascript:void(0)" data-value="' + value + '" role="listitem" aria-label="' + item + '">' + icon(options.checkClassName) + ' ' + content + '</a>';
   }).join('') : options.items;
   $node.html(markup).attr({'aria-label': options.title});
 });

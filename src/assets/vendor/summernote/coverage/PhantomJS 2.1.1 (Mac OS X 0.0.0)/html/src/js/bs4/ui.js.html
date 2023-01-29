@@ -563,7 +563,7 @@
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    const dataValue = 'data-value="' + value + '"';</span>
 <span class="cstat-no" title="statement not covered" >    const dataOption = (option !== undefined) ? ' data-option="' + option + '"' : '';</span>
-<span class="cstat-no" title="statement not covered" >    return '&lt;a class="dropdown-item" href="#" ' + (dataValue + dataOption) + ' role="listitem" aria-label="' + item + '"&gt;' + content + '&lt;/a&gt;';</span>
+<span class="cstat-no" title="statement not covered" >    return '&lt;a class="dropdown-item" href="javascript:void(0)" ' + (dataValue + dataOption) + ' role="listitem" aria-label="' + item + '"&gt;' + content + '&lt;/a&gt;';</span>
   }).join('') : options.items;
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  $node.html(markup).attr({'aria-label': options.title});</span>
@@ -577,7 +577,7 @@
 <span class="cstat-no" title="statement not covered" >  const markup = $.isArray(options.items) ? options.items.map(<span class="fstat-no" title="function not covered" >function(item)</span> {</span>
 <span class="cstat-no" title="statement not covered" >    const value = (typeof item === 'string') ? item : (item.value || '');</span>
 <span class="cstat-no" title="statement not covered" >    const content = options.template ? options.template(item) : item;</span>
-<span class="cstat-no" title="statement not covered" >    return '&lt;a class="dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '"&gt;' + icon(options.checkClassName) + ' ' + content + '&lt;/a&gt;';</span>
+<span class="cstat-no" title="statement not covered" >    return '&lt;a class="dropdown-item" href="javascript:void(0)" data-value="' + value + '" role="listitem" aria-label="' + item + '"&gt;' + icon(options.checkClassName) + ' ' + content + '&lt;/a&gt;';</span>
   }).join('') : options.items;
 <span class="cstat-no" title="statement not covered" >  $node.html(markup).attr({'aria-label': options.title});</span>
 });

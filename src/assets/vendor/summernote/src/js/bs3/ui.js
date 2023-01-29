@@ -33,7 +33,7 @@ const dropdown = renderer.create('<ul class="dropdown-menu" role="list">', funct
 
     const dataValue = 'data-value="' + value + '"';
     const dataOption = (option !== undefined) ? ' data-option="' + option + '"' : '';
-    return '<li role="listitem" aria-label="' + item + '"><a href="#" ' + (dataValue + dataOption) + '>' + content + '</a></li>';
+    return '<li role="listitem" aria-label="' + item + '"><a href="javascript:void(0)" ' + (dataValue + dataOption) + '>' + content + '</a></li>';
   }).join('') : options.items;
 
   $node.html(markup).attr({'aria-label': options.title});
@@ -47,7 +47,7 @@ const dropdownCheck = renderer.create('<ul class="dropdown-menu note-check" role
   const markup = $.isArray(options.items) ? options.items.map(function(item) {
     const value = (typeof item === 'string') ? item : (item.value || '');
     const content = options.template ? options.template(item) : item;
-    return '<li role="listitem" aria-label="' + item + '"><a href="#" data-value="' + value + '">' + icon(options.checkClassName) + ' ' + content + '</a></li>';
+    return '<li role="listitem" aria-label="' + item + '"><a href="javascript:void(0)" data-value="' + value + '">' + icon(options.checkClassName) + ' ' + content + '</a></li>';
   }).join('') : options.items;
   $node.html(markup).attr({'aria-label': options.title});
 });

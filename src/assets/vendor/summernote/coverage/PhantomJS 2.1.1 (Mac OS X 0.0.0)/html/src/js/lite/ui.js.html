@@ -1333,7 +1333,7 @@
 <span class="cstat-no" title="statement not covered" >  const markup = $.isArray(options.items) ? options.items.map(<span class="fstat-no" title="function not covered" >function(item)</span> {</span>
 <span class="cstat-no" title="statement not covered" >    const value = (typeof item === 'string') ? item : (item.value || '');</span>
 <span class="cstat-no" title="statement not covered" >    const content = options.template ? options.template(item) : item;</span>
-<span class="cstat-no" title="statement not covered" >    const $temp = $('&lt;a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '"&gt;&lt;/a&gt;');</span>
+<span class="cstat-no" title="statement not covered" >    const $temp = $('&lt;a class="note-dropdown-item" href="javascript:void(0)" data-value="' + value + '" role="listitem" aria-label="' + item + '"&gt;&lt;/a&gt;');</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    $temp.html(content).data('item', item);</span>
 &nbsp;
@@ -1361,7 +1361,7 @@
 <span class="cstat-no" title="statement not covered" >    const value = (typeof item === 'string') ? item : (item.value || '');</span>
 <span class="cstat-no" title="statement not covered" >    const content = options.template ? options.template(item) : item;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    const $temp = $('&lt;a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '"&gt;&lt;/a&gt;');</span>
+<span class="cstat-no" title="statement not covered" >    const $temp = $('&lt;a class="note-dropdown-item" href="javascript:void(0)" data-value="' + value + '" role="listitem" aria-label="' + item + '"&gt;&lt;/a&gt;');</span>
 <span class="cstat-no" title="statement not covered" >    $temp.html([icon(options.checkClassName), ' ', content]).data('item', item);</span>
 <span class="cstat-no" title="statement not covered" >    return $temp;</span>
   }) : options.items;
@@ -1686,7 +1686,7 @@
     '&lt;input class="note-video-url note-input" type="text" /&gt;' +
     '&lt;/div&gt;';
 <span class="cstat-no" title="statement not covered" >  const footer = [</span>
-    '&lt;button type="button" href="#" class="note-btn note-btn-primary note-video-btn disabled" disabled&gt;',
+    '&lt;button type="button" href="javascript:void(0)" class="note-btn note-btn-primary note-video-btn disabled" disabled&gt;',
     opt.lang.video.insert,
     '&lt;/button&gt;'
   ].join('');
@@ -1710,7 +1710,7 @@
     '&lt;input class="note-image-url note-input" type="text" /&gt;' +
     '&lt;/div&gt;';
 <span class="cstat-no" title="statement not covered" >  const footer = [</span>
-    '&lt;button href="#" type="button" class="note-btn note-btn-primary note-btn-large note-image-btn disabled" disabled&gt;',
+    '&lt;button href="javascript:void(0)" type="button" class="note-btn note-btn-primary note-btn-large note-image-btn disabled" disabled&gt;',
     opt.lang.image.insert,
     '&lt;/button&gt;'
   ].join('');
@@ -1738,7 +1738,7 @@
       '&lt;/div&gt;' : ''
     );
 <span class="cstat-no" title="statement not covered" >  const footer = [</span>
-    '&lt;button href="#" type="button" class="note-btn note-btn-primary note-link-btn disabled" disabled&gt;',
+    '&lt;button href="javascript:void(0)" type="button" class="note-btn note-btn-primary note-link-btn disabled" disabled&gt;',
     opt.lang.link.insert,
     '&lt;/button&gt;'
   ].join('');

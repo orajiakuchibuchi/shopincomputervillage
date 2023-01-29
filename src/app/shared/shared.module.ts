@@ -74,6 +74,8 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { Angular4PaystackModule } from 'angular4-paystack';
 import { environment } from 'src/environments/environment';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { CompareComponent } from './compare/compare.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +98,8 @@ import { environment } from 'src/environments/environment';
         LivechatComponent,
         ResetPasswordComponent,
         BecomeAVendorComponent,
+        WishlistComponent,
+        CompareComponent,
   ],
   imports: [
     MatAutocompleteModule,
@@ -159,6 +163,8 @@ import { environment } from 'src/environments/environment';
     RangeSliderModule,
     AuthBarRecoverPasswordComponent,
     ResetPasswordComponent,
+    WishlistComponent,
+    CompareComponent,
     DragDropModule,ScrollingModule,CdkTableModule,CdkTreeModule,
     MatBadgeModule,MatBottomSheetModule,MatButtonModule,MatButtonToggleModule,
     MatCardModule,MatCheckboxModule,MatChipsModule,MatDatepickerModule,
