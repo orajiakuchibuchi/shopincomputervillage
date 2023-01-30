@@ -32,6 +32,8 @@
               "src/assets/js/nicepage.js"
             ],
             "styles": [
+              "node_modules/ngx-simple-modal/styles/simple-modal.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
               "src/styles.css",
               "src/assets/css/nicepage.css"
 

@@ -6,6 +6,7 @@ import { IndexComponent } from './index/index.component';
 import { ControlpanelComponent } from './controlpanel/controlpanel.component';
 import { SortpanelComponent } from './sortpanel/sortpanel.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ProductModule } from '../product/product.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     ShopRoutingModule,
-    SharedModule
+    SharedModule,
+    ProductModule
   ]
 })
 export class ShopModule { }

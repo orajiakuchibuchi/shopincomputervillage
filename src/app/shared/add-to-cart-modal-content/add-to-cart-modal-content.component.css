@@ -1,0 +1,8 @@
+.w80p{
+  width: 80%;
+}
+@media screen and (min-width: 800px) {
+  .table-responsive{
+    min-height: 250px;
+  }
+}

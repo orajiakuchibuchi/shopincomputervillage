@@ -119,6 +119,11 @@ export class IndexComponent implements OnInit {
     .subscribe(
       (data:any)=>{
         console.log(data)
+        // Scroll to top
+        let scrollToTop = document.getElementById("scrollToTop");
+        if(scrollToTop){
+          scrollToTop.click()
+        }
         let images = [];
         if(data.image1){
           images.push(

@@ -19,9 +19,7 @@
               <div class="text-gray-100">{{product?.price | currency}}</div>
             </div>
             <div class="d-none d-xl-block prodcut-add-cart">
-              <a href="javascript:void(0)"
-              [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active"
-                class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+<app-add-to-cart-modal [product]="product" [text]="false"></app-add-to-cart-modal>
             </div>
           </div>
         </div>

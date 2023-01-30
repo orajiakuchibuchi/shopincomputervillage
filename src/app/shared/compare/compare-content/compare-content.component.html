@@ -1,0 +1,161 @@
+<div class="modal-content modal-content-size-l">
+  <div class="modal-header">
+    <h5>Compare Product</h5>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12 text-left">
+        <h5>More Products</h5>
+        <ng-select [multiple]="true" [closeOnSelect]="true"  [(ngModel)]="product">
+          <ng-option *ngFor="let prod of productService.list | async"
+           [value]="prod">{{prod?.name}}</ng-option>
+        </ng-select>
+      </div>
+      <div class="col-md-12">
+        <div class="table-responsive table-bordered table-compare-list mb-10 border-0">
+          <table class="table">
+              <tbody>
+                  <tr>
+                      <th class="min-width-200">Product</th>
+                      <td *ngFor="let prod of product">
+                          <a href="javascript:void(0)" 
+                          class="product d-block">
+                              <div class="product-compare-image">
+                                  <div class="d-flex mb-3">
+                                      <img class="img-fluid mx-auto" 
+                                      [src]="prod.image" alt="Image Description">
+                                  </div>
+                              </div>
+                              <h3 class="product-item__title text-blue font-weight-bold mb-3">
+                                {{prod?.name}}</h3>
+                          </a>
+                          <!-- <div class="text-warning mb-2">
+                              <small class="fas fa-star"></small>
+                              <small class="fas fa-star"></small>
+                              <small class="fas fa-star"></small>
+                              <small class="fas fa-star"></small>
+                              <small class="fas fa-star"></small>
+                          </div> -->
+                      </td>
+                  </tr>
+    
+                  <tr>
+                      <th>Price</th>
+                      <td *ngFor="let prod of product">
+                          <div class="product-price">{{prod?.price | currency}}</div>
+                      </td>
+                  </tr>
+    
+                  <tr>
+                      <th>Availability</th>
+                      <td *ngFor="let prod of product">{{prod?.quantity}}<span> In stock</span>
+                      </td>
+                      
+                  </tr>
+    
+                  <tr>
+                      <th>Description</th>
+                      <td *ngFor="let prod of product">
+                          <ul>
+                              <li><span [innerHTML]="prod?.short_description"></span></li>
+                          </ul>
+                      </td>
+                  </tr>
+    
+                  <tr>
+                      <th>Add to cart</th>
+                      <td *ngFor="let prod of product">
+                          <div>
+                            <app-add-to-cart-modal [product]="prod" [text]="false"></app-add-to-cart-modal>
+                          </div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>Sku</th>
+                      <td *ngFor="let prod of product">{{prod?.SKU}}</td>
+                  </tr>
+                  <tr>
+                      <th>Weight</th>
+                      <td *ngFor="let prod of product">{{prod?.weight}}</td>
+                  </tr>
+                  <tr>
+                      <th>Dimensions</th>
+                      <td *ngFor="let prod of product">{{prod?.dimensions}} {{prod?.dimension_unit}} </td>
+                  </tr>
+                  <tr>
+                      <th>brands</th>
+                      <td *ngFor="let prod of product">{{prod?.brand?.brand_name}}</td>
+                  </tr>
+                  <tr>
+                      <th>Category</th>
+                      <td *ngFor="let prod of product">{{prod?.category?.name}}</td>
+                  </tr>
+    
+                  <tr>
+                      <th>Shipped From</th>
+                      <td *ngFor="let prod of product">
+                          <div class="product-price price">{{prod?.shipped_from?.country_name}}</div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>Store</th>
+                      <td *ngFor="let prod of product">
+                          <div class="product-price price">{{prod?.store?.name}}</div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>Warehouse</th>
+                      <td *ngFor="let prod of product">
+                          <div class="product-price price">{{prod?.warehouse?.name}}</div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>Warrantee Type</th>
+                      <td *ngFor="let prod of product">
+                          <div class="product-price price">{{prod?.warranty_type}}</div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>Warrantee Covers</th>
+                      <td *ngFor="let prod of product">
+                          <div class="product-price price">{{prod?.warranty_cover}}</div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>Warrantee Days</th>
+                      <td *ngFor="let prod of product">
+                          <div class="product-price price">{{prod?.warranty_duration}}</div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>Product Score</th>
+                      <td *ngFor="let prod of product">
+                          <div class="product-price price">{{prod?.total_product_score}} / 100</div>
+                      </td>
+                  </tr>
+    
+                  <!-- <tr>
+                      <th>Remove</th>
+                      <td class="text-center">
+                          <a href="javascript:void(0)" class="text-gray-90"><i class="fa fa-times"></i></a>
+                      </td>
+                      <td class="text-center">
+                          <a href="javascript:void(0)" class="text-gray-90"><i class="fa fa-times"></i></a>
+                      </td>
+                      <td class="text-center">
+                          <a href="javascript:void(0)" class="text-gray-90"><i class="fa fa-times"></i></a>
+                      </td>
+                      <td class="text-center">
+                          <a href="javascript:void(0)" class="text-gray-90"><i class="fa fa-times"></i></a>
+                      </td>
+                  </tr> -->
+              </tbody>
+          </table>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="close()">Done</button>
+  </div>
+</div>

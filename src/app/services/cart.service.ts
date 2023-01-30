@@ -10,14 +10,14 @@ import { Injectable } from '@angular/core';
 export class CartService {
   list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   displayingProduct: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  baseUrl:string = environment.jsonServer;
+  baseUrl:string = environment.getapi('order');
 
   constructor(private http: HttpClient) {
 
   }
   get(token:any): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/cart?access_token=${token}`).pipe(
-      map((res:any)=>{return res;})
+    return this.http.get<any>(`${this.baseUrl}/api/get-cart`).pipe(
+      map((res:any)=>{return res.data;})
     );
   }
   find(id:any){
@@ -26,7 +26,7 @@ export class CartService {
     );
   }
   add(product:any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/cart`, product).pipe(
+    return this.http.post<any>(`${this.baseUrl}/api/carts`, product).pipe(
       map((res:any)=>{return res;})
     );
   }

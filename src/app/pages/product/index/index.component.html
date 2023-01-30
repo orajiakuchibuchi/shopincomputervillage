@@ -25,9 +25,9 @@
           <div class="slick-list draggable">
             <div class="slick-track" style="opacity: 1; width: 5170px; transform: translate3d(-470px, 0px, 0px);">
               <div class="js-slide slick-slide" data-slick-index="i-1"
-              aria-hidden="!item.showing ? true : false"
+              aria-hidden="!item?.showing ? true : false"
               *ngFor="let item of product?.images; let i=index"
-                style="width: 470px;" tabindex="i" [ngClass]="{'slick-active': item.showing, 'slick-current': item.showing}">
+                style="width: 470px;" tabindex="i" [ngClass]="{'slick-active': item?.showing, 'slick-current': item?.showing}">
                 <img class="img-fluid prodimg" src="{{item?.file_path}}"
                 alt="Image Description">
               </div>
@@ -50,11 +50,11 @@
             <div class="slick-track" style="opacity: 1; width: 480px; transform: translate3d(0px, 0px, 0px);">
               <div class="js-slide slick-slide"
               *ngFor="let item of product?.images; let i=index"
-              [ngClass]="{'slick-active': item.showing, 'slick-current': item.showing, 'slick-blockage': item.showing}"
+              [ngClass]="{'slick-active': item?.showing, 'slick-current': item?.showing, 'slick-blockage': item?.showing}"
               (click)="setAsActive(item, i)"
-                style="cursor: pointer; width: 88px; height: auto;" data-slick-index="i" aria-hidden="!item.showing ? true : false"
+                style="cursor: pointer; width: 88px; height: auto;" data-slick-index="i" aria-hidden="!item?.showing ? true : false"
                 tabindex="i">
-                <img class="img-fluid" src="{{item.file_path}}" alt="Image Description">
+                <img class="img-fluid" src="{{item?.file_path}}" alt="Image Description">
               </div>
             </div>
           </div>
@@ -96,7 +96,7 @@
           <div class="flex-horizontal-center flex-wrap mb-4">
             <a href="javascript:void(0)" class="text-gray-6 font-size-13 mr-2"><app-wishlist></app-wishlist>
               Wishlist</a>
-            <a href="javascript:void(0)" class="text-gray-6 font-size-13 ml-2"><app-compare></app-compare>
+            <a href="javascript:void(0)" class="text-gray-6 font-size-13 ml-2"><app-compare [product]=[product]></app-compare>
               Compare</a>
           </div>
           <div class="mb-2">
@@ -118,7 +118,7 @@
 
           <div class="d-md-flex align-items-end mb-3">
             <div class="max-width-150 mb-4 mb-md-0">
-              <a href="javascript:void(0)" *ngIf="!product?.cart?.added"
+              <!-- <a href="javascript:void(0)" *ngIf="!product?.cart?.added"
               (click)="addToCart()"
               [ngClass]="{'slick-blockage': processing}"
               style="width: 180px;"
@@ -130,9 +130,9 @@
               style="width: 180px;"
               class="btn px-5 btn-danger transition-3d-hover"><i
                   class="ec ec-add-to-cart mr-2 font-size-20"></i> Remove from Cart</a>
-                  <br>
+                  <br> -->
 
-                  <!-- <app-add-to-cart-modal [product]="product"></app-add-to-cart-modal> -->
+                  <app-add-to-cart-modal [product]="product" [text]="true"></app-add-to-cart-modal>
 
             </div>
           </div>

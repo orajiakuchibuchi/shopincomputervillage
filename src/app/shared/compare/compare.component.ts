@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { SimpleModalService } from 'ngx-simple-modal';
+import { Component, Input, OnInit } from '@angular/core';
+import { CompareContentComponent } from './compare-content/compare-content.component';
 
 @Component({
   selector: 'app-compare',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./compare.component.css']
 })
 export class CompareComponent implements OnInit {
-
-  constructor() { }
+  @Input() product:any = null;
+  constructor(private SimpleModalService: SimpleModalService) { }
 
   ngOnInit(): void {
+  }
+  showContent() {
+    this.SimpleModalService.addModal(CompareContentComponent, {product: this.product});
   }
   hideModal(){
     setTimeout(() => {

@@ -101,7 +101,7 @@ export class NavHeaderCenterComponent implements OnInit {
         let total = 0;
         for(let i=0; i<carts.length;i++){
           const cart = carts[i];
-          total = cart?.cart.quantity * cart?.price;
+          total += cart?.quantity * cart?.price;
         }
         return {
           carts,

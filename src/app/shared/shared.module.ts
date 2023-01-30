@@ -76,11 +76,21 @@ import { Angular4PaystackModule } from 'angular4-paystack';
 import { environment } from 'src/environments/environment';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CompareComponent } from './compare/compare.component';
+import { ReplacePipe } from './pipes/replace.pipe';
 
+import { NgSelectModule } from '@ng-select/ng-select';
+import { SliderModule } from 'ngx-slider';
+
+import { SimpleModalModule } from 'ngx-simple-modal';
+import { CompareContentComponent } from './compare/compare-content/compare-content.component';
+import { WishlistContentComponent } from './wishlist/wishlist-content/wishlist-content.component';
+import { AddToCartModalComponent } from './add-to-cart-modal/add-to-cart-modal.component';
+import { AddToCartModalContentComponent } from './add-to-cart-modal-content/add-to-cart-modal-content.component';
 @NgModule({
   declarations: [
-
-
+    AddToCartModalComponent,
+    AddToCartModalContentComponent,
+    ReplacePipe,
     NavHeaderComponent,
         NavHeaderTopComponent,
         NavHeaderCenterComponent,
@@ -100,10 +110,13 @@ import { CompareComponent } from './compare/compare.component';
         BecomeAVendorComponent,
         WishlistComponent,
         CompareComponent,
+        CompareContentComponent,
+        WishlistContentComponent,
   ],
   imports: [
     MatAutocompleteModule,
     CommonModule,
+    SliderModule ,
     I18nModule,
     ChartsModule,
     TranslateModule,
@@ -114,10 +127,12 @@ import { CompareComponent } from './compare/compare.component';
     RouterModule,
     NgxSpinnerModule,
     WebcamModule,
+    NgSelectModule,
     IvyCarouselModule,
     FileUploadAngularModule,
     RangeSliderModule,
     NgxPaginationModule,
+    SimpleModalModule.forRoot({container: "modal-container"}),
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.chasingDots,
         backdropBackgroundColour: 'rgb(8 0 0 / 45%)',
@@ -134,10 +149,14 @@ import { CompareComponent } from './compare/compare.component';
     MatSidenavModule,MatSliderModule,MatSlideToggleModule,MatSnackBarModule,MatSortModule,MatStepperModule,MatTableModule,MatTabsModule,MatToolbarModule,MatTooltipModule,MatTreeModule,MatProgressSpinnerModule,MatRadioModule,MatSelectModule
   ],
   exports: [
+    SliderModule ,
+    AddToCartModalComponent,
+    AddToCartModalContentComponent,
     I18nModule,
     CommonModule,
+    SimpleModalModule,
     TranslateModule,
-
+    NgSelectModule,
     SelectDropDownModule,
     FormsModule,
     ReactiveFormsModule,
@@ -164,6 +183,7 @@ import { CompareComponent } from './compare/compare.component';
     AuthBarRecoverPasswordComponent,
     ResetPasswordComponent,
     WishlistComponent,
+    ReplacePipe,
     CompareComponent,
     DragDropModule,ScrollingModule,CdkTableModule,CdkTreeModule,
     MatBadgeModule,MatBottomSheetModule,MatButtonModule,MatButtonToggleModule,

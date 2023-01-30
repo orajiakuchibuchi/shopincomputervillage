@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { LoaderService } from 'src/app/services/loader.service';
-declare const $:any;
+import { SimpleModalService } from 'ngx-simple-modal';
+import { Component, OnInit, Input } from '@angular/core';
+import { WishlistContentComponent } from './wishlist-content/wishlist-content.component';
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
@@ -8,17 +8,13 @@ declare const $:any;
 })
 export class WishlistComponent implements OnInit {
 
-  constructor(private loader: LoaderService) { }
+  @Input() product:any = null;
+  constructor(private SimpleModalService: SimpleModalService) { }
 
   ngOnInit(): void {
   }
-  hideModal(){
-    setTimeout(() => {
-      let backdrop = document.getElementsByClassName('modal-backdrop');
-      if(backdrop && backdrop.length > 0){
-        backdrop.item(0)?.remove();
-      }
-    }, 1500);
+  showContent() {
+    this.SimpleModalService.addModal(WishlistContentComponent, {product: this.product});
   }
 
 }

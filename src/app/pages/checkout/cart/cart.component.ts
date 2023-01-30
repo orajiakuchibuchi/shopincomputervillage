@@ -61,11 +61,11 @@ export class CartComponent implements OnInit {
     )
   }
   decrement(cart:any, index:any){
-    let newVal = cart.cart.quantity -1;
+    let newVal = cart.quantity -1;
     if(newVal > 1){
-      cart.cart.quantity = newVal;
+      cart.quantity = newVal;
     }else{
-      cart.cart.quantity = 1;
+      cart.quantity = 1;
     }
     this.cartItems[index] = cart;
     this._cart.update(cart)
@@ -81,15 +81,8 @@ export class CartComponent implements OnInit {
     this._cart.list.next(this.cartItems);
   }
   increment(cart:any, index:any){
-    let newVal = cart.cart.quantity + 1;
-    console.log(newVal);
-    console.log(cart.quantity);
-    if(newVal < cart.quantity){
-      cart.cart.quantity = newVal;
-    }else{
-      cart.cart.quantity = cart.quantity;
-      this.notify.openInfo('Max available quantity', `The maximum available quantity for ${cart.name} is ${cart.quantity}`);
-    }
+    let newVal = cart.quantity + 1;
+    cart.quantity = newVal;
     this.cartItems[index] = cart;
     this._cart.update(cart)
     .pipe(

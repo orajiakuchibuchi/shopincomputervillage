@@ -9,7 +9,6 @@ import { ReviewComponent } from './review/review.component';
 import { SpecificationComponent } from './specification/specification.component';
 import { NavComponent } from './nav/nav.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AddToCartModalComponent } from './add-to-cart-modal/add-to-cart-modal.component';
 
 
 @NgModule({
@@ -20,7 +19,6 @@ import { AddToCartModalComponent } from './add-to-cart-modal/add-to-cart-modal.c
     ReviewComponent,
     SpecificationComponent,
     NavComponent,
-    AddToCartModalComponent
   ],
   imports: [
     CommonModule,
