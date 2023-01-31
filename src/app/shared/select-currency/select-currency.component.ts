@@ -8,15 +8,30 @@ import { UserManagementService } from 'src/app/services/user-management.service'
 })
 export class SelectCurrencyComponent implements OnInit {
   @Input() styleClass: any = '';
-  currency:any = 'Naira';
-  constructor(private userService: UserManagementService) { }
+  currency:any = null;
+  constructor(public userService: UserManagementService) { }
 
   ngOnInit(): void {
+    this.userService.selectedCurrency.subscribe(
+      res=>{
+        console.log(res);
+        this.currency = res;
+      }
+    )
     // this.userService.fetchCurrencyList().subscribe(
     //   res=>{
     //     console.log(res)
     //   }
     // )
+  }
+  updateCurency(evt:any){
+    console.log(evt.target.value);
+    let value = evt.target.value;
+    if(value){
+      sessionStorage.setItem("defaultCurrenct", value);
+      window.location.reload();
+    }
+    this.userService.findAndSetCurrency();
   }
 
 }

@@ -18,11 +18,11 @@
                   <tr>
                       <th class="min-width-200">Product</th>
                       <td *ngFor="let prod of product">
-                          <a href="javascript:void(0)" 
+                          <a href="javascript:void(0)"
                           class="product d-block">
                               <div class="product-compare-image">
                                   <div class="d-flex mb-3">
-                                      <img class="img-fluid mx-auto" 
+                                      <img class="img-fluid mx-auto"
                                       [src]="prod.image" alt="Image Description">
                                   </div>
                               </div>
@@ -38,21 +38,21 @@
                           </div> -->
                       </td>
                   </tr>
-    
+
                   <tr>
                       <th>Price</th>
                       <td *ngFor="let prod of product">
-                          <div class="product-price">{{prod?.price | currency}}</div>
+                          <div class="product-price">{{prod?.price | customCurrency}}</div>
                       </td>
                   </tr>
-    
+
                   <tr>
                       <th>Availability</th>
                       <td *ngFor="let prod of product">{{prod?.quantity}}<span> In stock</span>
                       </td>
-                      
+
                   </tr>
-    
+
                   <tr>
                       <th>Description</th>
                       <td *ngFor="let prod of product">
@@ -61,7 +61,7 @@
                           </ul>
                       </td>
                   </tr>
-    
+
                   <tr>
                       <th>Add to cart</th>
                       <td *ngFor="let prod of product">
@@ -90,7 +90,7 @@
                       <th>Category</th>
                       <td *ngFor="let prod of product">{{prod?.category?.name}}</td>
                   </tr>
-    
+
                   <tr>
                       <th>Shipped From</th>
                       <td *ngFor="let prod of product">
@@ -133,7 +133,7 @@
                           <div class="product-price price">{{prod?.total_product_score}} / 100</div>
                       </td>
                   </tr>
-    
+
                   <!-- <tr>
                       <th>Remove</th>
                       <td class="text-center">

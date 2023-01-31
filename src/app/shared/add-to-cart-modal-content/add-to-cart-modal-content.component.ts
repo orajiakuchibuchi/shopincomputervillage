@@ -72,14 +72,14 @@ export class AddToCartModalContentComponent extends SimpleModalComponent<Product
       product_meta_name:product.meta_name,
       product_name:product.name,
       quantity:this.quantity,
-      price:product.price,
+      price:product.price ,
       type:'add',
       currency_id:1,
     }
     formData.append('product_meta_name',product.meta_name)
     formData.append('product_name',product.name)
     formData.append('quantity',JSON.stringify(this.quantity))
-    formData.append('price',product.price)
+    formData.append('price',product.price )
     formData.append('type','add')
     formData.append('currency_id','1')
     if(this.selectedVaiance){
@@ -118,7 +118,7 @@ export class AddToCartModalContentComponent extends SimpleModalComponent<Product
           let selectedVarianceValue = v.value == this.selectedVarianceValue;
           return namecheck && selectedVarianceValue;
         });
-        return c.product_meta_name == cart.meta_name && 
+        return c.product_meta_name == cart.meta_name &&
         c.product_variance_id == vx.id
         && c.product_variance_name == this.selectedVarianceValue
       }
@@ -138,7 +138,7 @@ export class AddToCartModalContentComponent extends SimpleModalComponent<Product
           let selectedVarianceValue = v.value == this.selectedVarianceValue;
           return namecheck && selectedVarianceValue;
         });
-        return c.product_meta_name == cart.meta_name && 
+        return c.product_meta_name == cart.meta_name &&
         c.product_variance_id == vx.id
         && c.product_variance_name == this.selectedVarianceValue
       }

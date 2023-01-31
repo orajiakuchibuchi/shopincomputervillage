@@ -1,7 +1,7 @@
 
 import { TranslateModule } from '@ngx-translate/core';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { I18nModule } from '../i18n/i18n.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -88,11 +88,13 @@ import { AddToCartModalComponent } from './add-to-cart-modal/add-to-cart-modal.c
 import { AddToCartModalContentComponent } from './add-to-cart-modal-content/add-to-cart-modal-content.component';
 import { SelectLanguageComponent } from './select-language/select-language.component';
 import { SelectCurrencyComponent } from './select-currency/select-currency.component';
+import { CustomCurrencyPipe } from './pipes/currency.pipe';
 @NgModule({
   declarations: [
     AddToCartModalComponent,
     AddToCartModalContentComponent,
     ReplacePipe,
+    CustomCurrencyPipe,
     NavHeaderComponent,
         NavHeaderTopComponent,
         NavHeaderCenterComponent,
@@ -188,6 +190,7 @@ import { SelectCurrencyComponent } from './select-currency/select-currency.compo
     ResetPasswordComponent,
     WishlistComponent,
     ReplacePipe,
+    CustomCurrencyPipe,
     CompareComponent,
     DragDropModule,ScrollingModule,CdkTableModule,CdkTreeModule,
     MatBadgeModule,MatBottomSheetModule,MatButtonModule,MatButtonToggleModule,

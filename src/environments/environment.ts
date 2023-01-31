@@ -7,6 +7,7 @@ export const environment = {
   apiUrl: 'http://127.0.0.1:3000',
   jsonServer: "https://opensource.herokuapp.com",
   baseapi: 'laslas.org',
+  ngusdrate: 700,
   PAYSTACK_PUBLIC_KEY:'pk_test_c5b021a06e30964fb81f372a4fa139dadea37c10',
   PAYSTACK_URL:'https://js.paystack.co/v1/inline.js',
   getapi: (mod:any)=>{

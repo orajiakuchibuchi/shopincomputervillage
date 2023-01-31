@@ -34,7 +34,7 @@ export class NavHeaderBottomRightComponent implements OnInit {
         if(this._auth.access_token.value){
           this.cartLength = list.length;
           this._cart.list.next(list);
-        } 
+        }
         this.getbalance();
         console.log(list);
         console.log(this.cartLength);
@@ -51,7 +51,7 @@ export class NavHeaderBottomRightComponent implements OnInit {
         for(let i=0; i<carts.length;i++){
           const cart = carts[i];
           console.log(cart)
-          total += cart?.quantity * cart?.price;
+          total += cart?.quantity * cart?.price ;
         }
         return {
           carts,

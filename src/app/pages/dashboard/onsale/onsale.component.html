@@ -14,7 +14,7 @@
           </div>
           <div class="flex-center-between mb-1">
             <div class="prodcut-price">
-              <div class="text-gray-100">{{product?.price | currency}}</div>
+              <div class="text-gray-100">{{product?.price | customCurrency}}</div>
             </div>
             <div class="d-none d-xl-block prodcut-add-cart">
 <app-add-to-cart-modal [product]="product" [text]="false"></app-add-to-cart-modal>

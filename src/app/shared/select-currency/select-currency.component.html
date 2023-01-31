@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-12">
-        <select class="form-select form-select-sm {{styleClass}}" aria-label=".form-select-sm example">
-            <option selected>Naira</option>
-            <option value="USD">USD</option>
-            <option value="CAD">CAD</option>
+        <select class="form-select form-select-sm {{styleClass}}" (change)="updateCurency($event)" aria-label=".form-select-sm example">
+            <option selected value="{{currency ? currency?.symbole : '' }}">{{currency ? currency?.symbole : 'Select currency' }}</option>
+            <option value="₦">₦</option>
+            <option value="$">$</option>
           </select>
     </div>
 </div>

@@ -15,7 +15,8 @@
         <i class="font-size-22 ec ec-shopping-bag"></i>
         <span
           class="width-22 height-22 bg-dark position-absolute flex-content-center text-white rounded-circle left-12 top-8 font-weight-bold font-size-12">{{cartLength}}</span>
-        <span class="font-weight-bold font-size-16 text-gray-90 ml-3">{{balance | currency:"₦"}}</span>
+        <span class="font-weight-bold font-size-16 text-gray-90 ml-3">{{balance | customCurrency}}</span>
+        <!-- <span class="font-weight-bold font-size-16 text-gray-90 ml-3">{{balance | customCurrency:"₦"}}</span> -->
       </a>
     </li>
   </ul>

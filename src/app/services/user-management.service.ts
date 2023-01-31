@@ -16,11 +16,30 @@ export class UserManagementService {
   bank_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   address_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   ticket_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
-  currency_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
+  selectedCurrency: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  currency_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([
+    {
+      symbole: '₦',
+      name: 'Naira'
+    },
+    {
+      symbole: '$',
+      name: 'USD'
+    }
+  ]);
   baseUrl:string = environment.getapi('user-manage');
   constructor(private http: HttpClient) {
-
-   }
+    this.findAndSetCurrency()
+  }
+  findAndSetCurrency(){
+    let defaultCurrenct = sessionStorage.getItem("defaultCurrenct");
+    if(defaultCurrenct){
+      let currency:any = this.currency_list.value.find(c=>c.symbole == defaultCurrenct);
+      if(currency){
+        this.selectedCurrency.next(currency);
+      }
+    }
+  }
    patchUser(data:any,id:any){
     return this.http.patch<any>(`${this.baseUrl}/api/users/${id}`,data);
   }

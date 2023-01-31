@@ -9,6 +9,7 @@ export const environment = {
   getapi: (mod:any)=>{
     return `https://${mod}.laslas.org`;
   },
+  ngusdrate: 700,
   clientID: 'FhYOhoQSbkbpvKOs6tRIZWHDtId9TEJyFnhff3voaH0ezFUZNtwxYbfgtSX5fx0e6',
   jsonServer: "https://opensource.herokuapp.com",
   google_client_id: '378767313164-ns13c0fu1cukqk8g79doilcvrhi39fn1.apps.googleusercontent.com',
