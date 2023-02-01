@@ -16,7 +16,10 @@ export class UserManagementService {
   bank_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   address_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   ticket_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
-  selectedCurrency: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  selectedCurrency: BehaviorSubject<any> = new BehaviorSubject<any>(    {
+    symbole: '₦',
+    name: 'Naira'
+  });
   currency_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([
     {
       symbole: '₦',
@@ -63,6 +66,7 @@ export class UserManagementService {
       map((res:any)=>{return res.data;})
     );
   }
+
   fetchBankList(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/api/get-banks`).pipe(
       map((res:any)=>{return res.data;})

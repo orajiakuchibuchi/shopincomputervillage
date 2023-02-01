@@ -19,6 +19,7 @@ export class AuthService {
   constructor(private http: HttpClient,private googleAuthService: SocialAuthService, private cookieService: CookieService) {
     const authToken = this.cookieService.getCookie("authToken");
     const authUser = this.cookieService.getCookie("authUser");
+    console.log(authToken)
     this.access_token.next(authToken);
     if(this.access_token.value.length > 10){
       this.status.next(true);

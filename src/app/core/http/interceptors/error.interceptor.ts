@@ -35,21 +35,25 @@ export class ErrorInterceptor implements HttpInterceptor {
             let errorMsg = httpError.error;
             return throwError(errorMsg);
           }
-          if(httpError.message = "Timeout has occurred"){
-            let errorMsg = httpError.message;
-            this.loader.hide();
-            return throwError(errorMsg);
-          }
           let errorMsg = httpError.error.message;
-          if(errorMsg == "Failed!!! You are unauthorized!"){
+
+          if(errorMsg == "Failed!!! You are unauthorized!" || errorMsg== "Unauthenticated! Session not found!"){
             localStorage.removeItem("authToken");
-            this.cookieService.removeCookie("authToken")
+            this.cookieService.removeCookie("authToken");
+            CookieService.remove("authToken");
+            CookieService.remove("authUser");
             this.cookieService.removeCookie("authUser")
             this._auth.access_token.next('');
             this._auth.status.next(false);
             this._auth.user.next({});
           }
+          if(httpError.message = "Timeout has occurred"){
+            let errorMsg = httpError.message;
+            this.loader.hide();
+            return throwError(errorMsg);
+          }
           return throwError(httpError);
+
         })
       )
   }

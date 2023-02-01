@@ -102,6 +102,7 @@ export class AuthBarLoginComponent implements OnInit {
           this._auth.status.next(
             true
           );
+          this.router.navigate(['marketplace'])
 
 
           // {

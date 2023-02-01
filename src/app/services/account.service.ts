@@ -11,6 +11,11 @@ import { Injectable } from '@angular/core';
 export class AccountService {
   list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   paymentTypeList: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
+  wallet: BehaviorSubject<any> = new BehaviorSubject<any>({
+    amount: 0,
+    created_at: null,
+    id: null
+  });
   displayingProduct: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   baseUrl:string = environment.getapi('account');
 
@@ -18,12 +23,29 @@ export class AccountService {
 
    }
 
+  getWallets(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/api/get-wallet`).pipe(
+      map(res=> {return res.data}),
+      tap((res:any)=>{
+       console.log(res);
+       if(res){
+        this.wallet.next(
+          {
+            id: res.id,
+            created_at: res.created_at,
+            amount: parseInt(res.amount)
+          }
+         )
+       }
+        return res;})
+    );
+  }
+
   getPaymentTypes(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/api/get-payment-types`).pipe(
       map(res=> {return res.data}),
       tap((res:any)=>{
         this.paymentTypeList.next(res)
-       console.log(this.paymentTypeList.value)
         return res;})
     );
   }

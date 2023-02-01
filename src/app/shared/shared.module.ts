@@ -89,6 +89,8 @@ import { AddToCartModalContentComponent } from './add-to-cart-modal-content/add-
 import { SelectLanguageComponent } from './select-language/select-language.component';
 import { SelectCurrencyComponent } from './select-currency/select-currency.component';
 import { CustomCurrencyPipe } from './pipes/currency.pipe';
+import { WalletComponent } from './wallet/wallet.component';
+import { WalletRecordComponent } from './wallet-record/wallet-record.component';
 @NgModule({
   declarations: [
     AddToCartModalComponent,
@@ -118,6 +120,8 @@ import { CustomCurrencyPipe } from './pipes/currency.pipe';
         WishlistContentComponent,
         SelectLanguageComponent,
         SelectCurrencyComponent,
+        WalletComponent,
+        WalletRecordComponent,
   ],
   imports: [
     MatAutocompleteModule,

@@ -1,0 +1,9 @@
+<a href="javascript:void(0);" (click)="showContent()" *ngIf="amount <1"
+class="u-header-topbar__nav-link">
+<i
+  class="ec ec-payment mr-1"></i> {{wallet.amount | customCurrency}}</a>
+
+  <a href="javascript:void(0);" (click)="showContent()" *ngIf="amount >0"
+class="u-header-topbar__nav-link">
+<i
+  class="ec ec-payment mr-1"></i> {{(wallet.amount + amount) | customCurrency}}</a>

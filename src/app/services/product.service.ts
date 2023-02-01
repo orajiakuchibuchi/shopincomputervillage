@@ -9,6 +9,9 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
   list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>(this.getFromLocals());
+  brand_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>(this.getBrandListFromLocals());
+  highest_amount: BehaviorSubject<Array<any>> = new BehaviorSubject<any>(this.getHighestAmountListFromLocals());
+  lowest_amount: BehaviorSubject<Array<any>> = new BehaviorSubject<any>(this.getLowestAmountListFromLocals());
   displayingProduct: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   baseUrl:string = environment.getapi('product');
   maxDefaultListDisplay: number = 100;
@@ -18,6 +21,43 @@ export class ProductService {
   }
   saveToLocals(){
     sessionStorage.setItem('productList', JSON.stringify(this.list.value));
+  }
+  saveBrandListToLocals(){
+    sessionStorage.setItem('brandList', JSON.stringify(this.brand_list.value));
+  }
+  saveLowestAmountToLocals(){
+    console.log(this.lowest_amount.value)
+    localStorage.setItem('lowestamount', this.lowest_amount.value.toString());
+  }
+  saveHighestAmountToLocals(){
+    localStorage.setItem('highestamount', this.highest_amount.value.toString());
+  }
+  getHighestAmountListFromLocals(){
+    let first500:any = localStorage.getItem('highestamount');
+    if(first500){
+      first500 = parseInt(first500);
+    }else{
+      first500 = 0;
+    }
+    return first500;
+  }
+  getLowestAmountListFromLocals(){
+    let first500:any = localStorage.getItem('lowestamount');
+    if(first500){
+      first500 = parseInt(first500);
+    }else{
+      first500 = 0;
+    }
+    return first500;
+  }
+  getBrandListFromLocals(){
+    let first500:any = sessionStorage.getItem('brandList');
+    if(first500){
+      first500 = JSON.parse(first500);
+    }else{
+      first500 = [];
+    }
+    return first500;
   }
   getFromLocals(){
     let first500:any = sessionStorage.getItem('productList');

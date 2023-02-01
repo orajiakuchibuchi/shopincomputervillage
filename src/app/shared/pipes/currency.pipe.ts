@@ -8,9 +8,8 @@ import { environment } from 'src/environments/environment';
 export class CustomCurrencyPipe implements PipeTransform {
   currencySelected:any = null;
   constructor(private userService: UserManagementService){
-    console.log(this.userService.selectedCurrency.value);
     this.userService.selectedCurrency.pipe(
-      map(res=>{console.log(res);return res.symbole})
+      map(res=>{return res.symbole})
     ).subscribe(
       curr=>this.currencySelected = curr
     )
@@ -19,7 +18,7 @@ export class CustomCurrencyPipe implements PipeTransform {
     if(this.currencySelected == '$'){
       return `${this.currencySelected}${(value/environment.ngusdrate).toFixed(3)}`;
     }
-    return `${this.currencySelected}${value}`;
+    return `${this.currencySelected}${value.toFixed(3)}`;
   }
 
 }

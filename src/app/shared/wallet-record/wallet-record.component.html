@@ -1,0 +1,72 @@
+<div class="modal-content modal-content-size-sm">
+  <div class="modal-header">
+    <h5 class="w80p">Wallet</h5>
+    <app-wallet [canOpenmodal]="false" [fetchFromServer]="false"></app-wallet>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+
+      <mat-card class="dashboard-card cont"  [style.background]="'#f48c40'">
+        <mat-card-header>
+          <mat-card-title [style.color] ="'black'">
+            <strong>Amount</strong>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div [style.color] ="'black'">
+            <div class="form-group">
+              <div class="js-form-message js-focus-state">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <span class="fas fa-money"></span>
+                    </span>
+                  </div>
+                  <input type="number" class="form-control" name="amount" [(ngModel)]="amount">
+                </div>
+              </div>
+            </div>
+            <p *ngIf="amount < 101"> Amount must be greater than 100</p>
+            <div class="form-group">
+              <div class="js-form-message js-focus-state">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <span class="fas fa-money"></span>
+                    </span>
+                  </div>
+                  <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="selectedTransactionType" name="selectedTransactionType">
+                    <option selected value="">Select Payment Gateway</option>
+                    <option value="{{trans?.id}}" *ngFor="let trans of tranactionType">{{trans?.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- <h3><app-wallet [canOpenmodal]="false" [fetchFromServer]="false" [aboutToCreditAmount]="amount"></app-wallet></h3> -->
+          </div>
+        </mat-card-content>
+        <mat-card-actions [style.text-align] ="'center'">
+          <button color="light" background="dark"
+
+          angular4-paystack
+          (paymentInit)="paymentInit()"
+
+          [email]="authService.user.value.email"
+                      [amount]="amount * 100"
+                      [ref]="reference"
+                      (onClose)="paymentCancel()"
+                      (callback)="paymentDone($event)"
+          *ngIf="selectedTransactionType && amount > 100" mat-raised-button type="button" class="btn dflmbtn btn-primary-dark-w">
+            Add Funds
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary"
+    (click)="close()">Close</button>
+  </div>
+</div>
