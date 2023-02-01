@@ -15,7 +15,6 @@ export class UnauthenticatedGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       let _state = this.authService.status.value;
-
       if(!_state){
         return true;
       }

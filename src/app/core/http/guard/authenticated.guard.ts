@@ -17,7 +17,7 @@ export class AuthenticatedGuard implements CanActivate {
       return this.authService.status.pipe(
         tap((status:boolean)=>{
           if(!status){
-            this.Router.navigateByUrl('home').finally(()=>{
+            this.Router.navigateByUrl('auth/login').finally(()=>{
               setTimeout(() => {
                 const sidebarNavToggler = document.getElementById("sidebarNavToggler");
                 if(sidebarNavToggler && !sidebarNavToggler.classList.contains("active")){

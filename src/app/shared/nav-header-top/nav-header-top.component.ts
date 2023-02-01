@@ -21,10 +21,17 @@ export class NavHeaderTopComponent implements OnInit {
   }
   goToPage(page:string){
     this.router.navigate([page]).finally(()=>{
-      const closeMenuMobile = (<HTMLButtonElement>document.getElementById("closeMenuMobile"));
-      if(closeMenuMobile){
-        closeMenuMobile.click();
+      if(page!=='auth'){
+        const closeMenuMobile = (<HTMLButtonElement>document.getElementById("closeMenuMobile"));
+        const authBarClose = (<HTMLButtonElement>document.getElementById("authBarClose"));
+        if(closeMenuMobile){
+          closeMenuMobile.click();
+        }
+        if(authBarClose){
+          authBarClose.click();
+        }
       }
+
     });
   }
 

@@ -41,7 +41,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             return throwError(errorMsg);
           }
           let errorMsg = httpError.error.message;
-          if(httpError.error.status == 401){
+          if(errorMsg == "Failed!!! You are unauthorized!"){
             localStorage.removeItem("authToken");
             this.cookieService.removeCookie("authToken")
             this.cookieService.removeCookie("authUser")

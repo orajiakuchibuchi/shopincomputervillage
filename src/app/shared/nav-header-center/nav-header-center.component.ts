@@ -1,4 +1,4 @@
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
@@ -21,6 +21,25 @@ export class NavHeaderCenterComponent implements OnInit {
     private _cart: CartService, public _auth: AuthService) { }
 
   ngOnInit(): void {
+    this._auth.status.pipe(
+      tap(
+        (res)=>{
+          if(res){
+            this.getFromServer();
+          }
+          return res;
+        }
+      )
+    ).subscribe();
+    this.store.getStores().subscribe(
+      (data:any)=>{
+        // this.store.list.next(data);
+      }
+    )
+
+    this.getbalance();
+  }
+  getFromServer(){
     this._cart.get(this._auth.access_token.value).subscribe(
       (list:Array<any>)=>{
         if(this._auth.access_token.value){
@@ -29,13 +48,6 @@ export class NavHeaderCenterComponent implements OnInit {
         }
       }
     );
-    this.store.getStores().subscribe(
-      (data:any)=>{
-        // this.store.list.next(data);
-      }
-    )
-
-    this.getbalance();
   }
   goToshop(shop=null){
     this.router.navigate(['shop']).finally(()=>{

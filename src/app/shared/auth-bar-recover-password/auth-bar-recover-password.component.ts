@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { validateEmail } from 'src/app/core/utils/particles';
 import { LoaderService } from 'src/app/services/loader.service';
@@ -17,8 +18,9 @@ export class AuthBarRecoverPasswordComponent implements OnInit {
   code:string = '';
   errorMessage:string = '';
   showCodeField: boolean = false;
-  forgotpassword: boolean = false;
+  forgotpassword: boolean = true;
   constructor(
+    private router: Router,
     private network: NetworkService,
     private _auth: AuthService,
     private cookieService: CookieService,
@@ -29,7 +31,9 @@ export class AuthBarRecoverPasswordComponent implements OnInit {
   confirmEmail(){
     return validateEmail(this.email);
   }
-
+  login(){
+    this.router.navigate(['auth/login']);
+  }
   sendRequest(){
     this.errorMessage = '';
     if(this.network.getStatus() !== 'ONLINE'){

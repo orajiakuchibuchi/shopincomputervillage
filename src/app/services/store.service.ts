@@ -29,7 +29,7 @@ export class StoreService {
     return first500;
   }
   getStores(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/api/get-stores?data=less`).pipe(
+    return this.http.get<any>(`${this.baseUrl}/api/get-stores?data=more`).pipe(
       map((res:any)=>{return res;}),
        tap((res:any)=>{
         if(res.data.length > 100){

@@ -16,6 +16,7 @@ export class UserManagementService {
   bank_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   address_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   ticket_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
+  currency_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   baseUrl:string = environment.getapi('user-manage');
   constructor(private http: HttpClient) {
 
@@ -45,6 +46,11 @@ export class UserManagementService {
   }
   fetchBankList(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/api/get-banks`).pipe(
+      map((res:any)=>{return res.data;})
+    );
+  }
+  fetchCurrencyList(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/api/get-currency`).pipe(
       map((res:any)=>{return res.data;})
     );
   }

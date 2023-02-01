@@ -1,5 +1,5 @@
 import { AuthService } from 'src/app/services/auth.service';
-import { map, concatMap } from 'rxjs/operators';
+import { map, concatMap, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
@@ -17,18 +17,29 @@ export class NavHeaderBottomRightComponent implements OnInit {
   constructor(private router: Router, private _cart:CartService, private _auth:AuthService) { }
 
   ngOnInit(): void {
+    this._auth.status.pipe(
+      tap(
+        (res)=>{
+          if(res){
+            this.getFromServer();
+          }
+          return res;
+        }
+      )
+    ).subscribe();
+  }
+  getFromServer(){
     this._cart.get(this._auth.access_token.value).subscribe(
       (list:Array<any>)=>{
         if(this._auth.access_token.value){
           this.cartLength = list.length;
           this._cart.list.next(list);
-        }
+        } 
+        this.getbalance();
         console.log(list);
         console.log(this.cartLength);
       }
     )
-
-    this.getbalance()
   }
   goToCart(){
     this.router.navigate(['checkout']);

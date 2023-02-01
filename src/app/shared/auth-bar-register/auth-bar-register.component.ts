@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { NetworkService } from 'src/app/services/network.service';
 import { LoaderService } from 'src/app/services/loader.service';
@@ -31,6 +32,7 @@ export class AuthBarRegisterComponent implements OnInit {
   formTrial: number = 0;
   constructor(private nationalityService: NationalityService,
     private network: NetworkService,
+    private router: Router,
     private cookieService: CookieService,
     private _auth: AuthService, private loader: LoaderService) { }
 
@@ -38,6 +40,9 @@ export class AuthBarRegisterComponent implements OnInit {
     this.countryData = this.nationalityService.localCountryData;
     this.errorMessage = '';
     this.successMessage = '';
+  }
+  login(){
+    this.router.navigate(['auth/login']);
   }
   attemptRegistration() {
     this.loader.show();

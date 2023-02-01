@@ -86,6 +86,8 @@ import { CompareContentComponent } from './compare/compare-content/compare-conte
 import { WishlistContentComponent } from './wishlist/wishlist-content/wishlist-content.component';
 import { AddToCartModalComponent } from './add-to-cart-modal/add-to-cart-modal.component';
 import { AddToCartModalContentComponent } from './add-to-cart-modal-content/add-to-cart-modal-content.component';
+import { SelectLanguageComponent } from './select-language/select-language.component';
+import { SelectCurrencyComponent } from './select-currency/select-currency.component';
 @NgModule({
   declarations: [
     AddToCartModalComponent,
@@ -112,6 +114,8 @@ import { AddToCartModalContentComponent } from './add-to-cart-modal-content/add-
         CompareComponent,
         CompareContentComponent,
         WishlistContentComponent,
+        SelectLanguageComponent,
+        SelectCurrencyComponent,
   ],
   imports: [
     MatAutocompleteModule,

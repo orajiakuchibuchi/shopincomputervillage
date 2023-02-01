@@ -7,6 +7,7 @@ import { validateEmail } from 'src/app/core/utils/particles';
 import { NotificationService } from 'src/app/services/notification.service';
 import { throwError } from 'rxjs';
 import { CookieService } from 'src/app/services/cookie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'auth-bar-login',
@@ -25,6 +26,7 @@ export class AuthBarLoginComponent implements OnInit {
   constructor(private _notification: NotificationService,
     private network: NetworkService,
     private cookieService: CookieService,
+    private router: Router,
     private _auth: AuthService, private loaderService: LoaderService) { }
 
   ngOnInit(): void {
@@ -127,6 +129,12 @@ export class AuthBarLoginComponent implements OnInit {
 
     return (this.existingUser.email && validateEmail(this.existingUser.email)
     && this.existingUser.password && this.existingUser.password.length > 5) && this.trial < this._auth.maxLoginAttempt;
+  }
+  signup(){
+    this.router.navigate(['auth/register']);
+  }
+  forgotPassword(){
+    this.router.navigate(['auth/forgot-password']);
   }
   clearErrorForm(){
     const signinEmail = (<HTMLInputElement>document.getElementById("signinEmail"));

@@ -50,7 +50,8 @@
 
   <div class="d-flex justify-content-end mb-4">
     <a class="js-animation-link small link-muted" href="javascript:;" data-target="#forgotPassword"
-      data-link-group="idForm" data-animation-in="slideInUp">Login using onetime code</a>
+    (click)="forgotPassword()"
+      data-link-group="idForm" data-animation-in="slideInUp">Forgot Password</a>
   </div>
 
   <div class="mb-2">
@@ -59,7 +60,7 @@
 
   <div class="text-center mb-4">
     <span class="small text-muted">Do not have an account?</span>
-    <a class="js-animation-link small text-dark" href="javascript:;" data-target="#signup"
+    <a class="js-animation-link small text-dark" href="javascript:;" data-target="#signup" (click)="signup()"
       data-link-group="idForm" data-animation-in="slideInUp">Signup
     </a>
   </div>
