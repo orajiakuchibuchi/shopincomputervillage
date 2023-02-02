@@ -91,6 +91,8 @@ import { SelectCurrencyComponent } from './select-currency/select-currency.compo
 import { CustomCurrencyPipe } from './pipes/currency.pipe';
 import { WalletComponent } from './wallet/wallet.component';
 import { WalletRecordComponent } from './wallet-record/wallet-record.component';
+import { TermsAndConditonComponent } from './terms-and-conditon/terms-and-conditon.component';
+import { TermsAndConditonModalComponent } from './terms-and-conditon-modal/terms-and-conditon-modal.component';
 @NgModule({
   declarations: [
     AddToCartModalComponent,
@@ -122,6 +124,8 @@ import { WalletRecordComponent } from './wallet-record/wallet-record.component';
         SelectCurrencyComponent,
         WalletComponent,
         WalletRecordComponent,
+        TermsAndConditonComponent,
+        TermsAndConditonModalComponent,
   ],
   imports: [
     MatAutocompleteModule,
@@ -169,6 +173,10 @@ import { WalletRecordComponent } from './wallet-record/wallet-record.component';
     NgSelectModule,
     SelectDropDownModule,
     FormsModule,
+    SelectLanguageComponent,
+    SelectCurrencyComponent,
+    WalletComponent,
+    WalletRecordComponent,
     ReactiveFormsModule,
     // OrdersModule,
     RouterModule,

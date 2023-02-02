@@ -25,29 +25,6 @@
   </div>
   <!-- End Accordion -->
 
-  <!-- Accordion -->
-  <!-- <div id="shopCartAccordion1" class="accordion rounded mb-6">
-      <div class="card border-0">
-          <div id="shopCartHeadingTwo" class="alert alert-primary mb-0" role="alert">
-              Have a coupon? <a href="javascript:void(0);" class="alert-link" data-toggle="collapse" data-target="#shopCartTwo" aria-expanded="false" aria-controls="shopCartTwo">Click here to enter your code</a>
-          </div>
-          <div id="shopCartTwo" class="collapse border border-top-0" aria-labelledby="shopCartHeadingTwo" data-parent="#shopCartAccordion1" >
-              <form class="js-validate p-5" novalidate="novalidate">
-                  <p class="w-100 text-gray-90">If you have a coupon code, please apply it below.</p>
-                  <div class="input-group input-group-pill max-width-660-xl">
-                      <input type="text" class="form-control" name="name" placeholder="Coupon code" aria-label="Promo code">
-                      <div class="input-group-append">
-                          <button type="submit" class="btn btn-block btn-dark font-weight-normal btn-pill px-4">
-                              <i class="fas fa-tags d-md-none"></i>
-                              <span class="d-none d-md-inline">Apply coupon</span>
-                          </button>
-                      </div>
-                  </div>
-              </form>
-          </div>
-      </div>
-  </div> -->
-  <!-- End Accordion -->
   <form class="js-validate" novalidate="novalidate" [formGroup]="billingForm">
     <div class="row">
       <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
@@ -97,25 +74,20 @@
                 <!-- Basics Accordion -->
                 <div id="basicsAccordion1">
                   <!-- Card -->
-                  <div *ngFor="let tps of paymentTypes"
-                  class="border-bottom border-color-1 border-dotted-bottom">
+                  <div *ngFor="let tps of paymentTypes" class="border-bottom border-color-1 border-dotted-bottom">
                     <div class="p-3" id="basicsHeading{{tps?.id}}" (click)="resetButID(tps?.id);">
                       <div class="custom-control custom-radio">
-                        <input type="radio" value="payment_type_{{tps?.id}}"
-                        *ngIf="tps?.selected"
+                        <input type="radio" value="payment_type_{{tps?.id}}" *ngIf="tps?.selected"
                           class="custom-control-input" id="stylishRadio1" name="payment_type_{{tps?.id}}"
-                          [attr.checked]="tps?.selected"
-                          >
+                          [attr.checked]="tps?.selected">
                         <input type="radio" value="payment_type_{{tps?.id}}"
-                        *ngIf="!tps?.selected || tps?.selected == false"
-                          class="custom-control-input" id="stylishRadio1" name="payment_type_{{tps?.id}}"
-
-                          >
+                          *ngIf="!tps?.selected || tps?.selected == false" class="custom-control-input"
+                          id="stylishRadio1" name="payment_type_{{tps?.id}}">
                         <label class="custom-control-label form-label" for="payment_type_{{tps?.id}}"
-                        data-toggle="collapse"
-                          [attr.data-target]="'#basicsCollapse' + tps?.id" [attr.aria-expanded]="tps?.id == 1 ? true : false"
+                          data-toggle="collapse" [attr.data-target]="'#basicsCollapse' + tps?.id"
+                          [attr.aria-expanded]="tps?.id == 1 ? true : false"
                           [attr.aria-controls]="'#basicsCollapse' + tps?.id">
-                          {{tps?.name}}
+                          {{tps?.name}} <app-wallet *ngIf="tps?.name == 'LasPay'"></app-wallet>
                         </label>
                       </div>
                     </div>
@@ -142,7 +114,8 @@
                     id="defaultCheck10" required data-msg="Please agree terms and conditions."
                     data-error-class="u-has-error" data-success-class="u-has-success">
                   <label class="form-check-label form-label" for="defaultCheck10">
-                    I have read and agree to the website <a href="javascript:void(0);" class="text-blue">terms and
+                    I have read and agree to the website
+                    <a href="javascript:void(0);" class="text-blue">terms and
                       conditions </a>
                     <span class="text-danger">*</span>
                   </label>
@@ -156,19 +129,11 @@
               <button type="button" (click)="submitForm()"
                 class="btn btn-primary-dark-w btn-block btn-pill font-size-20 mb-3 py-3">Place
                 order</button>
-              <button class="hiddenclick"
-    angular4-paystack
-    (paymentInit)="paymentInit()"
-
-    [email]="authService.user.value.email"
-                [amount]="balance * 100"
-                [ref]="reference"
-                [class]="'btn btn-primary hiddenclick'"
-                (onClose)="paymentCancel()"
-                (callback)="paymentDone($event)"
-  >
-    Pay with Paystack
-  </button>
+              <button class="hiddenclick" angular4-paystack (paymentInit)="paymentInit()"
+                [email]="authService.user.value.email" [amount]="balance * 100" [ref]="reference"
+                [class]="'btn btn-primary hiddenclick'" (onClose)="paymentCancel()" (callback)="paymentDone($event)">
+                Pay with Paystack
+              </button>
             </div>
             <!-- End Order Summary -->
           </div>
@@ -187,18 +152,81 @@
               <div [innerHTML]="errorMessage"></div>
             </div>
           </div>
+          <div class="row"></div>
+          <div class="w-100"></div>
+
+          <div class="col-md-12">
+            <!-- Input -->
+            <div class="js-form-message mb-6">
+              <label class="form-label">
+                Delivery Mode
+                <span class="text-danger">*</span>
+              </label>
+              <select name="addressbook" class="form-control" (change)="updateMethod($event)"
+                data-style="btn height-40 text-gray-60 font-weight-normal border-0 rounded-0 bg-white px-5 py-2">
+                <!-- <option value="" selected="selected" *ngIf="!selectedMEthod">Select Delivery Mode</option> -->
+                <option value="Address Delivery" selected="selected">Address Delivery</option>
+                <option value="Pick up">Pick up</option>
+              </select>
+            </div>
+            <!-- End Input -->
+          </div>
+          <div class="w-100"></div>
+          <div class="col-md-12 order-lg-2 mb-7 mb-lg-0" *ngIf="selectedMEthod == 'Pick up'">
+            <div class="pl-lg-3 ">
+              <div class="bg-gray-1 rounded-lg">
+                <!-- Order Summary -->
+                <div class="p-4 mb-4 checkout-table">
+                  <!-- Title -->
+                  <div class="border-bottom border-color-1 mb-5">
+                    <h3 class="section-title mb-0 pb-2 font-size-25">Pick up addresses</h3>
+                  </div>
+                  <!-- End Title -->
+
+                  <!-- Product Content -->
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="product-name">Location</th>
+                        <th class="product-total">Address</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="cart_item">
+                        <td>
+                          <strong class="product-quantity">Surulere</strong>
+                        </td>
+                        <td>126, Ogunlana drive, Surulere, Lagos state</td>
+                      </tr>
+                      <tr class="cart_item">
+                        <td>
+                          <strong class="product-quantity">Open Hours</strong>
+                        </td>
+                        <td>We are open 9am - 5pm every Mon-Sat</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- End Order Summary -->
+              </div>
+            </div>
+          </div>
+
           <!-- Billing Form -->
           <div class="row" *ngIf="userManagement.address_list.value.length > 0">
+
             <div class="w-100"></div>
 
-            <div class="col-md-12">
+            <div class="col-md-12" *ngIf="selectedMEthod == 'Address Delivery'">
               <!-- Input -->
               <div class="js-form-message mb-6">
                 <label class="form-label">
                   Select from addressbook
                   <span class="text-danger">*</span>
                 </label>
-                <select name="addressbook" class="form-control" formControlName="addressbook"
+                <select name="addressbook" class="form-control"
+                formControlName="addressbook"
+                (change)="updateAddressBook($event)"
                   data-style="btn height-40 text-gray-60 font-weight-normal border-0 rounded-0 bg-white px-5 py-2">
                   <option value="" selected="selected">Select Existing address</option>
                   <option value="{{address?.id}}" *ngFor="let address of userManagement.address_list | async">
@@ -208,12 +236,13 @@
               <!-- End Input -->
             </div>
 
-            <div class="w-100"></div>
+            <div class="w-100" *ngIf="selectedMEthod == 'Address Delivery'"></div>
           </div>
           <!-- End Billing Form -->
 
           <!-- Accordion -->
-          <div *ngIf="!addressbook" id="shopCartAccordion2" class="accordion rounded mb-6">
+          <div *ngIf="!addressbook && selectedMEthod == 'Address Delivery'" id="shopCartAccordion2"
+            class="accordion rounded mb-6">
             <!-- Card -->
             <div class="card border-0">
               <div id="shopCartHeadingThree" class="custom-control custom-checkbox d-flex align-items-center">
@@ -297,10 +326,11 @@
           </div>
           <!-- End Accordion -->
           <!-- Title -->
-          <div class="border-bottom border-color-1 mb-5" *ngIf="!addressbook">
+          <div class="border-bottom border-color-1 mb-5" *ngIf="!addressbook && selectedMEthod == 'Address Delivery'">
             <h3 class="section-title mb-0 pb-2 font-size-25">Billing address</h3>
           </div>
-          <div id="shopCartAccordion3" class="accordion rounded mb-5" *ngIf="!addressbook">
+          <div id="shopCartAccordion3" class="accordion rounded mb-5"
+            *ngIf="!addressbook && selectedMEthod == 'Address Delivery'">
             <div class="card border-0">
               <!-- Billing Form -->
               <div class="row mb-2">
@@ -442,4 +472,3 @@
     </div>
   </form>
 </div>
-

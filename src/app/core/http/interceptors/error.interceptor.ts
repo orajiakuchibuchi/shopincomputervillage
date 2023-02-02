@@ -38,14 +38,35 @@ export class ErrorInterceptor implements HttpInterceptor {
           let errorMsg = httpError.error.message;
 
           if(errorMsg == "Failed!!! You are unauthorized!" || errorMsg== "Unauthenticated! Session not found!"){
-            localStorage.removeItem("authToken");
-            this.cookieService.removeCookie("authToken");
-            CookieService.remove("authToken");
-            CookieService.remove("authUser");
-            this.cookieService.removeCookie("authUser")
-            this._auth.access_token.next('');
-            this._auth.status.next(false);
-            this._auth.user.next({});
+            setTimeout(() => {
+              let token = this.cookieService.getCookie("authToken");
+              if(!token){
+                localStorage.removeItem("authToken");
+                this.cookieService.removeCookie("authToken");
+                CookieService.remove("authToken");
+                CookieService.remove("authUser");
+                this.cookieService.removeCookie("authUser")
+                this._auth.access_token.next('');
+                this._auth.status.next(false);
+                this._auth.user.next({});
+              }else{
+                let checker = localStorage.getItem('checker');
+                if(!checker){
+                  localStorage.setItem('checker', 'true');
+                  window.location.reload();
+                }else{
+                  localStorage.removeItem("authToken");
+                  localStorage.removeItem("checker");
+                  this.cookieService.removeCookie("authToken");
+                  CookieService.remove("authToken");
+                  CookieService.remove("authUser");
+                  this.cookieService.removeCookie("authUser")
+                  this._auth.access_token.next('');
+                  this._auth.status.next(false);
+                  this._auth.user.next({});
+                }
+              }
+            }, 2000);
           }
           if(httpError.message = "Timeout has occurred"){
             let errorMsg = httpError.message;

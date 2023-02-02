@@ -6,6 +6,14 @@
     <p *ngIf="networkStatus == 'OFFLINE'">You are currently operating offline, please reconnect your network to enjoy more features of our application</p>
   </header>
   <!-- End Title -->
+  <div class="mb-3 row">
+    <div class="col-md-12">
+      <h6><strong>Notification</strong></h6>
+      <ul>
+        <li>You just Logged in your account </li>
+      </ul>
+    </div>
+  </div>
   <div class="mb-2" *ngIf="networkStatus == 'ONLINE'">
     <button type="button" (click)="viewProfile()"
     class="btn btn-block btn-sm btn-primary transition-3d-hover">

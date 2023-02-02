@@ -29,7 +29,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/assets/js/jquery.js",
-              "src/assets/js/nicepage.js"
+              "src/assets/js/nicepage.js",
+              "src/assets/js/google_gsi_min.js"
             ],
             "styles": [
               "node_modules/ngx-simple-modal/styles/simple-modal.css",

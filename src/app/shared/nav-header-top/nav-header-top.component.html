@@ -34,14 +34,14 @@
                 Become a seller</a>
                 <app-wallet *ngIf="status"></app-wallet>
               </li>
-              <!-- <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
+              <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                 <a href="javascript:void(0);" class="u-header-topbar__nav-link greenit" *ngIf="(network.getStatusAsync | async) == 'ONLINE' ">
                   <i class="ec ec-phone mr-1"></i> {{network.getStatusAsync | async}}
                 </a>
                 <a href="javascript:void(0);" class="u-header-topbar__nav-link redit" *ngIf="(network.getStatusAsync | async) == 'OFFLINE' ">
                   <i class="ec ec-phone mr-1"></i> {{network.getStatusAsync | async}}
                 </a>
-              </li> -->
+              </li>
               <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                 <!-- Account Sidebar Toggle Button -->
                 <!-- <a id="sidebarNavToggler" *ngIf="!status" href="javascript:;" role="button" class="u-header-topbar__nav-link"
@@ -60,6 +60,7 @@
                   aria-controls="sidebarContent" aria-haspopup="true" aria-expanded="false" data-unfold-event="click"
                   data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarContent"
                   data-unfold-type="css-animation" data-unfold-animation-in="fadeInRight"
+                  (click)="goToPage('account')"
                   data-unfold-animation-out="fadeOutRight" data-unfold-duration="500">
                   <i class="ec ec-user mr-1"></i> Account
                 </a>

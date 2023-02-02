@@ -36,13 +36,28 @@
                       <span class="fas fa-money"></span>
                     </span>
                   </div>
-                  <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="selectedTransactionType" name="selectedTransactionType">
+                  <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="selectedPaymentType" name="selectedPaymentType">
                     <option selected value="">Select Payment Gateway</option>
-                    <option value="{{trans?.id}}" *ngFor="let trans of tranactionType">{{trans?.name}}</option>
+                    <option value="{{trans?.id}}" *ngFor="let trans of paymentType">{{trans?.name}}</option>
                   </select>
                 </div>
               </div>
             </div>
+            <!-- <div class="form-group">
+              <div class="js-form-message js-focus-state">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <span class="fas fa-money"></span>
+                    </span>
+                  </div>
+                  <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="selectedPaymentType" name="selectedPaymentType">
+                    <option selected value="">Select Payment Gateway</option>
+                    <option value="{{trans?.id}}" *ngFor="let trans of paymentType">{{trans?.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div> -->
             <!-- <h3><app-wallet [canOpenmodal]="false" [fetchFromServer]="false" [aboutToCreditAmount]="amount"></app-wallet></h3> -->
           </div>
         </mat-card-content>
@@ -57,8 +72,16 @@
                       [ref]="reference"
                       (onClose)="paymentCancel()"
                       (callback)="paymentDone($event)"
-          *ngIf="selectedTransactionType && amount > 100" mat-raised-button type="button" class="btn dflmbtn btn-primary-dark-w">
+          *ngIf="selectedPaymentType && amount > 100 && transactionTypes.length > 0" mat-raised-button type="button" class="btn dflmbtn btn-primary-dark-w">
             Add Funds
+          </button>
+
+          <button color="light"
+          background="thead-light" mat-raised-button type="button"
+          (click)="createWallet()"
+          *ngIf="!wallet"
+          class="btn dflmbtn btn-primary-dark-w">
+            Create Wallet
           </button>
         </mat-card-actions>
       </mat-card>

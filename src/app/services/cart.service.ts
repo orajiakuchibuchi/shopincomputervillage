@@ -16,7 +16,7 @@ export class CartService {
 
   }
   get(token:any): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/api/get-cart`).pipe(
+    return this.http.get<any>(`${this.baseUrl}/api/get-cart?view=moreData`).pipe(
       map((res:any)=>{return res.data;})
     );
   }
@@ -41,7 +41,7 @@ export class CartService {
     );
   }
   applyCoupon(data:any){
-    return this.http.post<any>(`${environment.getapi('orders')}/api/apply-coupon`, data).pipe(
+    return this.http.post<any>(`${this.baseUrl}/api/apply-coupon`, data).pipe(
       map((res:any)=>{return res;})
     );
   }

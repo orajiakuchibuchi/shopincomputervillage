@@ -15,6 +15,7 @@ import { throwError } from 'rxjs';
 export class CartComponent implements OnInit {
   cartItems: Array<any> = [];
   balance:any = 0;
+  code:string = '';
   constructor(private _auth: AuthService,
     private notify: NotificationService,
     private loader: LoaderService,
@@ -105,13 +106,34 @@ export class CartComponent implements OnInit {
       }
     )
   }
+  applyCopon(){
+    if(this.code.length < 2){
+      this.notify.openInfo('Invalid Code', 'Invalid coupon code. Please try a valid code');
+      return;
+    }
+    this.loader.show();
+    let formData= new FormData();
+    formData.append('code', this.code);
+    this._cart.applyCoupon(formData)
+    .pipe(
+      catchError((e:any)=>{
+        console.log(e);
+        this.loader.hide();
+        this.notify.openWarning('Opps', e.message)
+        return throwError(e);
+      })
+    )
+    .subscribe(
+      c=>console.log(c)
+    )
+  }
   getbalance(){
     return this._cart.list.pipe(
       map((carts:any)=>{
         let total = 0;
         for(let i=0; i<carts.length;i++){
           const cart = carts[i];
-          total = cart?.cart.quantity * cart?.price;
+          total = cart?.quantity * cart?.price;
         }
         return {
           carts,

@@ -22,13 +22,14 @@ export class WalletComponent extends SimpleModalComponent<any, null> implements 
 
   ngOnInit(): void {
     this.accountService.wallet.subscribe(w=>this.wallet = w);
-    if(this.accountService){
+    if(this.fetchFromServer){
       this.accountService.getWallets().subscribe();
+      this.accountService.getTransactionTypes().subscribe();
     }
   }
   showContent() {
     if(this.canOpenmodal){
-      this.SimpleModalService.addModal(WalletRecordComponent);
+      this.SimpleModalService.addModal(WalletRecordComponent, {wallet: this.wallet});
     }
   }
 }

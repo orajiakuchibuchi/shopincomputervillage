@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { NationalityService } from 'src/app/services/nationality.service';
 import { throwError } from 'rxjs';
 import { CookieService } from 'src/app/services/cookie.service';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'auth-bar-register',
@@ -34,6 +35,7 @@ export class AuthBarRegisterComponent implements OnInit {
     private network: NetworkService,
     private router: Router,
     private cookieService: CookieService,
+    private accountService: AccountService,
     private _auth: AuthService, private loader: LoaderService) { }
 
   ngOnInit(): void {
@@ -78,6 +80,7 @@ export class AuthBarRegisterComponent implements OnInit {
           } else {
             this.successMessage = response.message;
             this.loader.show();
+            this.createNewWallet();
             setTimeout(() => {
               localStorage.setItem("authToken", response.data.access_token);
               this.cookieService.setCookie("authUser", response.data);
@@ -95,7 +98,13 @@ export class AuthBarRegisterComponent implements OnInit {
         }
       )
   }
-
+  createNewWallet(){
+    let formData = new FormData();
+    formData.append('amount', '0');
+    this.accountService.createWallet(formData).subscribe(
+      res=> console.log(res)
+    )
+  }
   isFormValid() {
     return this.newUser.title && this.newUser.title.length > 1
       && this.newUser.first_name && this.newUser.first_name.length > 1

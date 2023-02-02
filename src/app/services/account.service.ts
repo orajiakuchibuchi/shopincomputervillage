@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 export class AccountService {
   list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   paymentTypeList: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
+  TransactionTypeList: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   wallet: BehaviorSubject<any> = new BehaviorSubject<any>({
     amount: 0,
     created_at: null,
@@ -41,11 +42,27 @@ export class AccountService {
     );
   }
 
+  updateWallet(data:any){
+    return this.http.post<any>(`${this.baseUrl}/api/update-wallet`, data).pipe(
+      map((res:any)=>{return res.data;})
+    );
+  }
+
   getPaymentTypes(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/api/get-payment-types`).pipe(
       map(res=> {return res.data}),
       tap((res:any)=>{
         this.paymentTypeList.next(res)
+        return res;})
+    );
+  }
+
+  getTransactionTypes(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/api/get-transaction-types`).pipe(
+      map(res=> {return res.data}),
+      tap((res:any)=>{
+        this.TransactionTypeList.next(res);
+        console.log(res);
         return res;})
     );
   }
@@ -74,9 +91,23 @@ export class AccountService {
       map((res:any)=>{return res.data;})
     );
   }
+  createTransaction(data:any){
+    return this.http.post<any>(`${this.baseUrl}/api/transactions`, data).pipe(
+      map((res:any)=>{return res.data;})
+    );
+  }
   createWishlist(data:any){
     return this.http.post<any>(`${this.baseUrl}/api/wishlists`, data).pipe(
       map((res:any)=>{return res.data;})
+    );
+  }
+  createWallet(data:any){
+    return this.http.post<any>(`${this.baseUrl}/api/create-wallet`, data).pipe(
+      map((res:any)=>{return res.data;}),
+      tap((res:any)=>{
+        this.getWallets().subscribe();
+        return res;
+      })
     );
   }
   deleteWishlist(id:any, data:any){

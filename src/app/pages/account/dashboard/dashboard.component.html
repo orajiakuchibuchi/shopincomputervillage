@@ -1,5 +1,5 @@
 <div class="grid-container">
-  <h3 class="mat-h1">{{(_auth.user | async).first_name}} Dashboard</h3>
+  <h3 class="mat-h1">{{(_auth.user | async).first_name}} Dashboard <span><strong><app-wallet></app-wallet></strong></span></h3>
   <!-- <mat-grid-list cols="3" rowHeight="150px" cdkDropList (cdkDropListDropped)="drop($event)">
     <mat-grid-tile *ngFor="let card of cardList"
     [colspan]="card.cols" [rowspan]="card.rows" cdkDrag>

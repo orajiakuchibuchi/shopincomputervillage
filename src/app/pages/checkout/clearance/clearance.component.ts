@@ -9,6 +9,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 import { AccountService } from 'src/app/services/account.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { Router } from '@angular/router';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-clearance',
@@ -23,10 +24,13 @@ export class ClearanceComponent implements OnInit {
   billingForm: FormGroup;
   paymentTypes: Array<any> = [];
   addressObserver: any = null;
+  addressbookseleected: any = null;
+  selectedMEthod: any = 'Address Delivery';
   constructor(public _cart: CartService,
     public userManagement: UserManagementService,
     public authService: AuthService,
     public account: AccountService,
+    public orderService: OrdersService,
     public notify: NotificationService,
     public loader: LoaderService,
     public router: Router,
@@ -54,6 +58,7 @@ export class ClearanceComponent implements OnInit {
         this.resetButID(1)
       }
     );
+    this.account.getTransactionTypes().subscribe();
     this.account.paymentTypeList.subscribe(l=>this.paymentTypes=l)
     this.userManagement.fetchUserAddress(this._auth.user.value.id).pipe(catchError((err: any) => {
       (<HTMLElement>document.getElementById("shouldcollapseNewAddress")).click();
@@ -197,6 +202,10 @@ export class ClearanceComponent implements OnInit {
   paymentInit(){
 
   }
+  updateAddressBook(e:any){
+    this.addressbookseleected = this.userManagement.address_list.value.find(v=>v.id==e.target.value);
+    console.log(this.addressbookseleected);
+  }
   paymentDone(event:any){
     console.log(event);
   //   {
@@ -208,16 +217,85 @@ export class ClearanceComponent implements OnInit {
   //     "trxref": "SNDSNFSFSDFNFGDGGSFSSDF",
   //     "redirecturl": "http://eventhost.ng/payment_callbacks/?trxref=SNDSNFSFSDFNFGDGGSFSSDF&reference=SNDSNFSFSDFNFGDGGSFSSDF"
   // }
-  this.notify.openSuccess('Payment Completed', 'Order subitted successfully.');
+  let formData = new FormData();
+  let trnstype = this.account.TransactionTypeList.value.find((t:any)=>{return t.name.includes("Product Purchase (Online Payment)")})
+  formData.append('transaction_type_id', trnstype.id)
+  formData.append('payment_type_id', this.paymentTypes.find(t=>t.selected).id)
+  formData.append('amount', this.balance)
+  formData.append('user_id', this.authService.user.value.id)
+  formData.append('currency', this.userManagement.selectedCurrency.value.name)
+  formData.append('currency_name', this.userManagement.selectedCurrency.value.name)
+  formData.append('currency_field', this.userManagement.selectedCurrency.value.name)
+  formData.append('currency_symbol', this.userManagement.selectedCurrency.value.symbole)
+  formData.append('service', 'Order')
+  formData.append('service_details', 'I just placed an order of total' + this.balance)
+  this.account.createTransaction(formData).pipe(catchError((e:any)=>{
+    this.loader.hide();
+    console.log(e)
+    this.notify.openError('Opps', 'Opps something went wrong. Please contact the developer to fix server error response')
+    return throwError(e);
+  })).subscribe(
+    r=>{
+      this.notify.openSuccess(r.transaction_type_name, `Payment ${r.status} and processing please wait!`);
+      formData.append('user_address_id',this.addressbookseleected.id)
+      formData.append('user_address_firstname',this.addressbookseleected.first_name)
+      formData.append('user_address_lastname',this.addressbookseleected.last_name)
+      formData.append('user_address_address',this.addressbookseleected.address)
+      formData.append('user_address_country_id',this.addressbookseleected.country.id)
+      formData.append('user_address_country_name',this.addressbookseleected.country.name)
+      formData.append('user_address_state_id',this.addressbookseleected.state.id)
+      formData.append('customer_id',this.addressbookseleected.customer_id)
+      formData.append('user_address_state_name',this.addressbookseleected.state.name)
+      formData.append('user_address_lga_id',this.addressbookseleected.lga.id)
+      formData.append('user_address_lga_name',this.addressbookseleected.lga.name)
+      formData.append('user_address_ward_id',this.addressbookseleected.ward.id)
+      formData.append('user_address_ward_name',this.addressbookseleected.ward.name)
+      this.orderService.create(formData).pipe(catchError((e:any)=>{
+        this.loader.hide();
+        console.log(e)
+        this.notify.openError('Opps', 'Opps something went wrong. Please contact the developer to fix server error response')
+        return throwError(e);
+      })).subscribe(
+        u=>{
+          console.log(u);
+          this.loader.hide();
+          this.notify.openSuccess(r.transaction_type_name, 'Hello your transaction was successfully completed. Order processing');
   setTimeout(() => {
     this.router.navigate(['account/orders'])
   }, 1000);
+        }
+      )
+    //   {
+    //     "user_id": "2",
+    //     "transaction_type_id": 2,
+    //     "transaction_type_name": "Credit (Wallet)",
+    //     "payment_type_id": 1,
+    //     "payment_type_name": "Paystack",
+    //     "reference_code": "9f0d82b6-0948-42f4-ba25-f2868296946e",
+    //     "description": null,
+    //     "currency": "Naira",
+    //     "currency_symbol": "₦",
+    //     "amount": "1000",
+    //     "service": "Account",
+    //     "service_details": "Please credit my wallet with the sum of 1000",
+    //     "status": "pending",
+    //     "updated_at": "2023-02-01T22:43:39.000000Z",
+    //     "created_at": "2023-02-01T22:43:39.000000Z",
+    //     "id": 371
+    // }
+    }
+  )
+
   }
   randomString(length:any, chars='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ') {
     var result = '';
     for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
     return result;
-}
+  }
+  updateMethod(event:any){
+    console.log(event)
+    this.selectedMEthod = event.target.value
+  }
   getbalance() {
     return this._cart.list.pipe(
       map((carts: any) => {
@@ -225,7 +303,7 @@ export class ClearanceComponent implements OnInit {
         this.cartItems = carts;
         for (let i = 0; i < carts.length; i++) {
           const cart = carts[i];
-          total = cart?.cart.quantity * cart?.price;
+          total = cart?.quantity * cart?.price;
         }
         return {
           carts,

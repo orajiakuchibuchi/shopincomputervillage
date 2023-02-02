@@ -52,9 +52,9 @@ export class NotificationService {
   openWarning(title:string, content: string, clickHandler?: Function ){
     const toast = this._service.warn(title, content, this._options);
     console.log(toast)
-    // setTimeout(() => {
-    //   this._service.remove();
-    // }, 3000);
+    setTimeout(() => {
+      this._service.remove();
+    }, 3000);
     toast.click?.subscribe((event)=>{
       if(clickHandler){
         clickHandler();
