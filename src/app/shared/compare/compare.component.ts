@@ -14,7 +14,7 @@ export class CompareComponent implements OnInit {
   ngOnInit(): void {
   }
   showContent() {
-    this.SimpleModalService.addModal(CompareContentComponent, {product: this.product});
+    this.SimpleModalService.addModal(CompareContentComponent, {product: this.product.length ? this.product : [this.product]});
   }
   hideModal(){
     setTimeout(() => {

@@ -1,5 +1,8 @@
 import { SimpleModalComponent } from 'ngx-simple-modal';
 import { Component, OnInit, Input } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 export interface ProductModal {
   product?: any;
   text?: any;
@@ -16,9 +19,20 @@ export class WishlistContentComponent extends SimpleModalComponent<ProductModal,
   @Input() text:boolean = false;
   @Input() showing:boolean = false;
   @Input() selectedVaiance:any = null;
-  constructor() {
+  wishlists: Array<any> = [];
+  constructor(private productService: ProductService) {
     super();
   }
   ngOnInit(): void {
+    this.productService.wishlists.subscribe(w=>this.wishlists = w);
+    this.productService.getWishLists().pipe(
+      catchError((e:any)=>{
+        console.log(e);
+        return throwError(e);
+      })
+    ).subscribe(
+      response => this.wishlists = response 
+    )
+
   }
 }

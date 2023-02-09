@@ -9,6 +9,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
   list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>(this.getFromLocals());
+  wishlists: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>(this.getFromLocals());
   brand_list: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>(this.getBrandListFromLocals());
   highest_amount: BehaviorSubject<Array<any>> = new BehaviorSubject<any>(this.getHighestAmountListFromLocals());
   lowest_amount: BehaviorSubject<Array<any>> = new BehaviorSubject<any>(this.getLowestAmountListFromLocals());
@@ -128,6 +129,11 @@ export class ProductService {
   }
   getBrands(){
     return this.http.get<any>(`${this.baseUrl}/api/brands/all`).pipe(
+      map((res:any)=>{return res.data;})
+    );
+  }
+  getWishLists(){
+    return this.http.get<any>(`${this.baseUrl}/api/wishlists`).pipe(
       map((res:any)=>{return res.data;})
     );
   }

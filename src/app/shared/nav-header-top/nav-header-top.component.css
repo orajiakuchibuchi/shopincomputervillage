@@ -47,10 +47,10 @@ p {
   background-color: linear-gradient(to right top, #7f8518, #20a7d8);
 }
 .second div {
-  background-color: linear-gradient(to right top, #7f8518, #f48c40);
+  background-color: linear-gradient(to right top, #7f8518, #dfc630);
 }
 .third div {
-  background-color: linear-gradient(to right top, #7f8518, #f48c40);
+  background-color: linear-gradient(to right top, #7f8518, #dfc630);
 }
 
 @keyframes text-animation {

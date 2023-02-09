@@ -11,7 +11,10 @@
            [value]="prod">{{prod?.name}}</ng-option>
         </ng-select>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12" *ngIf="!product || product?.length < 1">
+        <h5>Select products to compare from dropdown</h5>
+      </div>
+      <div class="col-md-12" *ngIf="product || product?.length > 0">
         <div class="table-responsive table-bordered table-compare-list mb-10 border-0">
           <table class="table">
               <tbody>

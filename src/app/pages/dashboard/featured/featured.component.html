@@ -3,32 +3,35 @@
     <div class="product-item__outer h-100">
       <div class="product-item__inner px-xl-4 p-3">
         <div class="product-item__body pb-xl-2">
-          <div class="mb-2"><a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active"
-              class="font-size-12 text-gray-5">{{product?.category?.name}}</a></div>
+          <div class="mb-2"><a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]"
+              routerLinkActive="router-link-active" class="font-size-12 text-gray-5">{{product?.category?.name}}</a>
+          </div>
           <h5 class="mb-1 product-item__title"><a href="javascript:void(0)"
-            [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active"
+              [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active"
               class="text-blue font-weight-bold">{{
-                product?.name
+              product?.name
               }}</a></h5>
           <div class="mb-2">
-            <a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active" class="d-block text-center"><img
-                class="img-fluid" src="{{product?.image}}" alt="Image Description"></a>
+            <a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]"
+              routerLinkActive="router-link-active" class="d-block text-center"><img class="img-fluid"
+                src="{{product?.image}}" alt="Image Description"></a>
           </div>
           <div class="flex-center-between mb-1">
             <div class="prodcut-price">
               <div class="text-gray-100">{{product?.price | customCurrency}}</div>
             </div>
             <div class="d-none d-xl-block prodcut-add-cart">
-<app-add-to-cart-modal [product]="product" [text]="false"></app-add-to-cart-modal>
+              <app-add-to-cart-modal [product]="product" [text]="false"></app-add-to-cart-modal>
             </div>
           </div>
         </div>
         <div class="product-item__footer">
           <div class="border-top pt-2 flex-center-between flex-wrap">
-            <a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active" class="text-gray-6 font-size-13"><i
-                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-            <a href="javascript:void(0)" [routerLink]="['/product/'+product.meta_name]" routerLinkActive="router-link-active" class="text-gray-6 font-size-13"><i
-                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+            <a href="javascript:void(0)" class="text-gray-6 font-size-13">
+              <app-compare [product]="product"></app-compare>
+             Compare</a>
+            <a href="javascript:void(0)" class="text-gray-6 font-size-13">
+              <app-wishlist [product]="product"></app-wishlist> Wishlist</a>
           </div>
         </div>
       </div>
