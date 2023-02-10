@@ -3,8 +3,8 @@ var express = require('express'),
    fs = require('fs');
 var compression = require('compression');
 var app = express();
-var staticRoot = __dirname + '/dist/admin/';
-  // + express.static('dist/admin');
+var staticRoot = __dirname + '/dist/trustedikeja/';
+  // + express.static('dist/trustedikeja');
 var env = process.env.NODE_ENV || '5001';
 
 app.set('port', env);

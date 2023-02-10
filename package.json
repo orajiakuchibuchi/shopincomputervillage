@@ -1,5 +1,5 @@
 {
-  "name": "admin",
+  "name": "trustedikeja",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,11 +7,11 @@
     "build": "ng build --prod --aot",
     "watch": "ng build --watch --aot --configuration development",
     "watchpro": "ng build --watch --aot --configuration production",
-    "watchcf": "moralis-admin-cli watch-cloud-folder --moralisApiKey LjgN5LTpiVk1l2j --moralisApiSecret QnEuEWU5dZsNOBx --moralisSubdomain lcavnmdmqx03.usemoralis.com --autoSave 1 --moralisCloudfolder ./src/app/module/classes",
+    "watchcf": "moralis-trustedikeja-cli watch-cloud-folder --moralisApiKey LjgN5LTpiVk1l2j --moralisApiSecret QnEuEWU5dZsNOBx --moralisSubdomain lcavnmdmqx03.usemoralis.com --autoSave 1 --moralisCloudfolder ./src/app/module/classes",
     "test": "ng test",
     "heroku": "git init;git add .;heroku git:remote -a laslasmarket;git commit -am 'make it better';git push heroku HEAD:master -f;",
     "start:electron": "ng build --base-href ./ && electron .",
-    "deploy": "npm run build; cp ./dist/package.json ./dist/admin/; cp ./dist/server.js ./dist/admin/; cd ./dist/admin/; git init; heroku git:remote -a eth-invest; git add .; git commit -m 'update'; git push heroku master -f"
+    "deploy": "npm run build; cp ./dist/package.json ./dist/trustedikeja/; cp ./dist/server.js ./dist/trustedikeja/; cd ./dist/trustedikeja/; git init; heroku git:remote -a eth-invest; git add .; git commit -m 'update'; git push heroku master -f"
   },
   "private": true,
   "dependencies": {
