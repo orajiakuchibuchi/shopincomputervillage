@@ -22,7 +22,7 @@ export class WishlistComponent implements OnInit {
     }else if(this.product){
       if(this.product.length){
         if(this.addedAlready(this.product[0])){
-          
+
         }else{
 
         }

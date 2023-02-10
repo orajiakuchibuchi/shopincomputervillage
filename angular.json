@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "admin": {
+    "trustedikeja": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,26 +20,36 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/admin",
+            "outputPath": "dist/trustedikeja",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/assets/js/jquery.js",
-              "src/assets/js/nicepage.js",
-              "src/assets/js/google_gsi_min.js"
+              "src/assets"
             ],
             "styles": [
               "node_modules/ngx-simple-modal/styles/simple-modal.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
-              "src/styles.css",
-              "src/assets/css/nicepage.css"
-
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/elegant-icons.css",
+              "src/assets/css/nice-select.css",
+              "src/assets/css/jquery-ui.min.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/slicknav.min.css",
+              "src/styles.css"
             ],
             "scripts": [
+              "src/assets/js/jquery-3.3.1.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery.nice-select.min.js",
+              "src/assets/js/jquery-ui.min.js",
+              "src/assets/js/jquery.slicknav.js",
+              "src/assets/js/mixitup.min.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js//main.js"
             ]
           },
           "configurations": {
@@ -79,10 +89,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "admin:build:production"
+              "browserTarget": "trustedikeja:build:production"
             },
             "development": {
-              "browserTarget": "admin:build:development"
+              "browserTarget": "trustedikeja:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "admin:build"
+            "browserTarget": "trustedikeja:build"
           }
         },
         "test": {
@@ -113,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "admin"
+  "defaultProject": "trustedikeja"
 }

@@ -18,7 +18,7 @@ import {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'LAS LAS';
+  title = 'TRUSTED IKEJA';
   status = 'ONLINE';
   isConnected = true;
     // Sets initial value to true to show loading spinner on first load
