@@ -39,6 +39,7 @@
               "src/assets/css/jquery-ui.min.css",
               "src/assets/css/owl.carousel.min.css",
               "src/assets/css/slicknav.min.css",
+              "src/assets/css/styles.css",
               "src/styles.css"
             ],
             "scripts": [
